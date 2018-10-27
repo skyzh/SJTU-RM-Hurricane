@@ -1,0 +1,3 @@
+[submodule "Src/CAHRR"]
+	path = Src/CAHRR
+	url = git@github.com:SkyZH/CAHRR.git
