@@ -1,0 +1,95 @@
+cmake_minimum_required(VERSION 3.12)
+project(Hurricane C)
+
+set(CMAKE_C_STANDARD 11)
+
+include_directories(Drivers/CMSIS)
+include_directories(Drivers/CMSIS/Device)
+include_directories(Drivers/CMSIS/Device/ST)
+include_directories(Drivers/CMSIS/Device/ST/STM32F4xx)
+include_directories(Drivers/CMSIS/Device/ST/STM32F4xx/Include)
+include_directories(Drivers/CMSIS/Include)
+include_directories(Drivers/STM32F4xx_HAL_Driver/Inc)
+include_directories(Drivers/STM32F4xx_HAL_Driver/Inc/Legacy)
+include_directories(Inc)
+
+add_executable(Hurricane
+        Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f427xx.h
+        Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h
+        Drivers/CMSIS/Device/ST/STM32F4xx/Include/system_stm32f4xx.h
+        Drivers/CMSIS/Include/arm_common_tables.h
+        Drivers/CMSIS/Include/arm_const_structs.h
+        Drivers/CMSIS/Include/arm_math.h
+        Drivers/CMSIS/Include/cmsis_armcc.h
+        Drivers/CMSIS/Include/cmsis_armcc_V6.h
+        Drivers/CMSIS/Include/cmsis_gcc.h
+        Drivers/CMSIS/Include/core_cm0.h
+        Drivers/CMSIS/Include/core_cm0plus.h
+        Drivers/CMSIS/Include/core_cm3.h
+        Drivers/CMSIS/Include/core_cm4.h
+        Drivers/CMSIS/Include/core_cm7.h
+        Drivers/CMSIS/Include/core_cmFunc.h
+        Drivers/CMSIS/Include/core_cmInstr.h
+        Drivers/CMSIS/Include/core_cmSimd.h
+        Drivers/CMSIS/Include/core_sc000.h
+        Drivers/CMSIS/Include/core_sc300.h
+        Drivers/STM32F4xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h
+        Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h
+        Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_can.h
+        Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_cortex.h
+        Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h
+        Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h
+        Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma_ex.h
+        Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash.h
+        Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ex.h
+        Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ramfunc.h
+        Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio.h
+        Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio_ex.h
+        Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_iwdg.h
+        Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr.h
+        Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr_ex.h
+        Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h
+        Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc_ex.h
+        Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_spi.h
+        Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h
+        Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h
+        Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h
+        Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c
+        Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_can.c
+        Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c
+        Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma.c
+        Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma_ex.c
+        Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash.c
+        Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c
+        Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ramfunc.c
+        Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c
+        Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_iwdg.c
+        Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr.c
+        Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr_ex.c
+        Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c
+        Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc_ex.c
+        Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c
+        Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.c
+        Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c
+        Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c
+        Inc/can.h
+        Inc/dma.h
+        Inc/gpio.h
+        Inc/iwdg.h
+        Inc/main.h
+        Inc/spi.h
+        Inc/stm32f4xx_hal_conf.h
+        Inc/stm32f4xx_it.h
+        Inc/tim.h
+        Inc/usart.h
+        Src/can.c
+        Src/dma.c
+        Src/gpio.c
+        Src/iwdg.c
+        Src/main.c
+        Src/spi.c
+        Src/stm32f4xx_hal_msp.c
+        Src/stm32f4xx_it.c
+        Src/system_stm32f4xx.c
+        Src/tim.c
+        Src/usart.c)
