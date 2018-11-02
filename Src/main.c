@@ -50,6 +50,7 @@
 /* USER CODE BEGIN Includes */
 #include <string.h>
 #include <stdlib.h>
+#include "CAH/bootstrap.h"
 /* USER CODE END Includes */
 
 /* Private variables ---------------------------------------------------------*/
@@ -107,31 +108,23 @@ int main(void)
   MX_USART1_UART_Init();
   MX_TIM6_Init();
   MX_TIM12_Init();
+  MX_USART2_UART_Init();
   MX_TIM7_Init();
   MX_TIM10_Init();
   MX_TIM2_Init();
   MX_IWDG_Init();
-  MX_UART4_Init();
   /* USER CODE BEGIN 2 */
-
+  charr_bootstrap();
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-  int i = 0;
-  char tmp[100] = "Program started\n\r";
-  char transmit[100] = "Transmission in progress\n\r";
-  HAL_UART_Transmit(&huart4, tmp, strlen(tmp), 1000);
-  while (1)
-  {
-	  HAL_IWDG_Refresh(&hiwdg);
-	  HAL_GPIO_TogglePin(GPIOG, GPIO_PIN_8|GPIO_PIN_7|GPIO_PIN_6|GPIO_PIN_5|GPIO_PIN_4|GPIO_PIN_3|GPIO_PIN_2|GPIO_PIN_1);
-      HAL_UART_Transmit(&huart4, transmit, strlen(transmit), 1000);
-      HAL_Delay(200);
+    while (1) {
+        charr_loop();
   /* USER CODE END WHILE */
 
   /* USER CODE BEGIN 3 */
-  }
+    }
   /* USER CODE END 3 */
 
 }
@@ -207,10 +200,9 @@ void SystemClock_Config(void)
 void _Error_Handler(char *file, int line)
 {
   /* USER CODE BEGIN Error_Handler_Debug */
-  /* User can add his own implementation to report the HAL error return state */
-  while(1)
-  {
-  }
+    /* User can add his own implementation to report the HAL error return state */
+    while (1) {
+    }
   /* USER CODE END Error_Handler_Debug */
 }
 

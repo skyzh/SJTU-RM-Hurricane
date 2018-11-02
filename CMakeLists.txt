@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.12)
-project(Hurricane C)
+project(Hurricane)
 
-set(CMAKE_C_STANDARD 11)
+set(CMAKE_CXX_STANDARD 11)
 
 include_directories(Drivers/CMSIS)
 include_directories(Drivers/CMSIS/Device)
@@ -92,4 +92,6 @@ add_executable(Hurricane
         Src/stm32f4xx_it.c
         Src/system_stm32f4xx.c
         Src/tim.c
-        Src/usart.c)
+        Src/usart.c
+        Src/bsp/bsp_imu.c
+        Src/bsp/myiic.c Src/CAH/OI.cpp Src/CAH/OI.h Src/CAH/bootstrap.h Src/CAH/hal.h)

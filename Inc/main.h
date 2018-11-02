@@ -49,8 +49,24 @@
 
 /* Private define ------------------------------------------------------------*/
 
+#define STAT8_Pin GPIO_PIN_8
+#define STAT8_GPIO_Port GPIOG
+#define STAT7_Pin GPIO_PIN_7
+#define STAT7_GPIO_Port GPIOG
+#define STAT6_Pin GPIO_PIN_6
+#define STAT6_GPIO_Port GPIOG
 #define NSS_Pin GPIO_PIN_6
 #define NSS_GPIO_Port GPIOF
+#define STAT5_Pin GPIO_PIN_5
+#define STAT5_GPIO_Port GPIOG
+#define STAT4_Pin GPIO_PIN_4
+#define STAT4_GPIO_Port GPIOG
+#define STAT3_Pin GPIO_PIN_3
+#define STAT3_GPIO_Port GPIOG
+#define STAT2_Pin GPIO_PIN_2
+#define STAT2_GPIO_Port GPIOG
+#define STAT1_Pin GPIO_PIN_1
+#define STAT1_GPIO_Port GPIOG
 #define LED_GREEN_Pin GPIO_PIN_14
 #define LED_GREEN_GPIO_Port GPIOF
 #define LED_RED_Pin GPIO_PIN_7
