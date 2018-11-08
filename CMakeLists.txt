@@ -1,97 +1,62 @@
-cmake_minimum_required(VERSION 3.12)
-project(Hurricane)
+#THIS FILE IS AUTO GENERATED FROM THE TEMPLATE! DO NOT CHANGE!
+SET(CMAKE_SYSTEM_NAME Generic)
+SET(CMAKE_SYSTEM_VERSION 1)
+cmake_minimum_required(VERSION 3.7)
 
+# specify the cross compiler
+SET(CMAKE_C_COMPILER_WORKS 1)
+SET(CMAKE_C_COMPILER arm-none-eabi-gcc)
+SET(CMAKE_CXX_COMPILER arm-none-eabi-g++)
+set(AS arm-none-eabi-as)
+set(AR arm-none-eabi-ar)
+set(OBJCOPY arm-none-eabi-objcopy)
+set(OBJDUMP arm-none-eabi-objdump)
+set(SIZE arm-none-eabi-size)
+
+
+SET(LINKER_SCRIPT ${CMAKE_SOURCE_DIR}/STM32F427IIHx_FLASH.ld)
+
+#Uncomment for hardware floating point
+#SET(FPU_FLAGS "-mfloat-abi=hard -mfpu=fpv4-sp-d16")
+#add_definitions(-DARM_MATH_CM4 -DARM_MATH_MATRIX_CHECK -DARM_MATH_ROUNDING -D__FPU_PRESENT=1 )
+
+#Uncomment for software floating point
+#SET(FPU_FLAGS "-mfloat-abi=soft")
+
+SET(COMMON_FLAGS "-mcpu=cortex-m4 ${FPU_FLAGS} -mthumb -mthumb-interwork -ffunction-sections -fdata-sections -g -fno-common -fmessage-length=0 -specs=nosys.specs -specs=nano.specs")
+
+SET(CMAKE_CXX_FLAGS_INIT "${COMMON_FLAGS} -std=c++11")
+SET(CMAKE_C_FLAGS_INIT "${COMMON_FLAGS} -std=gnu99")
+SET(CMAKE_EXE_LINKER_FLAGS_INIT "-Wl,-gc-sections -u _printf_float -T ${LINKER_SCRIPT} ")
+
+PROJECT(Hurricane C CXX ASM)
 set(CMAKE_CXX_STANDARD 11)
 
-include_directories(Drivers/CMSIS)
-include_directories(Drivers/CMSIS/Device)
-include_directories(Drivers/CMSIS/Device/ST)
-include_directories(Drivers/CMSIS/Device/ST/STM32F4xx)
-include_directories(Drivers/CMSIS/Device/ST/STM32F4xx/Include)
-include_directories(Drivers/CMSIS/Include)
-include_directories(Drivers/STM32F4xx_HAL_Driver/Inc)
-include_directories(Drivers/STM32F4xx_HAL_Driver/Inc/Legacy)
-include_directories(Inc)
+#add_definitions(-DARM_MATH_CM4 -DARM_MATH_MATRIX_CHECK -DARM_MATH_ROUNDING -D__FPU_PRESENT=1 )
+add_definitions(-D__weak=__attribute__\(\(weak\)\) -D__packed=__attribute__\(\(__packed__\)\) -DUSE_HAL_DRIVER -DSTM32F427xx )
 
-add_executable(Hurricane
-        Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f427xx.h
-        Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h
-        Drivers/CMSIS/Device/ST/STM32F4xx/Include/system_stm32f4xx.h
-        Drivers/CMSIS/Include/arm_common_tables.h
-        Drivers/CMSIS/Include/arm_const_structs.h
-        Drivers/CMSIS/Include/arm_math.h
-        Drivers/CMSIS/Include/cmsis_armcc.h
-        Drivers/CMSIS/Include/cmsis_armcc_V6.h
-        Drivers/CMSIS/Include/cmsis_gcc.h
-        Drivers/CMSIS/Include/core_cm0.h
-        Drivers/CMSIS/Include/core_cm0plus.h
-        Drivers/CMSIS/Include/core_cm3.h
-        Drivers/CMSIS/Include/core_cm4.h
-        Drivers/CMSIS/Include/core_cm7.h
-        Drivers/CMSIS/Include/core_cmFunc.h
-        Drivers/CMSIS/Include/core_cmInstr.h
-        Drivers/CMSIS/Include/core_cmSimd.h
-        Drivers/CMSIS/Include/core_sc000.h
-        Drivers/CMSIS/Include/core_sc300.h
-        Drivers/STM32F4xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h
-        Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h
-        Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_can.h
-        Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_cortex.h
-        Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h
-        Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h
-        Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma_ex.h
-        Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash.h
-        Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ex.h
-        Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ramfunc.h
-        Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio.h
-        Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio_ex.h
-        Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_iwdg.h
-        Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr.h
-        Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr_ex.h
-        Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h
-        Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc_ex.h
-        Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_spi.h
-        Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h
-        Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h
-        Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h
-        Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c
-        Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_can.c
-        Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c
-        Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma.c
-        Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma_ex.c
-        Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash.c
-        Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c
-        Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ramfunc.c
-        Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c
-        Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_iwdg.c
-        Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr.c
-        Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr_ex.c
-        Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c
-        Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc_ex.c
-        Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c
-        Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.c
-        Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c
-        Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c
-        Inc/can.h
-        Inc/dma.h
-        Inc/gpio.h
-        Inc/iwdg.h
-        Inc/main.h
-        Inc/spi.h
-        Inc/stm32f4xx_hal_conf.h
-        Inc/stm32f4xx_it.h
-        Inc/tim.h
-        Inc/usart.h
-        Src/can.c
-        Src/dma.c
-        Src/gpio.c
-        Src/iwdg.c
-        Src/main.c
-        Src/spi.c
-        Src/stm32f4xx_hal_msp.c
-        Src/stm32f4xx_it.c
-        Src/system_stm32f4xx.c
-        Src/tim.c
-        Src/usart.c
-        Src/bsp/bsp_imu.c
-        Src/bsp/myiic.c Src/CAH/OI.cpp Src/CAH/OI.h Src/CAH/bootstrap.h Src/CAH/hal.h)
+file(GLOB_RECURSE SOURCES "Drivers/*.*" "Inc/*.*" "Src/*.*" "startup/*.*")
+
+include_directories(Inc Drivers/STM32F4xx_HAL_Driver/Inc Drivers/STM32F4xx_HAL_Driver/Inc/Legacy Drivers/CMSIS/Device/ST/STM32F4xx/Include Drivers/CMSIS/Include)
+include_directories(Src-CAH)
+add_subdirectory(Src-CAH)
+
+add_executable(${PROJECT_NAME}.elf ${SOURCES} ${LINKER_SCRIPT})
+target_link_libraries(${PROJECT_NAME}.elf Hurricane CAHRR)
+
+set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -Wl,-Map=${PROJECT_BINARY_DIR}/${PROJECT_NAME}.map")
+
+set(HEX_FILE ${PROJECT_BINARY_DIR}/${PROJECT_NAME}.hex)
+set(BIN_FILE ${PROJECT_BINARY_DIR}/${PROJECT_NAME}.bin)
+
+add_custom_command(TARGET ${PROJECT_NAME}.elf POST_BUILD
+        COMMAND ${CMAKE_OBJCOPY} -Oihex $<TARGET_FILE:${PROJECT_NAME}.elf> ${HEX_FILE}
+        COMMAND ${CMAKE_OBJCOPY} -Obinary $<TARGET_FILE:${PROJECT_NAME}.elf> ${BIN_FILE}
+        COMMENT "Building ${HEX_FILE}
+Building ${BIN_FILE}")
+
+add_custom_target(UPLOAD
+        arm-none-eabi-gdb -iex "target remote tcp:127.0.0.1:3333"
+        -iex "monitor program $<TARGET_FILE:${PROJECT_NAME}.elf>"
+        -iex "monitor reset init"
+        -iex "disconnect" -iex "quit")

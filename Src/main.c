@@ -50,7 +50,7 @@
 /* USER CODE BEGIN Includes */
 #include <string.h>
 #include <stdlib.h>
-#include "CAH/bootstrap.h"
+#include "../Src-CAH/bootstrap.h"
 /* USER CODE END Includes */
 
 /* Private variables ---------------------------------------------------------*/

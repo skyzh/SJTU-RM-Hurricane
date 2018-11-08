@@ -4,4 +4,9 @@
   <component name="JavaScriptSettings">
     <option name="languageLevel" value="ES6" />
   </component>
+  <component name="elmot.OpenOcdPlugin">
+    <option name="openOcdHome" value="/usr/local" />
+    <option name="shippedGdb" value="false" />
+    <option name="autoUpdateCmake" value="true" />
+  </component>
 </project>
