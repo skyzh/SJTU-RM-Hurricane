@@ -27,7 +27,7 @@ RotateAccumulator *accumulator = new RotateAccumulator(8192);
 void OI::boostrap() {
     // initialize sequence
     this->debugSystem = new HurricaneDebugSystem;
-    this->CANSystem = new HurricaneCANSystem;
+    this->CANSystem = new HurricaneCANSystem(0);
     OK(this->debugSystem->initialize());
 
     OK(this->debugSystem->info("OI", "booting sequence"));
@@ -37,7 +37,7 @@ void OI::boostrap() {
     init_quaternion();
     OK(this->debugSystem->info("OI", "      ... complete"));
 
-    OK(this->CANSystem->initialize(0));
+    OK(this->CANSystem->initialize());
 
     OK(this->debugSystem->info("OI", "    remote control initialize"));
     dbus_uart_init();
@@ -54,13 +54,18 @@ void OI::loop() {
     imu_ahrs_update();
     imu_attitude_update();
     // std::sprintf(buf, "%d Roll: %f Pitch: %f Yaw: %f\n\r", HAL_GetTick(), imu.rol, imu.pit, imu.yaw);
-    if (!d_av && this->CANSystem->available(2, 0) || d_av) {
-        d_av = true;
-        accumulator->data(this->CANSystem->get(2, 0));
-    }
-    sprintf(buf, "%8d %8d", (int) accumulator->get_round(), (int) accumulator->get_overflow());
-    this->debugSystem->toggle_led(3);
+
+    sprintf(buf, "%8d", (int) accumulator->get_round());
+    // this->CANSystem->set(2, 300);
+    this->CANSystem->update();
     this->debugSystem->info("OI", buf);
 
     HAL_Delay(100);
+}
+
+void HURRICANE_CAN0_2_DATA() {
+    if (!d_av && oi->CANSystem->available(2, 0) || d_av) {
+        d_av = true;
+        accumulator->data(oi->CANSystem->get(2, 0));
+    }
 }

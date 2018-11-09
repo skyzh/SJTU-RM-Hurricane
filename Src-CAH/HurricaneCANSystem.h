@@ -8,14 +8,14 @@
 #include "hal.h"
 #include "CAHRR/Src/CANSystem.h"
 
-const int CAN_MAX_CAN_ID = 10;
+const int CAN_MAX_CAN_ID = 8;
 const int CAN_MAX_DATA_ID = 4;
 
 class HurricaneCANSystem : public CANSystem {
 private:
-    uint16_t can_write_data[CAN_MAX_CAN_ID];
-    uint16_t can_recv_data[CAN_MAX_CAN_ID][CAN_MAX_DATA_ID];
-    bool can_recv_data_available[CAN_MAX_CAN_ID][CAN_MAX_DATA_ID];
+    uint16_t can_write_data[CAN_MAX_CAN_ID + 1];
+    uint16_t can_recv_data[CAN_MAX_CAN_ID + 1][CAN_MAX_DATA_ID];
+    bool can_recv_data_available[CAN_MAX_CAN_ID + 1][CAN_MAX_DATA_ID];
 
     CAN_FilterTypeDef sFilterConfig;
     CAN_TxHeaderTypeDef TxHeader;
@@ -24,12 +24,11 @@ private:
     uint8_t TxData[8];
     uint32_t TxMailbox;
 
+    int can_id;
 public:
-    HurricaneCANSystem();
+    HurricaneCANSystem(int can_id);
 
     virtual bool initialize();
-
-    virtual bool initialize(int can_id);
 
     virtual bool destroy();
 

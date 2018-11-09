@@ -21,10 +21,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9ce180b9-48da-41d7-89af-d901ef429b13" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Src-CAH/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Src-CAH/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Src-CAH/HurricaneCANSystem.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Src-CAH/HurricaneCANSystem.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Src-CAH/HurricaneCANSystem.h" beforeDir="false" afterPath="$PROJECT_DIR$/Src-CAH/HurricaneCANSystem.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Src-CAH/OI.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Src-CAH/OI.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Src-CAH/OI.h" beforeDir="false" afterPath="$PROJECT_DIR$/Src-CAH/OI.h" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -49,12 +48,12 @@
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="OCD Hurricane (disassembly)" value="33" />
-          <entry key="c" value="16" />
+          <entry key="c" value="17" />
           <entry key="cfg" value="3" />
           <entry key="cpp" value="17" />
           <entry key="d" value="1" />
           <entry key="gitignore" value="2" />
-          <entry key="h" value="21" />
+          <entry key="h" value="22" />
           <entry key="ioc" value="2" />
           <entry key="launch" value="1" />
           <entry key="mk" value="1" />
@@ -68,22 +67,22 @@
           <entry key="Assembly file" value="2" />
           <entry key="CMakeLists.txt" value="12" />
           <entry key="Disassembly" value="33" />
-          <entry key="ObjectiveC" value="54" />
+          <entry key="ObjectiveC" value="56" />
           <entry key="PLAIN_TEXT" value="16" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="c" value="70" />
-          <entry key="cpp" value="3333" />
-          <entry key="h" value="879" />
+          <entry key="cpp" value="3914" />
+          <entry key="h" value="945" />
           <entry key="txt" value="295" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="CMakeLists.txt" value="159" />
-          <entry key="ObjectiveC" value="4282" />
+          <entry key="ObjectiveC" value="4929" />
           <entry key="PLAIN_TEXT" value="136" />
         </counts>
       </usages-collector>
@@ -96,8 +95,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Src-CAH/HurricaneCANSystem.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="8" selection-start-line="8" selection-end-line="8" />
+            <state relative-caret-position="318">
+              <caret line="98" column="25" selection-start-line="98" selection-start-column="4" selection-end-line="98" selection-end-column="25" />
               <folding>
                 <element signature="e#45#63#0" expanded="true" />
               </folding>
@@ -106,10 +105,19 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_can.c">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="57">
+              <caret line="1665" column="16" selection-start-line="1665" selection-start-column="16" selection-end-line="1665" selection-end-column="16" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Src-CAH/HurricaneCANSystem.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="58">
-              <caret line="10" column="29" selection-start-line="10" selection-start-column="29" selection-end-line="10" selection-end-column="29" />
+            <state relative-caret-position="-291">
+              <caret column="2" selection-start-column="2" selection-end-column="2" />
               <folding>
                 <element signature="e#124#140#0" expanded="true" />
               </folding>
@@ -120,8 +128,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Src-CAH/OI.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="405">
-              <caret line="59" column="5" lean-forward="true" selection-start-line="59" selection-start-column="5" selection-end-line="59" selection-end-column="5" />
+            <state relative-caret-position="349">
+              <caret line="57" column="21" selection-start-line="57" selection-start-column="21" selection-end-line="57" selection-end-column="21" />
               <folding>
                 <element signature="e#45#62#0" expanded="true" />
               </folding>
@@ -140,9 +148,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>source [</find>
-      <find>source</find>
-      <find>openocdf</find>
       <find>COMMAND</find>
       <find>startup</find>
       <find>sources</find>
@@ -170,6 +175,9 @@
       <find>CAN_RX_FIFO0</find>
       <find>Recv</find>
       <find>CANdebug</find>
+      <find>HAL_CAN_GetTxMailboxesFreeLevel</find>
+      <find>initialize</find>
+      <find>HAL_CAN_TxMailbox0CompleteCallback</find>
     </findStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$/Drivers</dir>
@@ -226,11 +234,6 @@
             <path>
               <item name="Hurricane" type="b2602c69:ProjectViewProjectNode" />
               <item name="Hurricane" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Hurricane" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Hurricane" type="462c0819:PsiDirectoryNode" />
-              <item name="Drivers" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Hurricane" type="b2602c69:ProjectViewProjectNode" />
@@ -374,12 +377,12 @@
       <workItem from="1541661784967" duration="388000" />
       <workItem from="1541662223154" duration="2511000" />
       <workItem from="1541664928023" duration="12691000" />
-      <workItem from="1541767445215" duration="2414000" />
+      <workItem from="1541767445215" duration="4106000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="18240000" />
+    <option name="totallyTimeSpent" value="19932000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -394,12 +397,12 @@
     <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.26495728" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26495728" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.4993895" visible="true" weight="0.32959184" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4993895" visible="true" weight="0.32959184" />
       <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.498779" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -621,20 +624,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_can.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="232">
-          <caret line="396" column="48" selection-start-line="396" selection-start-column="37" selection-end-line="396" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_can.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="1121" column="79" selection-start-line="1121" selection-start-column="64" selection-end-line="1121" selection-end-column="79" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Src-CAH/CAHRR/mock/MockCANSystem.cpp">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -655,35 +644,49 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Src-CAH/CAHRR/test/test_RotateAccumulator.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-326" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_can.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="194">
+          <caret line="618" column="40" selection-start-line="618" selection-start-column="9" selection-end-line="618" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Src-CAH/HurricaneCANSystem.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" selection-start-line="8" selection-end-line="8" />
+        <state relative-caret-position="318">
+          <caret line="98" column="25" selection-start-line="98" selection-start-column="4" selection-end-line="98" selection-end-column="25" />
           <folding>
             <element signature="e#45#63#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Src-CAH/CAHRR/test/test_RotateAccumulator.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-326" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Src-CAH/HurricaneCANSystem.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="58">
-          <caret line="10" column="29" selection-start-line="10" selection-start-column="29" selection-end-line="10" selection-end-column="29" />
+        <state relative-caret-position="-291">
+          <caret column="2" selection-start-column="2" selection-end-column="2" />
           <folding>
             <element signature="e#124#140#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_can.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="57">
+          <caret line="1665" column="16" selection-start-line="1665" selection-start-column="16" selection-end-line="1665" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Src-CAH/OI.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="59" column="5" lean-forward="true" selection-start-line="59" selection-start-column="5" selection-end-line="59" selection-end-column="5" />
+        <state relative-caret-position="349">
+          <caret line="57" column="21" selection-start-line="57" selection-start-column="21" selection-end-line="57" selection-end-column="21" />
           <folding>
             <element signature="e#45#62#0" expanded="true" />
           </folding>
