@@ -8,8 +8,4 @@
 void charr_bootstrap();
 void charr_loop();
 
-// Interrupts
-
-void hurricane_can_recv_can1();
-
 #endif //HURRICANE_BOOTSTRAP_H

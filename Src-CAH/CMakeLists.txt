@@ -4,4 +4,4 @@ set(CMAKE_CXX_STANDARD 11)
 
 add_subdirectory(CAHRR)
 
-add_library(Hurricane OI.cpp)
+add_library(Hurricane OI.cpp HurricaneDebugSystem.cpp HurricaneDebugSystem.h)

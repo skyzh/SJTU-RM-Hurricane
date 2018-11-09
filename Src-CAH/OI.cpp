@@ -5,10 +5,12 @@
 #include <cstdio>
 #include "hal.h"
 #include "OI.h"
+#include "HurricaneDebugSystem.h"
 
 char buf[1000] = "Boot sequence ...";
 
 OI *oi;
+
 extern "C" void charr_bootstrap() {
     oi = new OI;
     oi->boostrap();
@@ -30,10 +32,6 @@ CAN_RxHeaderTypeDef RxHeader;
 uint8_t TxData[8];
 uint8_t RxData[8];
 uint32_t TxMailbox;
-
-extern "C" void hurricane_can_recv_can1() {
-
-}
 
 extern "C" void HAL_CAN_TxMailbox0CompleteCallback(CAN_HandleTypeDef *hcan) {
     HAL_GPIO_TogglePin(GPIOG, STAT2_Pin);
@@ -66,16 +64,22 @@ void init_can() {
 }
 
 void OI::boostrap() {
-    HAL_UART_Transmit(&huart2, (uint8_t *) buf, strlen(buf), 55);
+    this->debugSystem = new HurricaneDebugSystem();
+    OK(this->debugSystem->initialize());
+    OK(this->debugSystem->info("OI", "booting sequence"));
 
+    OK(this->debugSystem->info("OI", "MPU initialize"));
     mpu_device_init();
     init_quaternion();
+    OK(this->debugSystem->info("OI", "    ... complete"));
+
+    OK(this->debugSystem->info("OI", "CAN initialize"));
     init_can();
+    OK(this->debugSystem->info("OI", "    ... complete"));
 
+    OK(this->debugSystem->info("OI", "remote control initialize"));
     dbus_uart_init();
-
-    std::sprintf(buf, " complete\n\r");
-    HAL_UART_Transmit(&huart2, (uint8_t *) buf, strlen(buf), 55);
+    OK(this->debugSystem->info("OI", "    ... complete"));
 }
 
 extern rc_info_t rc;
@@ -86,16 +90,9 @@ void OI::loop() {
     imu_ahrs_update();
     imu_attitude_update();
     // std::sprintf(buf, "%d Roll: %f Pitch: %f Yaw: %f\n\r", HAL_GetTick(), imu.rol, imu.pit, imu.yaw);
-    sprintf(buf, "%8d %8d\n\r", RxData[0] << 8 | RxData[1], RxData[2] << 8 | RxData[3]);
-    if (rc.mx) HAL_GPIO_TogglePin(GPIOG, STAT8_Pin);
-    if (rc.my) HAL_GPIO_TogglePin(GPIOG, STAT7_Pin);
-    if (rc.mz) HAL_GPIO_TogglePin(GPIOG, STAT6_Pin);
-    if (rc.ml) HAL_GPIO_TogglePin(GPIOG, STAT5_Pin);
-    if (rc.mr) HAL_GPIO_TogglePin(GPIOG, STAT4_Pin);
-    if (rc.kbd) HAL_GPIO_TogglePin(GPIOG, STAT3_Pin);
-
-    HAL_UART_Transmit(&huart2, (uint8_t *) buf, strlen(buf), 1000);
+    sprintf(buf, "%8d %8d", RxData[0] << 8 | RxData[1], RxData[2] << 8 | RxData[3]);
+    this->debugSystem->toggle_led(3);
+    this->debugSystem->info("OI", buf);
 
     HAL_Delay(100);
 }
-

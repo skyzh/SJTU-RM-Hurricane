@@ -27,7 +27,7 @@ SET(COMMON_FLAGS "-mcpu=cortex-m4 ${FPU_FLAGS} -mthumb -mthumb-interwork -ffunct
 
 SET(CMAKE_CXX_FLAGS_INIT "${COMMON_FLAGS} -std=c++11")
 SET(CMAKE_C_FLAGS_INIT "${COMMON_FLAGS} -std=gnu99")
-SET(CMAKE_EXE_LINKER_FLAGS_INIT "-Wl,-gc-sections -T ${LINKER_SCRIPT} ")
+SET(CMAKE_EXE_LINKER_FLAGS_INIT "-Wl,-gc-sections -u _printf_float --specs=rdimon.specs -lc -lrdimon -T ${LINKER_SCRIPT} ")
 
 PROJECT(Hurricane C CXX ASM)
 set(CMAKE_CXX_STANDARD 11)
@@ -44,7 +44,7 @@ add_subdirectory(Src-CAH)
 add_executable(${PROJECT_NAME}.elf ${SOURCES} ${LINKER_SCRIPT})
 target_link_libraries(${PROJECT_NAME}.elf Hurricane CAHRR)
 
-set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -Wl,-Map=${PROJECT_BINARY_DIR}/${PROJECT_NAME}.map  -u _printf_float --specs=rdimon.specs -lc -lrdimon")
+set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -Wl,-Map=${PROJECT_BINARY_DIR}/${PROJECT_NAME}.map")
 
 set(HEX_FILE ${PROJECT_BINARY_DIR}/${PROJECT_NAME}.hex)
 set(BIN_FILE ${PROJECT_BINARY_DIR}/${PROJECT_NAME}.bin)
@@ -58,7 +58,5 @@ Building ${BIN_FILE}")
 add_custom_target(UPLOAD
         arm-none-eabi-gdb -iex "target remote tcp:127.0.0.1:3333"
         -iex "monitor program $<TARGET_FILE:${PROJECT_NAME}.elf>"
-        -iex "monitor reset halt"
-        -iex "monitor arm semihosting enable"
-        -iex "continue"
+        -iex "monitor reset init"
         -iex "disconnect" -iex "quit")
