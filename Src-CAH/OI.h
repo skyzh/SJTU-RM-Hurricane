@@ -6,6 +6,7 @@
 #define HURRICANE_OI_H
 
 class HurricaneDebugSystem;
+class HurricaneCANSystem;
 
 class OI{
 public:
@@ -13,6 +14,7 @@ public:
     void loop();
 
     HurricaneDebugSystem* debugSystem;
+    HurricaneCANSystem* CANSystem;
 };
 
 extern OI* oi;
