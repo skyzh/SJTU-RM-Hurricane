@@ -7,5 +7,6 @@
 
 void charr_bootstrap();
 void charr_loop();
+void hurricane_error_handler(char *file, int line);
 
 #endif //HURRICANE_BOOTSTRAP_H

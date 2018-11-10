@@ -11,6 +11,7 @@
       <config projectName="Hurricane" targetName="Hurricane.elf" />
       <config projectName="Hurricane" targetName="CAHRR" />
       <config projectName="Hurricane" targetName="gmock_main" />
+      <config projectName="Hurricane" targetName="CAHRR_mock" />
       <config projectName="Hurricane" targetName="UPLOAD" />
     </generated>
   </component>
@@ -21,9 +22,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9ce180b9-48da-41d7-89af-d901ef429b13" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/Src-CAH/HurricaneCANSystem.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Src-CAH/HurricaneCANSystem.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Src-CAH/HurricaneCANSystem.h" beforeDir="false" afterPath="$PROJECT_DIR$/Src-CAH/HurricaneCANSystem.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CMakeLists_template.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists_template.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Src-CAH/CAHRR" beforeDir="false" afterPath="$PROJECT_DIR$/Src-CAH/CAHRR" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Src-CAH/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Src-CAH/CMakeLists.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Src-CAH/OI.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Src-CAH/OI.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Src-CAH/OI.h" beforeDir="false" afterPath="$PROJECT_DIR$/Src-CAH/OI.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Src-CAH/bootstrap.h" beforeDir="false" afterPath="$PROJECT_DIR$/Src-CAH/bootstrap.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Src/main.c" beforeDir="false" afterPath="$PROJECT_DIR$/Src/main.c" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -37,53 +44,54 @@
     <session id="-1304892843">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="5" />
+          <entry key="project.closed" value="8" />
           <entry key="project.open.time.0" value="2" />
+          <entry key="project.open.time.1" value="2" />
           <entry key="project.open.time.3" value="2" />
           <entry key="project.open.time.5" value="1" />
           <entry key="project.open.time.6" value="1" />
-          <entry key="project.opened" value="6" />
+          <entry key="project.opened" value="8" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="OCD Hurricane (disassembly)" value="33" />
-          <entry key="c" value="17" />
+          <entry key="c" value="19" />
           <entry key="cfg" value="3" />
-          <entry key="cpp" value="17" />
+          <entry key="cpp" value="25" />
           <entry key="d" value="1" />
           <entry key="gitignore" value="2" />
-          <entry key="h" value="22" />
+          <entry key="h" value="36" />
           <entry key="ioc" value="2" />
           <entry key="launch" value="1" />
           <entry key="mk" value="1" />
           <entry key="project" value="1" />
           <entry key="s" value="2" />
-          <entry key="txt" value="17" />
+          <entry key="txt" value="21" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="Assembly file" value="2" />
-          <entry key="CMakeLists.txt" value="12" />
+          <entry key="CMakeLists.txt" value="15" />
           <entry key="Disassembly" value="33" />
-          <entry key="ObjectiveC" value="56" />
-          <entry key="PLAIN_TEXT" value="16" />
+          <entry key="ObjectiveC" value="80" />
+          <entry key="PLAIN_TEXT" value="17" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="c" value="70" />
-          <entry key="cpp" value="3914" />
-          <entry key="h" value="945" />
-          <entry key="txt" value="295" />
+          <entry key="c" value="107" />
+          <entry key="cpp" value="6084" />
+          <entry key="h" value="1343" />
+          <entry key="txt" value="323" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="CMakeLists.txt" value="159" />
-          <entry key="ObjectiveC" value="4929" />
-          <entry key="PLAIN_TEXT" value="136" />
+          <entry key="CMakeLists.txt" value="162" />
+          <entry key="ObjectiveC" value="7534" />
+          <entry key="PLAIN_TEXT" value="161" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.vcs.git.usages" />
@@ -92,46 +100,96 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Src-CAH/HurricaneCANSystem.cpp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="318">
-              <caret line="98" column="25" selection-start-line="98" selection-start-column="4" selection-end-line="98" selection-end-column="25" />
-              <folding>
-                <element signature="e#45#63#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_can.c">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="57">
-              <caret line="1665" column="16" selection-start-line="1665" selection-start-column="16" selection-end-line="1665" selection-end-column="16" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Src-CAH/HurricaneCANSystem.h">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-291">
-              <caret column="2" selection-start-column="2" selection-end-column="2" />
-              <folding>
-                <element signature="e#124#140#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Src-CAH/OI.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="349">
-              <caret line="57" column="21" selection-start-line="57" selection-start-column="21" selection-end-line="57" selection-end-column="21" />
+            <state relative-caret-position="375">
+              <caret line="52" column="30" selection-start-line="52" selection-start-column="30" selection-end-line="52" selection-end-column="30" />
               <folding>
                 <element signature="e#45#62#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Src-CAH/CAHRR/main.cpp">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Src-CAH/CAHRR/src/IMUSystem.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret column="2" selection-start-column="2" selection-end-column="2" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Src-CAH/CAHRR/src/CANSystem.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="391">
+              <caret line="23" selection-start-line="23" selection-end-line="23" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Src-CAH/HurricaneIMUSystem.cpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="68">
+              <caret line="4" selection-start-line="4" selection-end-line="4" />
+              <folding>
+                <element signature="e#45#76#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Src-CAH/CMakeLists.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="119">
+              <caret line="7" selection-start-line="7" selection-end-line="7" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Src-CAH/CAHRR/CMakeLists.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="204">
+              <caret line="12" selection-start-line="12" selection-end-line="12" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Src-CAH/CAHRR/mock/MockIMUSystem.cpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="68">
+              <caret line="4" selection-start-line="4" selection-end-line="4" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Src-CAH/CAHRR/mock/MockIMUSystem.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="136">
+              <caret line="8" selection-start-line="8" selection-end-line="8" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Src-CAH/HurricaneIMUSystem.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="408">
+              <caret line="24" column="4" selection-start-line="24" selection-start-column="4" selection-end-line="24" selection-end-column="4" />
+              <folding>
+                <element signature="e#124#140#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -148,13 +206,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>COMMAND</find>
-      <find>startup</find>
-      <find>sources</find>
-      <find>Src-CAH</find>
-      <find>CAN</find>
-      <find>_Error_Handler</find>
-      <find>stm32f4xx_hal_can.h</find>
       <find>FIFO0</find>
       <find>transmit</find>
       <find>HAL_CAN_Transmit_IT</find>
@@ -164,7 +215,6 @@
       <find>user code begin 4</find>
       <find>%2d</find>
       <find>specs</find>
-      <find>target</find>
       <find>Error_Han</find>
       <find>printf</find>
       <find>nosys</find>
@@ -178,6 +228,14 @@
       <find>HAL_CAN_GetTxMailboxesFreeLevel</find>
       <find>initialize</find>
       <find>HAL_CAN_TxMailbox0CompleteCallback</find>
+      <find>mfpu</find>
+      <find>fpv4</find>
+      <find>link</find>
+      <find>cortex</find>
+      <find>math</find>
+      <find>target</find>
+      <find>error_handler</find>
+      <find>imu</find>
     </findStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$/Drivers</dir>
@@ -193,17 +251,24 @@
         <option value="$PROJECT_DIR$/Src/CMakeLists.txt" />
         <option value="$PROJECT_DIR$/Src-CAH/CAHRR/test/test_ChassisSystem.cpp" />
         <option value="$PROJECT_DIR$/Src-CAH/CMakeLists.txt" />
-        <option value="$PROJECT_DIR$/CMakeLists_template.txt" />
-        <option value="$PROJECT_DIR$/CMakeLists.txt" />
         <option value="$PROJECT_DIR$/Src/stm32f4xx_it.c" />
-        <option value="$PROJECT_DIR$/Src-CAH/bootstrap.h" />
-        <option value="$PROJECT_DIR$/Src/main.c" />
         <option value="$PROJECT_DIR$/Src-CAH/HurricaneDebugSystem.h" />
         <option value="$PROJECT_DIR$/Src-CAH/HurricaneDebugSystem.cpp" />
-        <option value="$PROJECT_DIR$/Src-CAH/OI.h" />
         <option value="$PROJECT_DIR$/Src-CAH/CAHRR/mock/MockCANSystem.h" />
         <option value="$PROJECT_DIR$/Src-CAH/HurricaneCANSystem.h" />
         <option value="$PROJECT_DIR$/Src-CAH/HurricaneCANSystem.cpp" />
+        <option value="$PROJECT_DIR$/Src-CAH/ARMPIDAccumulator.h" />
+        <option value="$PROJECT_DIR$/Src-CAH/ARMPIDAccumulator.cpp" />
+        <option value="$PROJECT_DIR$/CMakeLists.txt" />
+        <option value="$PROJECT_DIR$/CMakeLists_template.txt" />
+        <option value="$PROJECT_DIR$/Src-CAH/CAHRR/src/PIDAccumulator.cpp" />
+        <option value="$PROJECT_DIR$/Src-CAH/OI.h" />
+        <option value="$PROJECT_DIR$/Src-CAH/bootstrap.h" />
+        <option value="$PROJECT_DIR$/Src/main.c" />
+        <option value="$PROJECT_DIR$/Src-CAH/CAHRR/src/IMUSystem.h" />
+        <option value="$PROJECT_DIR$/Src-CAH/CAHRR/CMakeLists.txt" />
+        <option value="$PROJECT_DIR$/Src-CAH/HurricaneIMUSystem.cpp" />
+        <option value="$PROJECT_DIR$/Src-CAH/HurricaneIMUSystem.h" />
         <option value="$PROJECT_DIR$/Src-CAH/OI.cpp" />
       </list>
     </option>
@@ -216,7 +281,8 @@
   </component>
   <component name="OCFindUsagesOptions" text="true" ivars="false" properties="true" derivedClasses="false" />
   <component name="ProjectFrameBounds" fullScreen="true">
-    <option name="width" value="1680" />
+    <option name="x" value="850" />
+    <option name="width" value="830" />
     <option name="height" value="1050" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -243,6 +309,12 @@
             <path>
               <item name="Hurricane" type="b2602c69:ProjectViewProjectNode" />
               <item name="Hurricane" type="462c0819:PsiDirectoryNode" />
+              <item name="Src" type="462c0819:PsiDirectoryNode" />
+              <item name="runtime" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Hurricane" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Hurricane" type="462c0819:PsiDirectoryNode" />
               <item name="Src-CAH" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -256,7 +328,7 @@
               <item name="Hurricane" type="462c0819:PsiDirectoryNode" />
               <item name="Src-CAH" type="462c0819:PsiDirectoryNode" />
               <item name="CAHRR" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -299,6 +371,11 @@
       </method>
     </configuration>
     <configuration name="CAHRR_main" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Hurricane" TARGET_NAME="CAHRR_main" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="Hurricane" RUN_TARGET_NAME="CAHRR_main">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CAHRR_mock" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Hurricane" TARGET_NAME="CAHRR_mock" CONFIG_NAME="Debug">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
@@ -350,6 +427,7 @@
     </configuration>
     <list>
       <item itemvalue="Application.Build All" />
+      <item itemvalue="OpenOCD Download &amp; Run.OCD Hurricane" />
       <item itemvalue="Application.UPLOAD" />
       <item itemvalue="Application.gmock" />
       <item itemvalue="Application.gmock_main" />
@@ -358,8 +436,8 @@
       <item itemvalue="Application.Hurricane" />
       <item itemvalue="Application.CAHRR" />
       <item itemvalue="Application.CAHRR_main" />
+      <item itemvalue="Application.CAHRR_mock" />
       <item itemvalue="Application.CAHRR_test" />
-      <item itemvalue="OpenOCD Download &amp; Run.OCD Hurricane" />
     </list>
   </component>
   <component name="SvnConfiguration">
@@ -377,12 +455,14 @@
       <workItem from="1541661784967" duration="388000" />
       <workItem from="1541662223154" duration="2511000" />
       <workItem from="1541664928023" duration="12691000" />
-      <workItem from="1541767445215" duration="4106000" />
+      <workItem from="1541767445215" duration="4156000" />
+      <workItem from="1541772478015" duration="6309000" />
+      <workItem from="1541810235843" duration="2769000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="19932000" />
+    <option name="totallyTimeSpent" value="29060000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -395,14 +475,13 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26495728" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.26800978" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4993895" visible="true" weight="0.32959184" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4993895" weight="0.32959184" />
       <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.498779" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -426,42 +505,10 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/.project">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Src-CAH/CAHRR/test/CMakeLists.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="29" lean-forward="true" selection-start-line="29" selection-end-line="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Debug/Src/CAHRR/src/subdir.mk" />
-    <entry file="file://$PROJECT_DIR$/Src-CAH/CAHRR/test/test_ChassisSystem.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="67">
-          <caret line="4" column="24" selection-start-line="4" selection-start-column="24" selection-end-line="4" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Src-CAH/CAHRR/CMakeLists.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" selection-start-line="11" selection-end-line="11" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Src-CAH/CAHRR/test/test_AvgAccumulator.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
           <caret line="4" selection-start-line="4" selection-end-line="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Src-CAH/CMakeLists.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" selection-start-line="7" selection-end-line="7" />
         </state>
       </provider>
     </entry>
@@ -505,20 +552,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Hurricane.ioc">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="389">
-          <caret line="66" column="8" selection-start-line="66" selection-start-column="8" selection-end-line="66" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CMakeLists_template.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="952">
-          <caret line="56" lean-forward="true" selection-start-line="56" selection-end-line="56" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Inc/stm32f4xx_hal_conf.h">
       <provider selected="true" editor-type-id="text-editor">
@@ -566,20 +599,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Src-CAH/CAHRR/main.cpp">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Src/main.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1921">
-          <caret line="113" column="27" selection-start-line="113" selection-start-column="27" selection-end-line="113" selection-end-column="27" />
-          <folding>
-            <element signature="e#2281#2298#0" expanded="true" />
-            <element signature="e#2481#2500#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Src/usart.c">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -590,27 +609,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Src-CAH/bootstrap.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" selection-start-line="11" selection-end-line="11" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Src/stm32f4xx_it.c">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="4097">
           <caret line="241" column="1" selection-start-line="241" selection-start-column="1" selection-end-line="241" selection-end-column="1" />
-          <folding>
-            <element signature="e#2093#2122#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Src-CAH/OI.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="27" selection-start-line="16" selection-start-column="27" selection-end-line="16" selection-end-column="27" />
         </state>
       </provider>
     </entry>
@@ -638,9 +640,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="598">
           <caret line="73" column="26" selection-start-line="73" selection-start-column="26" selection-end-line="73" selection-end-column="26" />
-          <folding>
-            <element signature="e#45#61#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -656,19 +655,99 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Drivers/CMSIS/Include/arm_math.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="310">
+          <caret line="396" column="18" selection-start-line="396" selection-start-column="18" selection-end-line="396" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_can.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="28305">
+          <caret line="1665" column="16" selection-start-line="1665" selection-start-column="16" selection-end-line="1665" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Src-CAH/CAHRR/src/PIDAccumulator.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" selection-start-line="6" selection-end-line="8" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Src-CAH/CAHRR/src/PIDAccumulator.h">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CMakeLists_template.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="493">
+          <caret line="29" column="91" selection-start-line="29" selection-start-column="91" selection-end-line="29" selection-end-column="91" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="25" column="30" selection-start-line="25" selection-start-column="24" selection-end-line="25" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Src-CAH/ARMPIDAccumulator.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" selection-start-line="6" selection-end-line="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Src-CAH/OI.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="18" column="34" selection-start-line="18" selection-start-column="34" selection-end-line="18" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Src-CAH/ARMPIDAccumulator.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="21" column="2" selection-start-line="21" selection-start-column="2" selection-end-line="21" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Src-CAH/HurricaneCANSystem.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="318">
-          <caret line="98" column="25" selection-start-line="98" selection-start-column="4" selection-end-line="98" selection-end-column="25" />
+        <state relative-caret-position="1306">
+          <caret line="97" column="5" selection-start-line="97" selection-start-column="5" selection-end-line="97" selection-end-column="5" />
           <folding>
             <element signature="e#45#63#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Src/spi.c">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Src-CAH/bootstrap.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="12" selection-start-line="9" selection-start-column="12" selection-end-line="9" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Src/main.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="516">
+          <caret line="192" column="22" selection-start-line="192" selection-start-column="22" selection-end-line="192" selection-end-column="22" />
+          <folding>
+            <element signature="e#2281#2298#0" expanded="true" />
+            <element signature="e#2481#2500#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Src-CAH/HurricaneCANSystem.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-291">
+        <state>
           <caret column="2" selection-start-column="2" selection-end-column="2" />
           <folding>
             <element signature="e#124#140#0" expanded="true" />
@@ -676,17 +755,75 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_can.c">
+    <entry file="file://$PROJECT_DIR$/Src-CAH/CMakeLists.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="57">
-          <caret line="1665" column="16" selection-start-line="1665" selection-start-column="16" selection-end-line="1665" selection-end-column="16" />
+        <state relative-caret-position="119">
+          <caret line="7" selection-start-line="7" selection-end-line="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Src-CAH/CAHRR/CMakeLists.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" selection-start-line="12" selection-end-line="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Src-CAH/CAHRR/src/CANSystem.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="23" selection-start-line="23" selection-end-line="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Src-CAH/HurricaneIMUSystem.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="24" column="4" selection-start-line="24" selection-start-column="4" selection-end-line="24" selection-end-column="4" />
+          <folding>
+            <element signature="e#124#140#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Src-CAH/CAHRR/mock/MockIMUSystem.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" selection-start-line="4" selection-end-line="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Src-CAH/CAHRR/mock/MockIMUSystem.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" selection-start-line="8" selection-end-line="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Src-CAH/HurricaneIMUSystem.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" selection-start-line="4" selection-end-line="4" />
+          <folding>
+            <element signature="e#45#76#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Src-CAH/CAHRR/main.cpp">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Src-CAH/CAHRR/src/IMUSystem.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="2" selection-start-column="2" selection-end-column="2" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Src-CAH/OI.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="349">
-          <caret line="57" column="21" selection-start-line="57" selection-start-column="21" selection-end-line="57" selection-end-column="21" />
+        <state relative-caret-position="375">
+          <caret line="52" column="30" selection-start-line="52" selection-start-column="30" selection-end-line="52" selection-end-column="30" />
           <folding>
             <element signature="e#45#62#0" expanded="true" />
           </folding>

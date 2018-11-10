@@ -7,6 +7,7 @@
 
 class HurricaneDebugSystem;
 class HurricaneCANSystem;
+class HurricaneIMUSystem;
 
 class OI{
 public:
@@ -15,6 +16,7 @@ public:
 
     HurricaneDebugSystem* debugSystem;
     HurricaneCANSystem* CANSystem;
+    HurricaneIMUSystem* IMUSystem;
 };
 
 extern OI* oi;
