@@ -31,6 +31,35 @@ bool HurricaneDebugSystem::info(const std::string &src, const std::string &messa
 }
 
 bool HurricaneDebugSystem::set_led(int id, bool val) {
+    GPIO_PinState stat = val ? GPIO_PIN_SET : GPIO_PIN_RESET;
+    switch (id) {
+        case 1:
+            HAL_GPIO_WritePin(STAT1_GPIO_Port, STAT1_Pin, stat);
+            return true;
+        case 2:
+            HAL_GPIO_WritePin(STAT2_GPIO_Port, STAT2_Pin, stat);
+            return true;
+        case 3:
+            HAL_GPIO_WritePin(STAT3_GPIO_Port, STAT3_Pin, stat);
+            return true;
+        case 4:
+            HAL_GPIO_WritePin(STAT4_GPIO_Port, STAT4_Pin, stat);
+            return true;
+        case 5:
+            HAL_GPIO_WritePin(STAT5_GPIO_Port, STAT5_Pin, stat);
+            return true;
+        case 6:
+            HAL_GPIO_WritePin(STAT6_GPIO_Port, STAT6_Pin, stat);
+            return true;
+        case 7:
+            HAL_GPIO_WritePin(STAT7_GPIO_Port, STAT7_Pin, stat);
+            return true;
+        case 8:
+            HAL_GPIO_WritePin(STAT8_GPIO_Port, STAT8_Pin, stat);
+            return true;
+        default:
+            break;
+    }
     return false;
 }
 
@@ -38,28 +67,28 @@ bool HurricaneDebugSystem::toggle_led(int id) {
     switch (id) {
         case 1:
             HAL_GPIO_TogglePin(STAT1_GPIO_Port, STAT1_Pin);
-            break;
+            return true;
         case 2:
             HAL_GPIO_TogglePin(STAT2_GPIO_Port, STAT2_Pin);
-            break;
+            return true;
         case 3:
             HAL_GPIO_TogglePin(STAT3_GPIO_Port, STAT3_Pin);
-            break;
+            return true;
         case 4:
             HAL_GPIO_TogglePin(STAT4_GPIO_Port, STAT4_Pin);
-            break;
+            return true;
         case 5:
             HAL_GPIO_TogglePin(STAT5_GPIO_Port, STAT5_Pin);
-            break;
+            return true;
         case 6:
             HAL_GPIO_TogglePin(STAT6_GPIO_Port, STAT6_Pin);
-            break;
+            return true;
         case 7:
             HAL_GPIO_TogglePin(STAT7_GPIO_Port, STAT7_Pin);
-            break;
+            return true;
         case 8:
             HAL_GPIO_TogglePin(STAT8_GPIO_Port, STAT8_Pin);
-            break;
+            return true;
         default:
             break;
     }
@@ -67,7 +96,7 @@ bool HurricaneDebugSystem::toggle_led(int id) {
 }
 
 bool HurricaneDebugSystem::alive() {
-    return false;
+    return HAL_IWDG_Refresh(&hiwdg) == HAL_OK;
 }
 
 bool HurricaneDebugSystem::destroy() {

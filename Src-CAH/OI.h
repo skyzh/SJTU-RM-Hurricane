@@ -8,6 +8,11 @@
 class HurricaneDebugSystem;
 class HurricaneCANSystem;
 class HurricaneIMUSystem;
+class HurricaneRemoteSystem;
+class HurricaneChassisSystem;
+class HurricaneArmSystem;
+
+class Task;
 
 class OI{
 public:
@@ -17,10 +22,15 @@ public:
     HurricaneDebugSystem* debugSystem;
     HurricaneCANSystem* CANSystem;
     HurricaneIMUSystem* IMUSystem;
+    HurricaneRemoteSystem* remoteSystem;
+    HurricaneChassisSystem* chassisSystem;
+    HurricaneArmSystem* armSystem;
+
+    Task* task;
 };
 
 extern OI* oi;
 
-#define OK(x) ((x) == true)
+#define OK(x) if (!(x)) Error_Handler()
 
 #endif //HURRICANE_OI_H
