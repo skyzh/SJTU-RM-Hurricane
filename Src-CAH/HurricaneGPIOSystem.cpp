@@ -4,8 +4,9 @@
 
 #include "hal.h"
 #include "OI.h"
+#include "HurricaneUltrasonicSystem.h"
 
-void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin) {
+extern "C" void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin) {
     if (GPIO_Pin == US_INPUT_Pin) {
         if (oi && oi->usSystemChassis) oi->usSystemChassis->trigger();
     }
