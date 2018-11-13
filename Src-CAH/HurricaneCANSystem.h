@@ -10,6 +10,7 @@
 
 const int CAN_MAX_CAN_ID = 8;
 const int CAN_MAX_DATA_ID = 4;
+const int CAN_MAX_ANGLE = 8192;
 
 class HurricaneCANSystem : public CANSystem {
 private:

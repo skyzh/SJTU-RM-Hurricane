@@ -20,5 +20,4 @@ public:
     virtual bool setSpeed(double bf, double lr);
 };
 
-
 #endif //HURRICANE_HURRICANECHASSISSYSTEM_H

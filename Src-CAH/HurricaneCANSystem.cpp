@@ -102,12 +102,12 @@ bool HurricaneCANSystem::data(int can_id) {
 
 extern "C" void HAL_CAN_TxMailbox0CompleteCallback(CAN_HandleTypeDef *hcan) {
     if (hcan == &CAN_SYSTEM_H0) {
-        oi->debugSystem->toggle_led(2);
+        if (oi && oi->debugSystem) oi->debugSystem->toggle_led(2);
     }
 }
 
 extern "C" void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef *hcan) {
     if (hcan == &CAN_SYSTEM_H0) {
-        oi->CANSystem->data(0);
+        if (oi && oi->CANSystem) oi->CANSystem->data(0);
     }
 }

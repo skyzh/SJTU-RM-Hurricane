@@ -65,8 +65,13 @@
 #define STAT3_GPIO_Port GPIOG
 #define STAT2_Pin GPIO_PIN_2
 #define STAT2_GPIO_Port GPIOG
+#define US_INPUT_Pin GPIO_PIN_3
+#define US_INPUT_GPIO_Port GPIOC
+#define US_INPUT_EXTI_IRQn EXTI3_IRQn
 #define STAT1_Pin GPIO_PIN_1
 #define STAT1_GPIO_Port GPIOG
+#define US_OUTPUT_Pin GPIO_PIN_1
+#define US_OUTPUT_GPIO_Port GPIOB
 #define LED_GREEN_Pin GPIO_PIN_14
 #define LED_GREEN_GPIO_Port GPIOF
 #define LED_RED_Pin GPIO_PIN_7

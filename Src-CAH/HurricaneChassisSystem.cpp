@@ -3,21 +3,26 @@
 //
 
 #include "HurricaneChassisSystem.h"
+#include "OI.h"
+#include "HurricaneDebugSystem.h"
+#include "hal.h"
 
 HurricaneChassisSystem::HurricaneChassisSystem() : ChassisSystem() {
 
 }
 
 bool HurricaneChassisSystem::initialize() {
-    return false;
+    OK(oi->debugSystem->info("CHA", "chassis system initialize"));
+    OK(oi->debugSystem->info("CHA", "  ... complete"));
+    return true;
 }
 
 bool HurricaneChassisSystem::update() {
-    return false;
+    return true;
 }
 
 bool HurricaneChassisSystem::destroy() {
-    return false;
+    return true;
 }
 
 bool HurricaneChassisSystem::setSpeed(double bf, double lr) {

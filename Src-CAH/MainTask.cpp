@@ -11,11 +11,12 @@
 #include "HurricaneRemoteSystem.h"
 #include "HurricaneDebugSystem.h"
 
+
 RotateAccumulator *accumulator = new RotateAccumulator(8192);
 PIDDisplacementAccumulator *pid = new PIDDisplacementAccumulator;
 
 const int PID_BOUND = 1000;
-int target = -500;
+int target = -300;
 int cnt = 0;
 
 double Kf = 200.0;
@@ -35,7 +36,7 @@ MainTask::MainTask() : Task() {
 }
 
 bool MainTask::initialize() {
-    pid->set_pid(3.0, 0.001, 0.0);
+    pid->set_pid(3.0, 0.0005, 0.1);
     pid->set_output(-PID_BOUND, PID_BOUND);
     pid->reset();
     return true;
@@ -71,13 +72,14 @@ MainTask::~MainTask() {
 
 }
 
-Task* mainTask() {
-    return new MainTask;
-}
 
 void HURRICANE_CAN0_2_DATA() {
     if (!d_av && oi->CANSystem->available(2, 0) || d_av) {
         d_av = true;
-        accumulator->data(oi->CANSystem->get(2, 0));
+        if (accumulator) accumulator->data(oi->CANSystem->get(2, 0));
     }
+}
+
+Task* mainTask() {
+    return new MainTask;
 }

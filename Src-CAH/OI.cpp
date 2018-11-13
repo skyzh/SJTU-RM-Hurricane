@@ -11,6 +11,7 @@
 #include "HurricaneRemoteSystem.h"
 #include "HurricaneArmSystem.h"
 #include "HurricaneChassisSystem.h"
+#include "HurricaneUltrasonicSystem.h"
 #include "MainTask.h"
 #include "CAHRR/src/Task.h"
 
@@ -33,7 +34,9 @@ void OI::boostrap() {
     this->CANSystem = new HurricaneCANSystem(0);
     this->IMUSystem = new HurricaneIMUSystem;
     this->remoteSystem = new HurricaneRemoteSystem;
-    this->chassisSystem = new H
+    this->chassisSystem = new HurricaneChassisSystem;
+    this->armSystem = new HurricaneArmSystem;
+    this->usSystemChassis = new HurricaneUltrasonicSystem(US_OUTPUT_Pin);
 
     OK(this->debugSystem->initialize());
     OK(this->debugSystem->info("OI", "---- booting sequence ----"));
@@ -46,6 +49,7 @@ void OI::boostrap() {
 
     OK(this->chassisSystem->initialize());
     OK(this->armSystem->initialize());
+    OK(this->usSystemChassis->initialize());
 
     OK(this->debugSystem->info("OI", "--- system initialized ---"));
 
@@ -57,14 +61,20 @@ void OI::boostrap() {
 
 void OI::loop() {
     // update data source
-    this->IMUSystem->update();
+    OK(this->IMUSystem->update());
+    this->debugSystem->alive();
 
     // update tasks
-    this->task->update();
+    OK(this->task->update());
+
+    // update user systems
+    OK(this->chassisSystem->update());
+    OK(this->armSystem->update());
 
     // update data destination
     this->remoteSystem->update();
     this->CANSystem->update();
+
     HAL_Delay(10);
 }
 

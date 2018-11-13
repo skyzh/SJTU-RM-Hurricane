@@ -11,6 +11,7 @@ class HurricaneIMUSystem;
 class HurricaneRemoteSystem;
 class HurricaneChassisSystem;
 class HurricaneArmSystem;
+class HurricaneUltrasonicSystem;
 
 class Task;
 
@@ -25,6 +26,7 @@ public:
     HurricaneRemoteSystem* remoteSystem;
     HurricaneChassisSystem* chassisSystem;
     HurricaneArmSystem* armSystem;
+    HurricaneUltrasonicSystem* usSystemChassis;
 
     Task* task;
 };

@@ -18,7 +18,7 @@ public:
 
     virtual bool update();
 
-    virtual ~MainTask() = default;
+    virtual ~MainTask();
 };
 
 

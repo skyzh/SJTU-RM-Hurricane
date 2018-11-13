@@ -7,7 +7,16 @@
 
 
 class HurricaneArmSystem{
+public:
+    HurricaneArmSystem();
 
+    bool initialize();
+
+    bool update();
+
+    bool destroy();
+
+    bool setPosition(double location);
 };
 
 
