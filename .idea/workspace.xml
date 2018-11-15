@@ -2,17 +2,17 @@
 <project version="4">
   <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true" buildAllGenerated="true">
     <generated>
-      <config projectName="Hurricane" targetName="gtest" />
-      <config projectName="Hurricane" targetName="gtest_main" />
-      <config projectName="Hurricane" targetName="CAHRR_test" />
-      <config projectName="Hurricane" targetName="Hurricane" />
-      <config projectName="Hurricane" targetName="gmock" />
-      <config projectName="Hurricane" targetName="CAHRR_main" />
-      <config projectName="Hurricane" targetName="Hurricane.elf" />
       <config projectName="Hurricane" targetName="CAHRR" />
-      <config projectName="Hurricane" targetName="gmock_main" />
-      <config projectName="Hurricane" targetName="CAHRR_mock" />
+      <config projectName="Hurricane" targetName="CAHRR_main" />
       <config projectName="Hurricane" targetName="UPLOAD" />
+      <config projectName="Hurricane" targetName="gmock" />
+      <config projectName="Hurricane" targetName="Hurricane.elf" />
+      <config projectName="Hurricane" targetName="gmock_main" />
+      <config projectName="Hurricane" targetName="CAHRR_test" />
+      <config projectName="Hurricane" targetName="gtest_main" />
+      <config projectName="Hurricane" targetName="Hurricane" />
+      <config projectName="Hurricane" targetName="CAHRR_mock" />
+      <config projectName="Hurricane" targetName="gtest" />
     </generated>
   </component>
   <component name="CMakeSettings" AUTO_RELOAD="true">
@@ -24,11 +24,16 @@
     <list default="true" id="9ce180b9-48da-41d7-89af-d901ef429b13" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Hurricane.ioc" beforeDir="false" afterPath="$PROJECT_DIR$/Hurricane.ioc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Inc/main.h" beforeDir="false" afterPath="$PROJECT_DIR$/Inc/main.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Inc/stm32f4xx_it.h" beforeDir="false" afterPath="$PROJECT_DIR$/Inc/stm32f4xx_it.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Src-CAH/HurricaneChassisSystem.h" beforeDir="false" afterPath="$PROJECT_DIR$/Src-CAH/HurricaneChassisSystem.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Src-CAH/HurricaneGPIOSystem.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Src-CAH/HurricaneGPIOSystem.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Src-CAH/HurricaneUltrasonicSystem.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Src-CAH/HurricaneUltrasonicSystem.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Src-CAH/HurricaneUltrasonicSystem.h" beforeDir="false" afterPath="$PROJECT_DIR$/Src-CAH/HurricaneUltrasonicSystem.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Src-CAH/MainTask.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Src-CAH/MainTask.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Src-CAH/OI.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Src-CAH/OI.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Src/gpio.c" beforeDir="false" afterPath="$PROJECT_DIR$/Src/gpio.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Src/stm32f4xx_it.c" beforeDir="false" afterPath="$PROJECT_DIR$/Src/stm32f4xx_it.c" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -42,25 +47,26 @@
     <session id="-1304892843">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="15" />
+          <entry key="project.closed" value="19" />
           <entry key="project.open.time.0" value="2" />
           <entry key="project.open.time.1" value="6" />
           <entry key="project.open.time.3" value="2" />
-          <entry key="project.open.time.5" value="2" />
-          <entry key="project.open.time.6" value="3" />
+          <entry key="project.open.time.5" value="3" />
+          <entry key="project.open.time.6" value="5" />
+          <entry key="project.open.time.7" value="1" />
           <entry key="project.open.time.9" value="1" />
-          <entry key="project.opened" value="16" />
+          <entry key="project.opened" value="20" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="OCD Hurricane (disassembly)" value="33" />
-          <entry key="c" value="32" />
+          <entry key="c" value="39" />
           <entry key="cfg" value="3" />
-          <entry key="cpp" value="59" />
+          <entry key="cpp" value="66" />
           <entry key="d" value="1" />
           <entry key="gitignore" value="2" />
-          <entry key="h" value="70" />
+          <entry key="h" value="76" />
           <entry key="ioc" value="2" />
           <entry key="launch" value="1" />
           <entry key="mk" value="1" />
@@ -74,22 +80,22 @@
           <entry key="Assembly file" value="2" />
           <entry key="CMakeLists.txt" value="17" />
           <entry key="Disassembly" value="33" />
-          <entry key="ObjectiveC" value="161" />
+          <entry key="ObjectiveC" value="181" />
           <entry key="PLAIN_TEXT" value="17" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="c" value="107" />
-          <entry key="cpp" value="10996" />
-          <entry key="h" value="2643" />
+          <entry key="cpp" value="12827" />
+          <entry key="h" value="2870" />
           <entry key="txt" value="323" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="CMakeLists.txt" value="162" />
-          <entry key="ObjectiveC" value="13746" />
+          <entry key="ObjectiveC" value="15804" />
           <entry key="PLAIN_TEXT" value="161" />
         </counts>
       </usages-collector>
@@ -99,11 +105,62 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Src-CAH/HurricaneChassisSystem.cpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="68">
+              <caret line="4" selection-start-line="4" selection-end-line="4" />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Src-CAH/HurricaneChassisSystem.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="204">
+              <caret line="12" column="27" selection-start-line="12" selection-start-column="27" selection-end-line="12" selection-end-column="27" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Src/stm32f4xx_it.c">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="4267">
+              <caret line="251" column="22" selection-start-line="251" selection-start-column="22" selection-end-line="251" selection-end-column="22" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Src-CAH/HurricaneUltrasonicSystem.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="187">
+              <caret line="11" column="29" selection-start-line="11" selection-start-column="29" selection-end-line="11" selection-end-column="29" />
+              <folding>
+                <element signature="e#138#154#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Src-CAH/MainTask.cpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1173">
+              <caret line="69" column="42" selection-start-line="69" selection-start-column="25" selection-end-line="69" selection-end-column="42" />
+              <folding>
+                <element signature="e#45#85#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Src-CAH/OI.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="287">
-              <caret line="66" lean-forward="true" selection-start-line="66" selection-end-line="66" />
+            <state relative-caret-position="782">
+              <caret line="46" selection-start-line="46" selection-end-line="46" />
               <folding>
                 <element signature="e#45#62#0" expanded="true" />
               </folding>
@@ -112,46 +169,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Src/runtime/bsp_imu.c">
+        <entry file="file://$PROJECT_DIR$/Src-CAH/HurricaneDebugSystem.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="442">
-              <caret line="31" column="8" selection-start-line="31" selection-start-column="8" selection-end-line="31" selection-end-column="8" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Src/runtime/bsp_imu.h">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="47">
-              <caret line="16" column="8" selection-start-line="16" selection-start-column="8" selection-end-line="16" selection-end-column="8" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Src-CAH/HurricaneIMUSystem.h">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="267">
-              <caret line="24" column="4" selection-start-line="24" selection-start-column="4" selection-end-line="24" selection-end-column="4" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Src-CAH/HurricaneIMUSystem.cpp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="697">
-              <caret line="43" selection-start-line="43" selection-end-line="43" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Src/gpio.c">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-892">
-              <caret line="24" column="3" selection-start-line="24" selection-start-column="3" selection-end-line="24" selection-end-column="3" />
+            <state relative-caret-position="493">
+              <caret line="29" column="24" selection-start-line="29" selection-start-column="24" selection-end-line="29" selection-end-column="24" />
             </state>
           </provider>
         </entry>
@@ -159,8 +180,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Src-CAH/HurricaneGPIOSystem.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="8" column="11" selection-start-line="8" selection-start-column="11" selection-end-line="8" selection-end-column="11" />
+            <state relative-caret-position="170">
+              <caret line="10" column="46" selection-start-line="10" selection-start-column="46" selection-end-line="10" selection-end-column="46" />
               <folding>
                 <element signature="e#45#61#0" expanded="true" />
               </folding>
@@ -169,34 +190,19 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f427xx.h">
+        <entry file="file://$PROJECT_DIR$/Src-CAH/bootstrap.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="146">
-              <caret line="1210" selection-start-line="1210" selection-end-line="1210" />
+            <state relative-caret-position="170">
+              <caret line="10" selection-start-line="10" selection-end-line="10" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Src-CAH/HurricaneUltrasonicSystem.cpp">
+        <entry file="file://$PROJECT_DIR$/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-158">
-              <caret line="40" column="31" selection-start-line="40" selection-start-column="31" selection-end-line="40" selection-end-column="31" />
-              <folding>
-                <element signature="e#45#83#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Src-CAH/HurricaneUltrasonicSystem.h">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="250">
-              <caret line="34" column="17" selection-start-line="34" selection-start-column="17" selection-end-line="34" selection-end-column="17" />
-              <folding>
-                <element signature="e#138#154#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="8534">
+              <caret line="502" column="5" selection-start-line="502" selection-start-column="5" selection-end-line="502" selection-end-column="5" />
             </state>
           </provider>
         </entry>
@@ -212,7 +218,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>nosys</find>
       <find>recv</find>
       <find>HAL_UART_TxCpltCallback</find>
       <find>nitial</find>
@@ -242,6 +247,7 @@
       <find>mpu_offset_call</find>
       <find>ist8310_get_data</find>
       <find>mpu_read_bytes</find>
+      <find>this-&gt;status</find>
     </findStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$/Drivers</dir>
@@ -265,7 +271,6 @@
         <option value="$PROJECT_DIR$/CMakeLists.txt" />
         <option value="$PROJECT_DIR$/CMakeLists_template.txt" />
         <option value="$PROJECT_DIR$/Src-CAH/CAHRR/src/PIDAccumulator.cpp" />
-        <option value="$PROJECT_DIR$/Src-CAH/bootstrap.h" />
         <option value="$PROJECT_DIR$/Src/main.c" />
         <option value="$PROJECT_DIR$/Src-CAH/CAHRR/src/IMUSystem.h" />
         <option value="$PROJECT_DIR$/Src-CAH/CAHRR/CMakeLists.txt" />
@@ -274,7 +279,6 @@
         <option value="$PROJECT_DIR$/Src-CAH/HurricaneRemoteSystem.h" />
         <option value="$PROJECT_DIR$/Src-CAH/HurricaneRemoteSystem.cpp" />
         <option value="$PROJECT_DIR$/Src-CAH/HurricaneDebugSystem.cpp" />
-        <option value="$PROJECT_DIR$/Src-CAH/HurricaneChassisSystem.h" />
         <option value="$PROJECT_DIR$/Src-CAH/HurricaneArmSystem.h" />
         <option value="$PROJECT_DIR$/Src-CAH/MainTask.h" />
         <option value="$PROJECT_DIR$/Src-CAH/Tasks/TestTask.h" />
@@ -283,13 +287,15 @@
         <option value="$PROJECT_DIR$/Src-CAH/HurricaneArmSystem.cpp" />
         <option value="$PROJECT_DIR$/Src-CAH/CAHRR/src/PIDAccumulator.h" />
         <option value="$PROJECT_DIR$/Src-CAH/Tasks/TestTask.cpp" />
-        <option value="$PROJECT_DIR$/Src-CAH/MainTask.cpp" />
         <option value="$PROJECT_DIR$/Src-CAH/OI.h" />
         <option value="$PROJECT_DIR$/Src-CAH/HurricaneCANSystem.cpp" />
-        <option value="$PROJECT_DIR$/Src-CAH/HurricaneGPIOSystem.cpp" />
-        <option value="$PROJECT_DIR$/Src-CAH/HurricaneUltrasonicSystem.h" />
-        <option value="$PROJECT_DIR$/Src-CAH/HurricaneUltrasonicSystem.cpp" />
         <option value="$PROJECT_DIR$/Src-CAH/OI.cpp" />
+        <option value="$PROJECT_DIR$/Src-CAH/HurricaneUltrasonicSystem.h" />
+        <option value="$PROJECT_DIR$/Src-CAH/bootstrap.h" />
+        <option value="$PROJECT_DIR$/Src-CAH/MainTask.cpp" />
+        <option value="$PROJECT_DIR$/Src-CAH/HurricaneGPIOSystem.cpp" />
+        <option value="$PROJECT_DIR$/Src-CAH/HurricaneUltrasonicSystem.cpp" />
+        <option value="$PROJECT_DIR$/Src-CAH/HurricaneChassisSystem.h" />
       </list>
     </option>
   </component>
@@ -301,10 +307,8 @@
   </component>
   <component name="OCFindUsagesOptions" text="true" ivars="false" properties="true" derivedClasses="false" />
   <component name="ProjectFrameBounds" fullScreen="true">
-    <option name="x" value="546" />
-    <option name="y" value="236" />
-    <option name="width" value="1114" />
-    <option name="height" value="814" />
+    <option name="width" value="1680" />
+    <option name="height" value="1050" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="1" id="Add" />
@@ -320,6 +324,24 @@
             <path>
               <item name="Hurricane" type="b2602c69:ProjectViewProjectNode" />
               <item name="Hurricane" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Hurricane" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Hurricane" type="462c0819:PsiDirectoryNode" />
+              <item name="Drivers" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Hurricane" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Hurricane" type="462c0819:PsiDirectoryNode" />
+              <item name="Drivers" type="462c0819:PsiDirectoryNode" />
+              <item name="STM32F4xx_HAL_Driver" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Hurricane" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Hurricane" type="462c0819:PsiDirectoryNode" />
+              <item name="Drivers" type="462c0819:PsiDirectoryNode" />
+              <item name="STM32F4xx_HAL_Driver" type="462c0819:PsiDirectoryNode" />
+              <item name="Src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Hurricane" type="b2602c69:ProjectViewProjectNode" />
@@ -478,12 +500,16 @@
       <workItem from="1542037521728" duration="3873000" />
       <workItem from="1542102297131" duration="1077000" />
       <workItem from="1542108675092" duration="7000" />
-      <workItem from="1542109838700" duration="4552000" />
+      <workItem from="1542109838700" duration="6550000" />
+      <workItem from="1542245010932" duration="817000" />
+      <workItem from="1542252385895" duration="4170000" />
+      <workItem from="1542268544310" duration="430000" />
+      <workItem from="1542270221150" duration="107000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="43213000" />
+    <option name="totallyTimeSpent" value="50735000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -498,12 +524,12 @@
     <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1916972" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2014652" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4993895" visible="true" weight="0.24183674" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4993895" weight="0.24183674" />
       <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.498779" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -513,7 +539,7 @@
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.501221" side_tool="true" weight="0.4" />
       <window_info anchor="bottom" id="Version Control" order="10" show_stripe_button="false" />
       <window_info anchor="bottom" id="CMake" order="11" weight="0.32857144" />
-      <window_info anchor="bottom" id="Messages" order="12" weight="0.32825485" />
+      <window_info anchor="bottom" id="Messages" order="12" weight="0.327551" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -556,13 +582,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
           <caret line="6" selection-start-line="6" selection-end-line="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Src-CAH/bootstrap.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="12" selection-start-line="9" selection-start-column="12" selection-end-line="9" selection-end-column="12" />
         </state>
       </provider>
     </entry>
@@ -625,22 +644,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Src-CAH/HurricaneDebugSystem.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="29" column="24" selection-start-line="29" selection-start-column="24" selection-end-line="29" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Src/runtime/bsp_uart.c">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-895">
           <caret line="17" selection-start-line="17" selection-end-line="17" selection-end-column="13" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Src/spi.c">
-      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/Src-CAH/HurricaneRemoteSystem.h">
       <provider selected="true" editor-type-id="text-editor">
@@ -669,13 +678,6 @@
     <entry file="file://$PROJECT_DIR$/Src-CAH/CAHRR/src/ChassisSystem.h">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/Src-CAH/HurricaneRemoteSystem.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="29" selection-start-line="29" selection-end-line="29" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Src-CAH/HurricaneArmSystem.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
@@ -690,13 +692,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Src-CAH/MainTask.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="25" selection-start-line="25" selection-end-line="25" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Src-CAH/HurricaneArmSystem.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="374">
@@ -708,9 +703,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1190">
           <caret line="70" selection-start-line="70" selection-end-line="70" />
-          <folding>
-            <element signature="e#45#66#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -735,45 +727,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Src-CAH/MainTask.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="21" column="14" selection-start-line="21" selection-start-column="14" selection-end-line="21" selection-end-column="14" />
-          <folding>
-            <element signature="e#45#85#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Src/stm32f4xx_hal_msp.c">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_iwdg.c">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Src/stm32f4xx_it.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="329">
-          <caret line="213" selection-start-line="213" selection-end-line="213" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Src/main.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="14" selection-start-line="12" selection-start-column="14" selection-end-line="12" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Src-CAH/HurricaneChassisSystem.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" selection-start-line="4" selection-end-line="4" />
-          <folding>
-            <element signature="e#45#80#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Src-CAH/OI.h">
       <provider selected="true" editor-type-id="text-editor">
@@ -786,30 +744,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
           <caret line="7" selection-start-line="7" selection-end-line="7" />
-          <folding>
-            <element signature="e#124#140#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Src-CAH/HurricaneChassisSystem.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="21" selection-start-line="21" selection-end-line="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="203">
-          <caret line="392" column="14" selection-start-line="392" selection-start-column="14" selection-end-line="392" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Inc/main.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="363">
-          <caret line="68" column="26" selection-start-line="68" selection-start-column="8" selection-end-line="68" selection-end-column="26" />
         </state>
       </provider>
     </entry>
@@ -817,9 +751,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="677">
           <caret line="104" column="35" selection-start-line="104" selection-start-column="35" selection-end-line="104" selection-end-column="35" />
-          <folding>
-            <element signature="e#45#63#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -830,54 +761,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Src-CAH/HurricaneGPIOSystem.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="11" selection-start-line="8" selection-start-column="11" selection-end-line="8" selection-end-column="11" />
-          <folding>
-            <element signature="e#45#61#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Src/gpio.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-892">
-          <caret line="24" column="3" selection-start-line="24" selection-start-column="3" selection-end-line="24" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Src-CAH/HurricaneIMUSystem.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="267">
           <caret line="24" column="4" selection-start-line="24" selection-start-column="4" selection-end-line="24" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Src-CAH/HurricaneIMUSystem.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="697">
-          <caret line="43" selection-start-line="43" selection-end-line="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Src-CAH/HurricaneUltrasonicSystem.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="250">
-          <caret line="34" column="17" selection-start-line="34" selection-start-column="17" selection-end-line="34" selection-end-column="17" />
-          <folding>
-            <element signature="e#138#154#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Src-CAH/HurricaneUltrasonicSystem.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-158">
-          <caret line="40" column="31" selection-start-line="40" selection-start-column="31" selection-end-line="40" selection-end-column="31" />
-          <folding>
-            <element signature="e#45#83#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -888,20 +775,147 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Inc/main.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1241">
+          <caret line="73" column="27" selection-start-line="73" selection-start-column="8" selection-end-line="73" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Src/runtime/bsp_imu.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
+        <state relative-caret-position="527">
           <caret line="31" column="8" selection-start-line="31" selection-start-column="8" selection-end-line="31" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Src-CAH/HurricaneIMUSystem.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="731">
+          <caret line="43" selection-start-line="43" selection-end-line="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Src-CAH/HurricaneRemoteSystem.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="493">
+          <caret line="29" selection-start-line="29" selection-end-line="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Src-CAH/MainTask.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="25" selection-start-line="25" selection-end-line="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Src/spi.c">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Src/main.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="14" selection-start-line="12" selection-start-column="14" selection-end-line="12" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Src/gpio.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="109" column="33" lean-forward="true" selection-start-line="109" selection-start-column="33" selection-end-line="109" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Src-CAH/HurricaneUltrasonicSystem.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="746">
+          <caret line="88" selection-start-line="88" selection-end-line="88" />
+          <folding>
+            <element signature="e#45#83#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Src/stm32f4xx_it.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4267">
+          <caret line="251" column="22" selection-start-line="251" selection-start-column="22" selection-end-line="251" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Src-CAH/HurricaneUltrasonicSystem.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="29" selection-start-line="11" selection-start-column="29" selection-end-line="11" selection-end-column="29" />
+          <folding>
+            <element signature="e#138#154#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Src-CAH/MainTask.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1173">
+          <caret line="69" column="42" selection-start-line="69" selection-start-column="25" selection-end-line="69" selection-end-column="42" />
+          <folding>
+            <element signature="e#45#85#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Src-CAH/OI.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="287">
-          <caret line="66" lean-forward="true" selection-start-line="66" selection-end-line="66" />
+        <state relative-caret-position="782">
+          <caret line="46" selection-start-line="46" selection-end-line="46" />
           <folding>
             <element signature="e#45#62#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Src-CAH/HurricaneDebugSystem.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="493">
+          <caret line="29" column="24" selection-start-line="29" selection-start-column="24" selection-end-line="29" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Src-CAH/HurricaneGPIOSystem.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="46" selection-start-line="10" selection-start-column="46" selection-end-line="10" selection-end-column="46" />
+          <folding>
+            <element signature="e#45#61#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Src-CAH/bootstrap.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" selection-start-line="10" selection-end-line="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="8534">
+          <caret line="502" column="5" selection-start-line="502" selection-start-column="5" selection-end-line="502" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Src-CAH/HurricaneChassisSystem.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" selection-start-line="4" selection-end-line="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Src-CAH/HurricaneChassisSystem.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="27" selection-start-line="12" selection-start-column="27" selection-end-line="12" selection-end-column="27" />
         </state>
       </provider>
     </entry>

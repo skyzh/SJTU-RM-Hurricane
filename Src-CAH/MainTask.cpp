@@ -10,12 +10,12 @@
 #include "HurricaneCANSystem.h"
 #include "HurricaneRemoteSystem.h"
 #include "HurricaneDebugSystem.h"
-
+#include "HurricaneUltrasonicSystem.h"
 
 RotateAccumulator *accumulator = new RotateAccumulator(8192);
 PIDDisplacementAccumulator *pid = new PIDDisplacementAccumulator;
 
-const int PID_BOUND = 1000;
+const int PID_BOUND = 500;
 int target = -300;
 int cnt = 0;
 
@@ -50,21 +50,30 @@ bool MainTask::isEnd() {
     return Task::isEnd();
 }
 
+int __cnt = 0, __res = 0;
 bool MainTask::update() {
     double error = target - accumulator->get_round();
     double data = pid->calc(error);
 
     int16_t output = (PID_clamp(data + sgn(error) * Kf, -PID_BOUND, PID_BOUND));
-    if (cnt % 5 == 0) {
-        sprintf(buf, "cur%3d err%3d out%3d", (int) accumulator->get_round(), (int)error, output);
-        oi->debugSystem->info("OI", buf);
+    if (cnt % 20 == 0) {
+        // sprintf(buf, "cur%3d err%3d out%3d %5d", (int) accumulator->get_round(), (int)error, output, (int) oi->usSystemChassis->distance() * 100);
+        sprintf(buf, "%d cnt%d res%d", oi->usSystemChassis->time(), __cnt, __res);
+        // oi->debugSystem->info("OI", buf);
+        oi->debugSystem->info("MTK", buf);
     }
 
     if ((cnt = (cnt + 1) % 1000) == 0) {
         target = -target;
+
+    }
+    if (HAL_GPIO_ReadPin(US_ECHO_GPIO_Port, US_ECHO_Pin) == GPIO_PIN_SET) {
+        __cnt++;
+    } else if (HAL_GPIO_ReadPin(US_ECHO_GPIO_Port, US_ECHO_Pin) == GPIO_PIN_RESET) {
+        __res++;
     }
 
-    oi->CANSystem->set(2, output);
+    oi->CANSystem->set(2, 0);
     return true;
 }
 

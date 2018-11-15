@@ -36,7 +36,7 @@ void OI::boostrap() {
     this->remoteSystem = new HurricaneRemoteSystem;
     this->chassisSystem = new HurricaneChassisSystem;
     this->armSystem = new HurricaneArmSystem;
-    this->usSystemChassis = new HurricaneUltrasonicSystem(US_INPUT_GPIO_Port, US_INPUT_Pin, US_OUTPUT_Pin);
+    this->usSystemChassis = new HurricaneUltrasonicSystem(US_TRIG_GPIO_Port, US_TRIG_Pin, US_ECHO_GPIO_Port, US_ECHO_Pin);
 
     OK(this->debugSystem->initialize());
     OK(this->debugSystem->info("OI", "---- booting sequence ----"));
@@ -54,17 +54,16 @@ void OI::boostrap() {
     OK(this->debugSystem->info("OI", "--- system initialized ---"));
 
     this->task = mainTask();
-    this->task->initialize();
+    OK(this->task->initialize());
 }
 
 
 
 void OI::loop() {
     // update data source
-    OK(this->IMUSystem->update());
     OK(this->debugSystem->alive());
+    OK(this->IMUSystem->update());
     OK(this->usSystemChassis->update());
-
 
     // update tasks
     OK(this->task->update());
