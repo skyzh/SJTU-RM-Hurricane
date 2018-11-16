@@ -7,16 +7,18 @@
 
 #include "CAHRR/src/ChassisSystem.h"
 #include "CAHRR/src/PIDAccumulator.h"
+#include "CAHRR/src/RampAccumulator.h"
 
-const int CHASSIS_FL_ID = 1;
-const int CHASSIS_FR_ID = 2;
+const int CHASSIS_FL_ID = 2;
+const int CHASSIS_FR_ID = 1;
 const int CHASSIS_BL_ID = 3;
 const int CHASSIS_BR_ID = 4;
 
 class HurricaneChassisSystem {
 private:
     double bf, lr, rot;
-    PIDAccumulator *fl, *fr, *bl, *br;
+    PIDRateAccumulator *fl, *fr, *bl, *br;
+    RampAccumulator *rfl, *rfr, *rbl, *rbr;
 public:
     HurricaneChassisSystem();
 

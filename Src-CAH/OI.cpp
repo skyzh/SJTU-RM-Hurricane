@@ -74,12 +74,12 @@ void OI::loop() {
     OK(this->task->update());
 
     // update user systems
-    // OK(this->chassisSystem->update());
-    // OK(this->armSystem->update());
+    OK(this->chassisSystem->update());
+    OK(this->armSystem->update());
 
     // update data destination
     OK(this->remoteSystem->update());
-    // OK(this->CANSystem->update());
+    OK(this->CANSystem->update());
     HAL_Delay(10);
 }
 

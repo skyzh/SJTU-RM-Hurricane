@@ -45,7 +45,6 @@ bool HurricaneUltrasonicSystem::trigger() {
         }
     } else if (this->status == UTS_STATUS_ECHO) {
         if (HAL_GPIO_ReadPin(this->gpio_echo, this->echo_pin)) {
-            oi->debugSystem->info("UTS", std::to_string(HAL_GetTick() - this->lst_trigger_up));
             this->status = UTS_STATUS_PENDING;
             this->send_data();
         }

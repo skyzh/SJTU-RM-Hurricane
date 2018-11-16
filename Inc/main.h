@@ -49,8 +49,6 @@
 
 /* Private define ------------------------------------------------------------*/
 
-#define MAGNET_Pin GPIO_PIN_4
-#define MAGNET_GPIO_Port GPIOH
 #define STAT8_Pin GPIO_PIN_8
 #define STAT8_GPIO_Port GPIOG
 #define STAT7_Pin GPIO_PIN_7
@@ -73,7 +71,6 @@
 #define UTS_TRIGGER_GPIO_Port GPIOA
 #define UTS_ECHO_Pin GPIO_PIN_5
 #define UTS_ECHO_GPIO_Port GPIOA
-#define UTS_ECHO_EXTI_IRQn EXTI9_5_IRQn
 #define LED_GREEN_Pin GPIO_PIN_14
 #define LED_GREEN_GPIO_Port GPIOF
 #define LED_RED_Pin GPIO_PIN_7

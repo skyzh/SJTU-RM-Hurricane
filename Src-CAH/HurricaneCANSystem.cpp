@@ -14,6 +14,7 @@
 #define CAN_SYSTEM_F0 CAN_IT_RX_FIFO0_MSG_PENDING | CAN_IT_TX_MAILBOX_EMPTY
 #define CAN_SYSTEM_F1 CAN_IT_RX_FIFO1_MSG_PENDING | CAN_IT_TX_MAILBOX_EMPTY
 #define CAN_SYSTEM_ID_BASE 0x200
+#define CAN_SYSTEM_ID_SEND_1_4 0x200
 
 __weak void HURRICANE_CAN0_2_DATA() {
 }
@@ -50,7 +51,7 @@ bool HurricaneCANSystem::initialize() {
     memset(this->can_recv_data_available, 0, sizeof(this->can_recv_data_available));
 
     // intialize tx header
-    this->TxHeader.StdId = CAN_SYSTEM_ID_BASE;
+    this->TxHeader.StdId = CAN_SYSTEM_ID_SEND_1_4;
     this->TxHeader.ExtId = 0x01;
     this->TxHeader.RTR = CAN_RTR_DATA;
     this->TxHeader.IDE = CAN_ID_STD;
@@ -96,7 +97,6 @@ bool HurricaneCANSystem::data(int can_id) {
         this->can_recv_data[id][i] = (RxData[i << 1] << 8) | RxData[(i << 1) | 1];
         this->can_recv_data_available[id][i] = true;
     }
-    HURRICANE_CAN0_2_DATA();
     return true;
 }
 
