@@ -247,7 +247,6 @@ void CAN1_RX0_IRQHandler(void)
 void EXTI9_5_IRQHandler(void)
 {
   /* USER CODE BEGIN EXTI9_5_IRQn 0 */
-
   /* USER CODE END EXTI9_5_IRQn 0 */
   HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_5);
   /* USER CODE BEGIN EXTI9_5_IRQn 1 */
@@ -368,6 +367,20 @@ void CAN2_RX0_IRQHandler(void)
 }
 
 /* USER CODE BEGIN 1 */
+void Hurricane_HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin);
+void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin) {
+    Hurricane_HAL_GPIO_EXTI_Callback(GPIO_Pin);
+}
+
+void Hurricane_HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef *hcan);
+void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef *hcan) {
+    Hurricane_HAL_CAN_RxFifo0MsgPendingCallback(hcan);
+}
+
+void Hurricane_HAL_CAN_TxMailbox0CompleteCallback(CAN_HandleTypeDef *hcan);
+void HAL_CAN_TxMailbox0CompleteCallback(CAN_HandleTypeDef *hcan) {
+    Hurricane_HAL_CAN_TxMailbox0CompleteCallback(hcan);
+}
 
 /* USER CODE END 1 */
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

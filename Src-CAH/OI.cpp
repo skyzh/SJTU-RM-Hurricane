@@ -26,7 +26,7 @@ extern "C" void charr_loop() {
     oi->loop();
 }
 
-Task* mainTask();
+Task *mainTask();
 
 void OI::boostrap() {
     // initialize sequence
@@ -36,7 +36,10 @@ void OI::boostrap() {
     this->remoteSystem = new HurricaneRemoteSystem;
     this->chassisSystem = new HurricaneChassisSystem;
     this->armSystem = new HurricaneArmSystem;
-    this->usSystemChassis = new HurricaneUltrasonicSystem(US_TRIG_GPIO_Port, US_TRIG_Pin, US_ECHO_GPIO_Port, US_ECHO_Pin);
+    this->usSystemChassis = new HurricaneUltrasonicSystem(UTS_TRIGGER_GPIO_Port,
+                                                          UTS_TRIGGER_Pin,
+                                                          UTS_ECHO_GPIO_Port,
+                                                          UTS_ECHO_Pin);
 
     OK(this->debugSystem->initialize());
     OK(this->debugSystem->info("OI", "---- booting sequence ----"));
@@ -48,6 +51,7 @@ void OI::boostrap() {
     OK(this->debugSystem->info("OI", "---- user application ----"));
 
     OK(this->chassisSystem->initialize());
+
     OK(this->armSystem->initialize());
     OK(this->usSystemChassis->initialize());
 
@@ -58,6 +62,7 @@ void OI::boostrap() {
 }
 
 
+int _cnt = 0;
 
 void OI::loop() {
     // update data source
@@ -69,16 +74,19 @@ void OI::loop() {
     OK(this->task->update());
 
     // update user systems
-    OK(this->chassisSystem->update());
-    OK(this->armSystem->update());
+    // OK(this->chassisSystem->update());
+    // OK(this->armSystem->update());
 
     // update data destination
-    this->remoteSystem->update();
-    this->CANSystem->update();
-
+    OK(this->remoteSystem->update());
+    // OK(this->CANSystem->update());
     HAL_Delay(10);
 }
 
 extern "C" void hurricane_error_handler(char *file, int line) {
     oi->debugSystem->error("ERR", std::string(file) + "@" + std::to_string(line));
+}
+
+extern "C" void hurricane_debug(const char *info) {
+    oi->debugSystem->info("DBG", info);
 }

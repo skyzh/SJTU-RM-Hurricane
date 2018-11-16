@@ -58,7 +58,8 @@ bool MainTask::update() {
     int16_t output = (PID_clamp(data + sgn(error) * Kf, -PID_BOUND, PID_BOUND));
     if (cnt % 20 == 0) {
         // sprintf(buf, "cur%3d err%3d out%3d %5d", (int) accumulator->get_round(), (int)error, output, (int) oi->usSystemChassis->distance() * 100);
-        sprintf(buf, "%d cnt%d res%d", oi->usSystemChassis->time(), __cnt, __res);
+        // sprintf(buf, "%d cnt%d res%d", oi->usSystemChassis->time(), __cnt, __res);
+        sprintf(buf, "time %d", oi->usSystemChassis->time());
         // oi->debugSystem->info("OI", buf);
         oi->debugSystem->info("MTK", buf);
     }
@@ -67,13 +68,6 @@ bool MainTask::update() {
         target = -target;
 
     }
-    if (HAL_GPIO_ReadPin(US_ECHO_GPIO_Port, US_ECHO_Pin) == GPIO_PIN_SET) {
-        __cnt++;
-    } else if (HAL_GPIO_ReadPin(US_ECHO_GPIO_Port, US_ECHO_Pin) == GPIO_PIN_RESET) {
-        __res++;
-    }
-
-    oi->CANSystem->set(2, 0);
     return true;
 }
 
