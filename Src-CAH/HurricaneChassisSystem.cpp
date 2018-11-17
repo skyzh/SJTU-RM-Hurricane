@@ -10,10 +10,10 @@
 
 const int M3508_SPEED_ID = 1;
 const int M3508_CURRENT_ID = 2;
-const double Kp = 0.03, Ki = 0.01, Kd = 0.05;
-const int output_limit = 8000;
-const int max_rpm = 4000;
-const double ramp_limit = 2;
+const double Kp = 3.0, Ki = 0, Kd = 1.5;
+const int output_limit = 15000;
+const int max_rpm = 5000;
+const double ramp_limit = 80;
 
 template <typename T>
 inline T chassis_clamp(T in, T min, T max) {
