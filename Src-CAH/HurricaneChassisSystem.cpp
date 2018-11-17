@@ -9,44 +9,32 @@
 #include "hal.h"
 
 const int M3508_SPEED_ID = 1;
-const double Kp = 0.2, Ki = 0.0, Kd = 0.0;
-const int output_limit = 500;
-const int max_rpm = 500;
-const int ramp_limit = 10;
+const int M3508_CURRENT_ID = 2;
+const double Kp = 0.03, Ki = 0.01, Kd = 0.05;
+const int output_limit = 8000;
+const int max_rpm = 4000;
+const double ramp_limit = 2;
 
-inline double chassis_clamp(double in, double min, double max) {
+template <typename T>
+inline T chassis_clamp(T in, T min, T max) {
     return (in < min ? min : (in > max ? max : in));
 }
 
 HurricaneChassisSystem::HurricaneChassisSystem() {
-    this->fl = new PIDRateAccumulator();
-    this->fr = new PIDRateAccumulator();
-    this->bl = new PIDRateAccumulator();
-    this->br = new PIDRateAccumulator();
-    this->fl->set_pid(Kp, Ki, Kd);
-    this->fr->set_pid(Kp, Ki, Kd);
-    this->bl->set_pid(Kp, Ki, Kd);
-    this->br->set_pid(Kp, Ki, Kd);
-    this->fl->set_output(-output_limit, output_limit);
-    this->fr->set_output(-output_limit, output_limit);
-    this->bl->set_output(-output_limit, output_limit);
-    this->br->set_output(-output_limit, output_limit);
-    this->rfl = new RampAccumulator(ramp_limit);
-    this->rfr = new RampAccumulator(ramp_limit);
-    this->rbl = new RampAccumulator(ramp_limit);
-    this->rbr = new RampAccumulator(ramp_limit);
-    this->rfl->reset();
-    this->rfr->reset();
-    this->rbl->reset();
-    this->rbr->reset();
+    for (int i = 0; i < 4; i++) {
+        this->pid_acc[i] = new PIDRateAccumulator();
+        this->pid_acc[i]->set_pid(Kp, Ki, Kd);
+        this->pid_acc[i]->set_output(-output_limit, output_limit);
+        this->ramp_acc[i] = new RampAccumulator<double>(ramp_limit);
+    }
 }
 
 bool HurricaneChassisSystem::initialize() {
     OK(oi->debugSystem->info("CHA", "chassis system initialize"));
-    this->fl->reset();
-    this->fr->reset();
-    this->bl->reset();
-    this->br->reset();
+    for (int i = 0; i < 4; i++) {
+        this->pid_acc[i]->reset();
+        this->ramp_acc[i]->reset();
+    }
     OK(oi->debugSystem->info("CHA", "  ... complete"));
     return true;
 }
@@ -55,50 +43,47 @@ char _buf[1000];
 int ___cnt = 0;
 bool HurricaneChassisSystem::update() {
     double bf = this->bf, lr = this->lr;
-    double rotate_speed = this->rot + bf * 0.01 + lr * 0.01;
+    double rotate_speed = (this->rot + bf * 0.01 + lr * 0.01) * 1.0;
     double target[4] = {
-            (bf + lr + rotate_speed) / 2.0 * max_rpm,
-            (-bf + lr + rotate_speed) / 2.0 * max_rpm,
-            (bf - lr + rotate_speed) / 2.0 * max_rpm,
-            (-bf - lr + rotate_speed) / 2.0 * max_rpm
+            chassis_clamp(bf + lr + rotate_speed, -2.0, 2.0) / 2.0 * max_rpm,
+            chassis_clamp(-bf + lr + rotate_speed, -2.0, 2.0) / 2.0 * max_rpm,
+            chassis_clamp(bf - lr + rotate_speed, -2.0, 2.0) / 2.0 * max_rpm,
+            chassis_clamp(-bf - lr + rotate_speed, -2.0, 2.0) / 2.0 * max_rpm
     };
-    int16_t data[4] = {
-            (int16_t) oi->CANSystem->get(CHASSIS_FL_ID, M3508_SPEED_ID),
-            (int16_t) oi->CANSystem->get(CHASSIS_FR_ID, M3508_SPEED_ID),
-            (int16_t) oi->CANSystem->get(CHASSIS_BL_ID, M3508_SPEED_ID),
-            (int16_t) oi->CANSystem->get(CHASSIS_BR_ID, M3508_SPEED_ID)
+    int16_t spd[4] = {
+        (int16_t) oi->CANSystem->get(CHASSIS_FL_ID, M3508_SPEED_ID),
+        (int16_t) oi->CANSystem->get(CHASSIS_FR_ID, M3508_SPEED_ID),
+        (int16_t) oi->CANSystem->get(CHASSIS_BL_ID, M3508_SPEED_ID),
+        (int16_t) oi->CANSystem->get(CHASSIS_BR_ID, M3508_SPEED_ID)
     };
-    double err[4] = {
-            target[0] - data[0],
-            target[1] - data[1],
-            target[2] - data[2],
-            target[3] - data[3]
+    int16_t current[4] = {
+        (int16_t) oi->CANSystem->get(CHASSIS_FL_ID, M3508_CURRENT_ID),
+        (int16_t) oi->CANSystem->get(CHASSIS_FR_ID, M3508_CURRENT_ID),
+        (int16_t) oi->CANSystem->get(CHASSIS_BL_ID, M3508_CURRENT_ID),
+        (int16_t) oi->CANSystem->get(CHASSIS_BR_ID, M3508_CURRENT_ID)
     };
-    int16_t pid[4] = {
-            (int16_t) chassis_clamp(this->fl->calc(err[0]), -output_limit, output_limit),
-            (int16_t) chassis_clamp(this->fr->calc(err[1]), -output_limit, output_limit),
-            (int16_t) chassis_clamp(this->bl->calc(err[2]), -output_limit, output_limit),
-            (int16_t) chassis_clamp(this->br->calc(err[3]), -output_limit, output_limit)
-    };
-    int16_t output[4] = {
-            (int16_t) this->rfl->calc(pid[0]),
-            (int16_t) this->rfl->calc(pid[1]),
-            (int16_t) this->rfl->calc(pid[2]),
-            (int16_t) this->rfl->calc(pid[3])
-    };
-    if ((___cnt = ___cnt + 1) % 10 == 0) {
+    int16_t output[4] = { 0 };
+
+    for (int i = 0; i < 4; i++) {
+        double err = target[i] - spd[i];
+        int16_t pid = chassis_clamp<double>(this->pid_acc[i]->calc(err), -output_limit, output_limit);
+        this->ramp_acc[i]->data(pid);
+        output[i] = this->ramp_acc[i]->calc(pid);
+    }
+
+    if ((___cnt = ___cnt + 1) % 20 == 0) {
         sprintf(_buf, "out %d %d %d %d", (int16_t)output[0], (int16_t)output[1], (int16_t)output[2], (int16_t)output[3]);
         oi->debugSystem->info("CHA", _buf);
         sprintf(_buf, "tar %f %f %f %f", target[0], target[1], target[2], target[3]);
-        oi->debugSystem->info("CHA", _buf);
-        sprintf(_buf, "err %f %f %f %f", err[0], err[1], err[2], err[3]);
+        // oi->debugSystem->info("CHA", _buf);
+        sprintf(_buf, "spd %d %d %d %d", spd[0], spd[1], spd[2], spd[3]);
         oi->debugSystem->info("CHA", _buf);
     }
 
-    OK(oi->CANSystem->set(CHASSIS_FL_ID, 200));
-    OK(oi->CANSystem->set(CHASSIS_FR_ID, 200));
-    OK(oi->CANSystem->set(CHASSIS_BL_ID, 200));
-    OK(oi->CANSystem->set(CHASSIS_BR_ID, 200));
+    OK(oi->CANSystem->set(CHASSIS_FL_ID, output[0]));
+    OK(oi->CANSystem->set(CHASSIS_FR_ID, output[1]));
+    OK(oi->CANSystem->set(CHASSIS_BL_ID, output[2]));
+    OK(oi->CANSystem->set(CHASSIS_BR_ID, output[3]));
     return true;
 }
 

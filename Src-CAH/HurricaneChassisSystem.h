@@ -17,8 +17,8 @@ const int CHASSIS_BR_ID = 4;
 class HurricaneChassisSystem {
 private:
     double bf, lr, rot;
-    PIDRateAccumulator *fl, *fr, *bl, *br;
-    RampAccumulator *rfl, *rfr, *rbl, *rbr;
+    PIDRateAccumulator *pid_acc[4];
+    RampAccumulator <double> *ramp_acc[4];
 public:
     HurricaneChassisSystem();
 

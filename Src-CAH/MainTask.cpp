@@ -35,7 +35,7 @@ bool MainTask::isEnd() {
 char buf[1000];
 
 bool MainTask::update() {
-    oi->chassisSystem->setSpeed(oi->remoteSystem->getAxis(1) / AXIS_MAX, oi->remoteSystem->getAxis(0) / AXIS_MAX, 0);
+    oi->chassisSystem->setSpeed(oi->remoteSystem->getAxis(1) / AXIS_MAX, oi->remoteSystem->getAxis(0) / AXIS_MAX, oi->remoteSystem->getAxis(2) / AXIS_MAX);
     return true;
 }
 

@@ -23,19 +23,11 @@
   <component name="ChangeListManager">
     <list default="true" id="9ce180b9-48da-41d7-89af-d901ef429b13" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hurricane.ioc" beforeDir="false" afterPath="$PROJECT_DIR$/Hurricane.ioc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Inc/main.h" beforeDir="false" afterPath="$PROJECT_DIR$/Inc/main.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Inc/stm32f4xx_it.h" beforeDir="false" afterPath="$PROJECT_DIR$/Inc/stm32f4xx_it.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Src-CAH/CAHRR" beforeDir="false" afterPath="$PROJECT_DIR$/Src-CAH/CAHRR" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Src-CAH/CAHRR/mock/MockDebugSystem.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Src-CAH/CAHRR/mock/MockDebugSystem.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Src-CAH/HurricaneCANSystem.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Src-CAH/HurricaneCANSystem.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Src-CAH/HurricaneChassisSystem.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Src-CAH/HurricaneChassisSystem.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Src-CAH/HurricaneChassisSystem.h" beforeDir="false" afterPath="$PROJECT_DIR$/Src-CAH/HurricaneChassisSystem.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Src-CAH/HurricaneUltrasonicSystem.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Src-CAH/HurricaneUltrasonicSystem.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Src-CAH/MainTask.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Src-CAH/MainTask.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Src-CAH/OI.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Src-CAH/OI.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Src/gpio.c" beforeDir="false" afterPath="$PROJECT_DIR$/Src/gpio.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Src/stm32f4xx_it.c" beforeDir="false" afterPath="$PROJECT_DIR$/Src/stm32f4xx_it.c" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -49,15 +41,16 @@
     <session id="-1304892843">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="25" />
+          <entry key="project.closed" value="27" />
           <entry key="project.open.time.0" value="2" />
-          <entry key="project.open.time.1" value="6" />
+          <entry key="project.open.time.1" value="7" />
           <entry key="project.open.time.3" value="2" />
+          <entry key="project.open.time.4" value="1" />
           <entry key="project.open.time.5" value="3" />
           <entry key="project.open.time.6" value="8" />
           <entry key="project.open.time.7" value="3" />
           <entry key="project.open.time.9" value="1" />
-          <entry key="project.opened" value="25" />
+          <entry key="project.opened" value="27" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -89,8 +82,8 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="c" value="525" />
-          <entry key="cpp" value="16294" />
-          <entry key="h" value="3085" />
+          <entry key="cpp" value="17388" />
+          <entry key="h" value="3139" />
           <entry key="txt" value="323" />
         </counts>
       </usages-collector>
@@ -98,7 +91,7 @@
         <counts>
           <entry key="CMakeLists.txt" value="162" />
           <entry key="Doxygen file" value="2" />
-          <entry key="ObjectiveC" value="19902" />
+          <entry key="ObjectiveC" value="21050" />
           <entry key="PLAIN_TEXT" value="161" />
         </counts>
       </usages-collector>
@@ -111,10 +104,11 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Src-CAH/HurricaneChassisSystem.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="303">
-              <caret line="87" column="6" selection-start-line="87" selection-start-column="6" selection-end-line="87" selection-end-column="6" />
+            <state relative-caret-position="204">
+              <caret line="12" column="33" selection-start-line="12" selection-start-column="33" selection-end-line="12" selection-end-column="33" />
               <folding>
                 <element signature="e#45#80#0" expanded="true" />
+                <element signature="e#380#392#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -123,8 +117,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Src-CAH/HurricaneChassisSystem.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="20" column="43" selection-start-line="20" selection-start-column="43" selection-end-line="20" selection-end-column="43" />
+            <state>
+              <caret column="2" selection-start-column="2" selection-end-column="2" />
               <folding>
                 <element signature="e#132#168#0" expanded="true" />
               </folding>
@@ -135,7 +129,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Src-CAH/HurricaneUltrasonicSystem.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
+            <state relative-caret-position="153">
               <caret line="11" column="29" selection-start-line="11" selection-start-column="29" selection-end-line="11" selection-end-column="29" />
               <folding>
                 <element signature="e#138#154#0" expanded="true" />
@@ -149,6 +143,9 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="119">
               <caret line="7" selection-start-line="7" selection-end-line="7" />
+              <folding>
+                <element signature="e#124#140#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -156,8 +153,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Src-CAH/HurricaneCANSystem.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1581">
-              <caret line="93" column="32" selection-start-line="93" selection-start-column="32" selection-end-line="93" selection-end-column="32" />
+            <state relative-caret-position="385">
+              <caret line="82" selection-start-line="82" selection-end-line="82" />
             </state>
           </provider>
         </entry>
@@ -165,8 +162,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Src-CAH/MainTask.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="680">
-              <caret line="40" selection-start-line="40" selection-end-line="40" />
+            <state relative-caret-position="406">
+              <caret line="37" column="141" selection-start-line="37" selection-start-column="141" selection-end-line="37" selection-end-column="141" />
               <folding>
                 <element signature="e#45#85#0" expanded="true" />
               </folding>
@@ -186,7 +183,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Src-CAH/OI.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1241">
+            <state relative-caret-position="662">
               <caret line="73" column="29" selection-start-line="73" selection-start-column="29" selection-end-line="73" selection-end-column="29" />
               <folding>
                 <element signature="e#45#62#0" expanded="true" />
@@ -307,8 +304,8 @@
         <option value="$PROJECT_DIR$/Src-CAH/OI.cpp" />
         <option value="$PROJECT_DIR$/Src-CAH/HurricaneCANSystem.cpp" />
         <option value="$PROJECT_DIR$/Src-CAH/HurricaneUltrasonicSystem.cpp" />
-        <option value="$PROJECT_DIR$/Src-CAH/MainTask.cpp" />
         <option value="$PROJECT_DIR$/Src-CAH/HurricaneChassisSystem.h" />
+        <option value="$PROJECT_DIR$/Src-CAH/MainTask.cpp" />
         <option value="$PROJECT_DIR$/Src-CAH/HurricaneChassisSystem.cpp" />
       </list>
     </option>
@@ -332,6 +329,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -364,7 +362,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -506,11 +503,13 @@
       <workItem from="1542365815837" duration="6233000" />
       <workItem from="1542379949782" duration="738000" />
       <workItem from="1542386379325" duration="377000" />
+      <workItem from="1542386819176" duration="1278000" />
+      <workItem from="1542429254226" duration="2874000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="64317000" />
+    <option name="totallyTimeSpent" value="68469000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -523,9 +522,8 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.12576313" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.12820514" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -823,61 +821,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Src-CAH/HurricaneUltrasonicSystem.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="29" selection-start-line="11" selection-start-column="29" selection-end-line="11" selection-end-column="29" />
-          <folding>
-            <element signature="e#138#154#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Src-CAH/HurricaneCANSystem.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" selection-start-line="7" selection-end-line="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Src-CAH/HurricaneCANSystem.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1581">
-          <caret line="93" column="32" selection-start-line="93" selection-start-column="32" selection-end-line="93" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Src-CAH/MainTask.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="680">
-          <caret line="40" selection-start-line="40" selection-end-line="40" />
-          <folding>
-            <element signature="e#45#85#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Src-CAH/HurricaneUltrasonicSystem.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="782">
           <caret line="46" column="64" selection-start-line="46" selection-start-column="64" selection-end-line="46" selection-end-column="64" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Src-CAH/OI.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1241">
-          <caret line="73" column="29" selection-start-line="73" selection-start-column="29" selection-end-line="73" selection-end-column="29" />
-          <folding>
-            <element signature="e#45#62#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Src-CAH/MainTask.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="25" selection-start-line="25" selection-end-line="25" />
         </state>
       </provider>
     </entry>
@@ -891,10 +838,64 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Src-CAH/MainTask.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="25" selection-start-line="25" selection-end-line="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Src-CAH/HurricaneCANSystem.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="385">
+          <caret line="82" selection-start-line="82" selection-end-line="82" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Src-CAH/HurricaneUltrasonicSystem.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="11" column="29" selection-start-line="11" selection-start-column="29" selection-end-line="11" selection-end-column="29" />
+          <folding>
+            <element signature="e#138#154#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Src-CAH/OI.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="662">
+          <caret line="73" column="29" selection-start-line="73" selection-start-column="29" selection-end-line="73" selection-end-column="29" />
+          <folding>
+            <element signature="e#45#62#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Src-CAH/MainTask.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="406">
+          <caret line="37" column="141" selection-start-line="37" selection-start-column="141" selection-end-line="37" selection-end-column="141" />
+          <folding>
+            <element signature="e#45#85#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Src-CAH/HurricaneCANSystem.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" selection-start-line="7" selection-end-line="7" />
+          <folding>
+            <element signature="e#124#140#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Src-CAH/HurricaneChassisSystem.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="20" column="43" selection-start-line="20" selection-start-column="43" selection-end-line="20" selection-end-column="43" />
+        <state>
+          <caret column="2" selection-start-column="2" selection-end-column="2" />
           <folding>
             <element signature="e#132#168#0" expanded="true" />
           </folding>
@@ -903,10 +904,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Src-CAH/HurricaneChassisSystem.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="303">
-          <caret line="87" column="6" selection-start-line="87" selection-start-column="6" selection-end-line="87" selection-end-column="6" />
+        <state relative-caret-position="204">
+          <caret line="12" column="33" selection-start-line="12" selection-start-column="33" selection-end-line="12" selection-end-column="33" />
           <folding>
             <element signature="e#45#80#0" expanded="true" />
+            <element signature="e#380#392#0" expanded="true" />
           </folding>
         </state>
       </provider>
