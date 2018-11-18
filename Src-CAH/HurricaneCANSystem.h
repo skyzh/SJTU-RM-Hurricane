@@ -19,10 +19,13 @@ private:
     bool can_recv_data_available[CAN_MAX_CAN_ID + 1][CAN_MAX_DATA_ID];
 
     CAN_FilterTypeDef sFilterConfig;
-    CAN_TxHeaderTypeDef TxHeader;
+    // TODO: check if only one header and data is enough
+    CAN_TxHeaderTypeDef TxHeader1;
+    CAN_TxHeaderTypeDef TxHeader2;
     CAN_RxHeaderTypeDef RxHeader;
     uint8_t RxData[8];
-    uint8_t TxData[8];
+    uint8_t TxData1[8];
+    uint8_t TxData2[8];
     uint32_t TxMailbox;
 
     int can_id;

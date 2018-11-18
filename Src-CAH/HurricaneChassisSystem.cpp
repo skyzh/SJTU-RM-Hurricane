@@ -11,12 +11,8 @@
 
 const int M3508_SPEED_ID = 1;
 const int M3508_CURRENT_ID = 2;
-const double output_limit = 15000.0;
-const int max_rpm = 5000;
-const double ramp_limit = 80;
 
-HurricaneChassisSystem::HurricaneChassisSystem() {
-    const double Kp = 3.0, Ki = 0, Kd = 1.5;
+HurricaneChassisSystem::HurricaneChassisSystem() : bf(0), lr(0), rot(0) {
     for (int i = 0; i < 4; i++) {
         this->pid_acc[i] = new PIDRateAccumulator();
         this->pid_acc[i]->set_pid(Kp, Ki, Kd);
@@ -31,6 +27,11 @@ bool HurricaneChassisSystem::initialize() {
         this->pid_acc[i]->reset();
         this->ramp_acc[i]->reset();
     }
+    this->bf = this->lr = this->rot = 0;
+    OK(oi->CANSystem->set(CHASSIS_FL_ID, 0));
+    OK(oi->CANSystem->set(CHASSIS_FR_ID, 0));
+    OK(oi->CANSystem->set(CHASSIS_BL_ID, 0));
+    OK(oi->CANSystem->set(CHASSIS_BR_ID, 0));
     OK(oi->debugSystem->info("CHA", "  ... complete"));
     return true;
 }

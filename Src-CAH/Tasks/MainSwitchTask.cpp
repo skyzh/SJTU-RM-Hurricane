@@ -13,3 +13,11 @@ bool MainSwitchTask::when() {
 MainSwitchTask::MainSwitchTask(Task *task1, Task *task2) : ConditionSwitchTask(task1, task2) {
 
 }
+
+bool MainSwitchSwitchTask::when() {
+    return oi->remoteSystem->getButton(CTR_SW1) == 2;
+}
+
+MainSwitchSwitchTask::MainSwitchSwitchTask(Task *task1, Task *task2) : ConditionSwitchTask(task1, task2) {
+
+}

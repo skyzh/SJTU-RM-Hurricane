@@ -46,7 +46,6 @@ bool GyroDriveTask::update() {
             sprintf(__buf, "%f %f %f | %f | %f %f %f", oi->IMUSystem->get(IMU_PIT),
                     oi->IMUSystem->get(IMU_ROL),
                     oi->IMUSystem->get(IMU_YAW), output, Kp, Ki, Kd);
-            oi->debugSystem->info("GYRO", __buf);
     HDEBUG_END()
 /*
     HDEBUG_ONCE_BEGIN(oi->remoteSystem->getAxis(CTR_CH1) == 660)

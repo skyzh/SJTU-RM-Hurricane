@@ -14,5 +14,12 @@ public:
     MainSwitchTask(Task *task1, Task *task2);
 };
 
+class MainSwitchSwitchTask : public ConditionSwitchTask {
+public:
+    virtual bool when();
+
+    MainSwitchSwitchTask(Task *task1, Task *task2);
+};
+
 
 #endif //HURRICANE_MAINSWITCHTASK_H

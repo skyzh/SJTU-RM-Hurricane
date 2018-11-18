@@ -51,6 +51,8 @@
 
 #define STAT8_Pin GPIO_PIN_8
 #define STAT8_GPIO_Port GPIOG
+#define MOTOR_OUTPUT_1_Pin GPIO_PIN_5
+#define MOTOR_OUTPUT_1_GPIO_Port GPIOH
 #define STAT7_Pin GPIO_PIN_7
 #define STAT7_GPIO_Port GPIOG
 #define STAT6_Pin GPIO_PIN_6

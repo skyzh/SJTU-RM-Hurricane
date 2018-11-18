@@ -4,8 +4,10 @@
 
 #include "TankDriveTask.h"
 #include "../OI.h"
-#include "../HurricaneChassisSystem.h"
-#include "../HurricaneRemoteSystem.h"
+#include "HurricaneChassisSystem.h"
+#include "HurricaneRemoteSystem.h"
+#include "HurricaneDebugSystem.h"
+
 const double AXIS_MAX = 660;
 
 TankDriveTask::TankDriveTask() : Task() {
@@ -27,6 +29,7 @@ bool TankDriveTask::isEnd() {
 }
 
 bool TankDriveTask::update() {
-    oi->chassisSystem->setSpeed(oi->remoteSystem->getAxis(1) / AXIS_MAX, oi->remoteSystem->getAxis(0) / AXIS_MAX, oi->remoteSystem->getAxis(2) / AXIS_MAX);
+    oi->chassisSystem->setSpeed(oi->remoteSystem->getAxis(1) / AXIS_MAX, oi->remoteSystem->getAxis(0) / AXIS_MAX,
+                                oi->remoteSystem->getAxis(2) / AXIS_MAX);
     return true;
 }

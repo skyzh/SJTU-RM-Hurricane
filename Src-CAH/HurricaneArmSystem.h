@@ -5,8 +5,21 @@
 #ifndef HURRICANE_HURRICANEARMSYSTEM_H
 #define HURRICANE_HURRICANEARMSYSTEM_H
 
+#include "CAHRR/src/PIDAccumulator.h"
+#include "CAHRR/src/RampAccumulator.h"
+#include "CAHRR/src/RotateAccumulator.h"
+#include "OI.h"
 
-class HurricaneArmSystem{
+const int ARM_BOTTOM_ID = 5;
+
+class HurricaneArmSystem {
+private:
+    PIDDisplacementAccumulator *pid_bottom;
+    RampAccumulator <double> *ramp_bottom;
+    RotateAccumulator *accumulator_bottom;
+    double position;
+    // TODO: check if this flag is needed
+    bool data_available_bottom;
 public:
     HurricaneArmSystem();
 
@@ -16,8 +29,9 @@ public:
 
     bool destroy();
 
-    bool setPosition(double location);
-};
+    bool setPosition(double position);
 
+    void data();
+};
 
 #endif //HURRICANE_HURRICANEARMSYSTEM_H
