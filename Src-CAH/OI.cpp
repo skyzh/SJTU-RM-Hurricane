@@ -36,10 +36,7 @@ void OI::boostrap() {
     this->remoteSystem = new HurricaneRemoteSystem;
     this->chassisSystem = new HurricaneChassisSystem;
     this->armSystem = new HurricaneArmSystem;
-    this->usSystemChassis = new HurricaneUltrasonicSystem(UTS_TRIGGER_GPIO_Port,
-                                                          UTS_TRIGGER_Pin,
-                                                          UTS_ECHO_GPIO_Port,
-                                                          UTS_ECHO_Pin);
+    this->usSystemChassis = new HurricaneUltrasonicSystem(&htim8, TIM_CHANNEL_1, TIM_CHANNEL_3);
 
     OK(this->debugSystem->initialize());
     OK(this->debugSystem->info("OI", "---- booting sequence ----"));

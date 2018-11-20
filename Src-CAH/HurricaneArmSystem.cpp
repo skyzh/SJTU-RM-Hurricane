@@ -8,13 +8,16 @@
 #include "HurricaneDebugSystem.h"
 #include "HurricaneCANSystem.h"
 #include "CAHRR/src/utils.h"
+#include "CAHRR/src/DeltaAccumulator.h"
+
 #include <cmath>
 
 #define HURRICANE_ARM_DEBUG
+#define HURRICANE_ARM_DISABLE
 
-const int ramp_limit = 1000;
-const double Kp = 8.0, Ki = 0.001, Kd = 1.0;
-const double output_limit = 1000;
+const int ramp_limit = 2000;
+const double Kp = 20.0, Ki = 0.01, Kd = 1.0;
+const double output_limit = 2000;
 const int M2006_ANGLE_ID = 0;
 const int M2006_MAX_ANGLE = 8192;
 const double Kf = 500.0;
@@ -50,24 +53,31 @@ bool HurricaneArmSystem::initialize() {
     return true;
 }
 
+DeltaAccumulator <int> *timeDelta = new DeltaAccumulator<int>();
+DeltaAccumulator <double> *posDelta = new DeltaAccumulator<double>();
+
 bool HurricaneArmSystem::update() {
+
     double arm_bottom_pos = this->accumulator_bottom->get_round() +
                             this->accumulator_bottom->get_overflow() / (double) M2006_MAX_ANGLE;
     double arm_bottom_err = this->position - arm_bottom_pos;
+
     int16_t arm_bottom_pid = clamp(this->pid_bottom->calc(arm_bottom_err), -output_limit, output_limit);
     this->ramp_bottom->data(arm_bottom_pid);
     int16_t arm_bottom_output = this->ramp_bottom->calc(arm_bottom_pid);
     int16_t feed_forward = (sin(arm_bottom_pos / 36.0 * 2 * PI)) * Kf;
     arm_bottom_output = clamp<double>(arm_bottom_output + feed_forward, -output_limit, output_limit);
 #ifdef HURRICANE_ARM_DEBUG
-    HDEBUG_BEGIN(1000)
+    HDEBUG_BEGIN(100)
             sprintf(_buf, "ff %d pos%f err%f out%d tar%f out%d", feed_forward,
                     arm_bottom_pos, arm_bottom_err, arm_bottom_output, position, (int16_t)oi->CANSystem->get(ARM_BOTTOM_ID, 2));
+            /*sprintf(_buf, "spd %f tq %d", posDelta->delta(arm_bottom_pos) / timeDelta->delta(HAL_GetTick()) * 1000.0, (int16_t) oi->CANSystem->get(ARM_BOTTOM_ID, 2);*/
             oi->debugSystem->info("CHA", _buf);
     HDEBUG_END()
 #endif
-
+#ifndef HURRICANE_ARM_DISABLE
     OK(oi->CANSystem->set(ARM_BOTTOM_ID, arm_bottom_output));
+#endif
     return true;
 }
 
@@ -86,7 +96,6 @@ void HurricaneArmSystem::data() {
         this->data_available_bottom) {
         this->data_available_bottom = true;
         this->accumulator_bottom->data(oi->CANSystem->get(ARM_BOTTOM_ID, M2006_ANGLE_ID));
-        this->update();
     }
 }
 

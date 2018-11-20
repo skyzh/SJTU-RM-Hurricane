@@ -11,18 +11,13 @@
 
 class HurricaneUltrasonicSystem : public UltrasonicSystem {
 private:
-    uint16_t echo_pin, trig_pin;
-    uint32_t lst_trigger_up;
-    GPIO_TypeDef *gpio_trig;
-    GPIO_TypeDef *gpio_echo;
-    AvgAccumulator <long long> accumulator;
-    uint16_t final_delta_time;
-    int status = 0;
-    uint32_t lst_sent;
-    void send_data();
-
+    uint16_t channel_trig, channel_echo;
+    TIM_HandleTypeDef *tim;
+    AvgAccumulator <uint32_t> accumulator;
+    uint32_t lst_time;
+    bool rising;
 public:
-    HurricaneUltrasonicSystem(GPIO_TypeDef *gpio_trig, uint16_t trig_pin, GPIO_TypeDef *gpio_echo, uint16_t echo_pin);
+    HurricaneUltrasonicSystem(TIM_HandleTypeDef* tim, uint16_t channel_trig, uint16_t channel_echo);
 
     bool trigger();
 
@@ -34,7 +29,7 @@ public:
 
     double distance();
 
-    uint16_t time();
+    uint32_t time();
 };
 
 

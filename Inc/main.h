@@ -49,6 +49,10 @@
 
 /* Private define ------------------------------------------------------------*/
 
+#define US1_ECHO_Pin GPIO_PIN_7
+#define US1_ECHO_GPIO_Port GPIOI
+#define US1_TRIG_Pin GPIO_PIN_5
+#define US1_TRIG_GPIO_Port GPIOI
 #define STAT8_Pin GPIO_PIN_8
 #define STAT8_GPIO_Port GPIOG
 #define MOTOR_OUTPUT_1_Pin GPIO_PIN_5
@@ -71,6 +75,8 @@
 #define STAT1_GPIO_Port GPIOG
 #define UTS_TRIGGER_Pin GPIO_PIN_4
 #define UTS_TRIGGER_GPIO_Port GPIOA
+#define TIM_SERVO_Pin GPIO_PIN_2
+#define TIM_SERVO_GPIO_Port GPIOA
 #define UTS_ECHO_Pin GPIO_PIN_5
 #define UTS_ECHO_GPIO_Port GPIOA
 #define LED_GREEN_Pin GPIO_PIN_14
