@@ -125,10 +125,10 @@ bool HurricaneDebugSystem::next_transmission() {
     return true;
 }
 
-extern "C" void HAL_UART_TxCpltCallback(UART_HandleTypeDef *huart) {
+extern "C" void Hurricane_HAL_UART_TxCpltCallback(UART_HandleTypeDef *huart) {
     if (huart == &DEBUG_UART) {
         if (huart->TxXferCount == 0) {
-            if (oi->debugSystem) oi->debugSystem->next_transmission();
+            HSYS(debugSystem) oi->debugSystem->next_transmission();
         }
     }
 }

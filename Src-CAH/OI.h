@@ -6,33 +6,46 @@
 #define HURRICANE_OI_H
 
 class HurricaneDebugSystem;
+
 class HurricaneCANSystem;
+
 class HurricaneIMUSystem;
+
 class HurricaneRemoteSystem;
+
 class HurricaneChassisSystem;
+
 class HurricaneArmSystem;
+
 class HurricaneUltrasonicSystem;
+
+class HurricaneCollectorSystem;
 
 class Task;
 
-class OI{
+class OI {
 public:
+    OI() : initialized(false) {}
+
     void boostrap();
+
     void loop();
 
-    HurricaneDebugSystem* debugSystem;
-    HurricaneCANSystem* CANSystem;
-    HurricaneIMUSystem* IMUSystem;
-    HurricaneRemoteSystem* remoteSystem;
-    HurricaneChassisSystem* chassisSystem;
-    HurricaneArmSystem* armSystem;
-    HurricaneUltrasonicSystem* usSystemChassis;
+    HurricaneDebugSystem *debugSystem;
+    HurricaneCANSystem *CANSystem;
+    HurricaneIMUSystem *IMUSystem;
+    HurricaneRemoteSystem *remoteSystem;
+    HurricaneChassisSystem *chassisSystem;
+    HurricaneArmSystem *armSystem;
+    HurricaneUltrasonicSystem *usSystemChassis;
+    HurricaneCollectorSystem *collectorSystem;
+    Task *task;
 
-    Task* task;
+    bool initialized;
 };
 
-extern OI* oi;
+extern OI *oi;
 
 #define OK(x) if (!(x)) Error_Handler()
-
+#define HSYS(sys) if (oi && oi->initialized && oi->sys)
 #endif //HURRICANE_OI_H

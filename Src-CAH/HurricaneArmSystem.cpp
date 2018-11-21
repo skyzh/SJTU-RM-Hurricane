@@ -13,11 +13,8 @@
 #include <cmath>
 
 #define HURRICANE_ARM_DEBUG
-#define HURRICANE_ARM_DISABLE
+// #define HURRICANE_ARM_DISABLE
 
-const int ramp_limit = 2000;
-const double Kp = 20.0, Ki = 0.01, Kd = 1.0;
-const double output_limit = 2000;
 const int M2006_ANGLE_ID = 0;
 const int M2006_MAX_ANGLE = 8192;
 const double Kf = 500.0;
@@ -31,52 +28,80 @@ int sgn(double x) {
     return 0;
 }
 
+const double PID_SPEED_LIMIT = 10;
+const double PID_CURRENT_LIMIT = 3000;
+
 HurricaneArmSystem::HurricaneArmSystem() : position(0), data_available_bottom(false) {
-    this->pid_bottom = new PIDDisplacementAccumulator();
-    this->ramp_bottom = new RampAccumulator<double>(ramp_limit);
-    this->pid_bottom->set_pid(Kp, Ki, Kd);
-    this->pid_bottom->set_output(-output_limit, output_limit);
+    // Bottom Arm
+    // -- Position PID
+    this->pid_bottom_position = new PIDDisplacementAccumulator();
+    this->pid_bottom_position->set_pid(1.0, 0.0, 0.0);
+    this->pid_bottom_position->set_output(-PID_SPEED_LIMIT, PID_SPEED_LIMIT);
+    // -- Rate PID
+    this->pid_bottom_rate = new PIDRateAccumulator();
+    this->pid_bottom_rate->set_pid(1.0, 0.0, 0.0);
+    this->pid_bottom_rate->set_output(-PID_CURRENT_LIMIT, PID_CURRENT_LIMIT);
+    // -- Ramp
+    this->ramp_bottom = new RampAccumulator<double>(800);
     this->accumulator_bottom = new RotateAccumulator(M2006_MAX_ANGLE);
     this->accumulator_bottom->reset();
+    // -- Delta Speed
+    this->delta_bottom = new DeltaAccumulator<double>();
+    this->delta_time = new DeltaAccumulator<int>();
 }
 
 bool HurricaneArmSystem::initialize() {
-    OK(oi->debugSystem->info("CHA", "arm system initialize"));
+    OK(oi->debugSystem->info("ARM", "arm system initialize"));
     OK(oi->CANSystem->set(ARM_BOTTOM_ID, 0));
     // reset pid and ramp
-    this->pid_bottom->reset();
+    // Bottom Arm
+    this->pid_bottom_rate->reset();
+    this->pid_bottom_position->reset();
     this->ramp_bottom->reset();
     this->accumulator_bottom->reset();
-    this->position = 0;
-    OK(oi->debugSystem->info("CHA", "  ... complete"));
+    this->delta_bottom->reset();
+    // Time
+    this->delta_time->reset();
+    this->delta_time->delta(HAL_GetTick());
+    OK(oi->debugSystem->info("ARM", "  ... complete"));
     this->position = 0;
     return true;
 }
 
-DeltaAccumulator <int> *timeDelta = new DeltaAccumulator<int>();
-DeltaAccumulator <double> *posDelta = new DeltaAccumulator<double>();
+/*
+ * TODO: DEBUG Sequence:
+ * [ ] New Event-driven System
+ * [ ] Ramp (Chassis)
+ * [ ] Test Max Spinning Speed
+ * [ ] Compare Delta Pos and Speed
+ * [ ] Rate PID
+ * [ ] Rate Official PID
+ * [ ] Rate PID in Data Feedback
+ * [ ] Position PID
+ */
 
 bool HurricaneArmSystem::update() {
 
     double arm_bottom_pos = this->accumulator_bottom->get_round() +
                             this->accumulator_bottom->get_overflow() / (double) M2006_MAX_ANGLE;
-    double arm_bottom_err = this->position - arm_bottom_pos;
+    double arm_bottom_speed = this->delta_bottom->delta(arm_bottom_pos) * 1000.0 / this->delta_time->delta(HAL_GetTick());
 
-    int16_t arm_bottom_pid = clamp(this->pid_bottom->calc(arm_bottom_err), -output_limit, output_limit);
-    this->ramp_bottom->data(arm_bottom_pid);
-    int16_t arm_bottom_output = this->ramp_bottom->calc(arm_bottom_pid);
-    int16_t feed_forward = (sin(arm_bottom_pos / 36.0 * 2 * PI)) * Kf;
-    arm_bottom_output = clamp<double>(arm_bottom_output + feed_forward, -output_limit, output_limit);
+    double arm_bottom_pid_target_speed = clamp(this->pid_bottom_position->calc(this->position - arm_bottom_pos),
+                                               -PID_SPEED_LIMIT, PID_SPEED_LIMIT);
+    double arm_bottom_pid_target_current = clamp(arm_bottom_pid_target_speed - arm_bottom_speed,
+                                                 -PID_CURRENT_LIMIT, PID_CURRENT_LIMIT);
+    double arm_bottom_output = this->ramp_bottom->calc(arm_bottom_pid_target_current);
+
+    this->ramp_bottom->data(arm_bottom_pid_target_current);
 #ifdef HURRICANE_ARM_DEBUG
     HDEBUG_BEGIN(100)
-            sprintf(_buf, "ff %d pos%f err%f out%d tar%f out%d", feed_forward,
-                    arm_bottom_pos, arm_bottom_err, arm_bottom_output, position, (int16_t)oi->CANSystem->get(ARM_BOTTOM_ID, 2));
-            /*sprintf(_buf, "spd %f tq %d", posDelta->delta(arm_bottom_pos) / timeDelta->delta(HAL_GetTick()) * 1000.0, (int16_t) oi->CANSystem->get(ARM_BOTTOM_ID, 2);*/
-            oi->debugSystem->info("CHA", _buf);
+            sprintf(_buf, "pos %f, spd %f tspd %f, out %f, tq %d", arm_bottom_pos, arm_bottom_speed, arm_bottom_pid_target_speed, arm_bottom_output,
+                    (int16_t) oi->CANSystem->get(ARM_BOTTOM_ID, 2));
+            oi->debugSystem->info("ARM", _buf);
     HDEBUG_END()
 #endif
 #ifndef HURRICANE_ARM_DISABLE
-    OK(oi->CANSystem->set(ARM_BOTTOM_ID, arm_bottom_output));
+    OK(oi->CANSystem->set(ARM_BOTTOM_ID, 400));
 #endif
     return true;
 }
@@ -92,13 +117,13 @@ bool HurricaneArmSystem::setPosition(double position) {
 }
 
 void HurricaneArmSystem::data() {
-    if (!this->data_available_bottom && oi->CANSystem->available(ARM_BOTTOM_ID, M2006_ANGLE_ID) ||
-        this->data_available_bottom) {
+    if (this->data_available_bottom ||
+        !this->data_available_bottom && oi->CANSystem->available(ARM_BOTTOM_ID, M2006_ANGLE_ID)) {
         this->data_available_bottom = true;
         this->accumulator_bottom->data(oi->CANSystem->get(ARM_BOTTOM_ID, M2006_ANGLE_ID));
     }
 }
 
 void HURRICANE_CAN_0_5_DATA() {
-    if (oi && oi->armSystem) oi->armSystem->data();
+    HSYS(armSystem) oi->armSystem->data();
 }

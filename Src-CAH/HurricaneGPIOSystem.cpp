@@ -8,7 +8,4 @@
 #include "HurricaneUltrasonicSystem.h"
 
 extern "C" void Hurricane_HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin) {
-    if (GPIO_Pin == UTS_ECHO_Pin) {
-        if (oi && oi->usSystemChassis) oi->usSystemChassis->trigger();
-    }
 }

@@ -9,17 +9,17 @@
 #include "CAHRR/src/UltrasonicSystem.h"
 #include "CAHRR/src/AvgAccumulator.h"
 
-class HurricaneUltrasonicSystem : public UltrasonicSystem {
+class HurricaneUltrasonicSystem {
 private:
-    uint16_t channel_trig, channel_echo;
     TIM_HandleTypeDef *tim;
-    AvgAccumulator <uint32_t> accumulator;
+    AvgAccumulator<uint32_t> accumulator;
     uint32_t lst_time;
-    bool rising;
 public:
-    HurricaneUltrasonicSystem(TIM_HandleTypeDef* tim, uint16_t channel_trig, uint16_t channel_echo);
+    const uint16_t channel_trig, channel_echo;
 
-    bool trigger();
+    HurricaneUltrasonicSystem(TIM_HandleTypeDef *tim, uint16_t channel_trig, uint16_t channel_echo);
+
+    bool trigger(uint32_t cnt);
 
     bool update();
 

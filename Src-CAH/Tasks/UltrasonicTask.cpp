@@ -31,9 +31,8 @@ bool UltrasonicTask::isEnd() {
 }
 
 bool UltrasonicTask::update() {
-    HDEBUG_BEGIN(10)
-    oi->debugSystem->info("UTS", std::to_string(oi->usSystemChassis->time()));
-    HDEBUG_END()
+
+    if (oi->usSystemChassis->time()) oi->debugSystem->info("UTS", std::to_string(oi->usSystemChassis->time()));
     double time = oi->usSystemChassis->time();
     if (time != 0) {
         double err = 4000 - time;
