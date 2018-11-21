@@ -26,6 +26,6 @@ bool ArmTask::isEnd() {
 }
 
 bool ArmTask::update() {
-    oi->armSystem->setPosition((oi->remoteSystem->getAxis(0) / 660.0) * 15.0);
+    oi->armSystem->setPosition((oi->remoteSystem->getAxis(0) / 660.0) * 4*36.0);
     return true;
 }

@@ -10,6 +10,7 @@
 #include "CAHRR/src/RampAccumulator.h"
 #include "CAHRR/src/RotateAccumulator.h"
 #include "CAHRR/src/DeltaAccumulator.h"
+#include "CAHRR/src/AvgAccumulator.h"
 
 #include "OI.h"
 
@@ -21,8 +22,8 @@ private:
     PIDRateAccumulator *pid_bottom_rate;
     RampAccumulator<double> *ramp_bottom;
     RotateAccumulator *accumulator_bottom;
-    DeltaAccumulator<double> *delta_bottom;
-    DeltaAccumulator<int> *delta_time;
+    AvgAccumulator <double>* speed_bottom;
+    double target_bottom_rate;
     double position;
     // TODO: check if this flag is needed
     bool data_available_bottom;

@@ -10,13 +10,12 @@
 HurricaneUltrasonicSystem::HurricaneUltrasonicSystem(TIM_HandleTypeDef *tim,
                                                      uint16_t channel_trig,
                                                      uint16_t channel_echo) :
-        tim(tim), channel_trig(channel_trig), channel_echo(channel_echo) {
+        tim(tim), channel_trig(channel_trig), channel_echo(channel_echo), data_available(false) {
     this->accumulator.reset();
     this->lst_time = 0;
 }
 
 bool HurricaneUltrasonicSystem::trigger(uint32_t cnt) {
-    oi->debugSystem->info("UTS", std::to_string(cnt));
     this->accumulator.data(cnt);
     return true;
 }
@@ -34,16 +33,25 @@ bool HurricaneUltrasonicSystem::destroy() {
 }
 
 double HurricaneUltrasonicSystem::distance() {
-    return this->lst_time / 1000.0  / 1000.0 * 340.0 * 100.0; // unit: CM
+    return this->lst_time / 1000.0  / 1000.0 * 340.0 * 100.0 / 2.0; // unit: CM
 }
 
 bool HurricaneUltrasonicSystem::update() {
-    this->lst_time = this->accumulator.sum();
+    if (this->accumulator.n == 0) {
+        this->data_available = false;
+    } else {
+        this->data_available = true;
+        this->lst_time = this->accumulator.sum();
+    }
     return true;
 }
 
 uint32_t HurricaneUltrasonicSystem::time() {
     return this->lst_time;
+}
+
+bool HurricaneUltrasonicSystem::available() {
+    return this->data_available;
 }
 
 extern "C" void Hurricane_HAL_TIM_IC_CaptureCallback(TIM_HandleTypeDef *htim) {

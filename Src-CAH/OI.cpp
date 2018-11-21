@@ -39,6 +39,7 @@ void OI::boostrap() {
     this->armSystem = new HurricaneArmSystem;
     this->usSystemChassis = new HurricaneUltrasonicSystem(&htim8, TIM_CHANNEL_1, TIM_CHANNEL_3);
     this->collectorSystem = new HurricaneCollectorSystem();
+    this->initialized = true;
 
     OK(this->debugSystem->initialize());
     OK(this->debugSystem->info("OI", "---- booting sequence ----"));
@@ -61,8 +62,6 @@ void OI::boostrap() {
 
     this->task = mainTask();
     OK(this->task->initialize());
-
-    this->initialized = true;
 }
 
 

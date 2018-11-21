@@ -21,10 +21,12 @@ bool HurricaneCollectorSystem::initialize() {
     OK(oi->debugSystem->info("CLT", "collector system initialize"));
     HAL_TIM_PWM_Start(&COLLECTOR_TIM, COLLECTOR_TIM_CH);
     OK(oi->debugSystem->info("CLT", "  ... complete"));
+    return true;
 }
 
 bool HurricaneCollectorSystem::update() {
-    return __HAL_TIM_SET_COMPARE(&COLLECTOR_TIM, COLLECTOR_TIM_CH, map_range<double>(this->position, 0.0, 1.0, SERVO_MIN_PERIOD, SERVO_MAX_PERIOD)) == HAL_OK;
+    __HAL_TIM_SET_COMPARE(&COLLECTOR_TIM, COLLECTOR_TIM_CH, map_range<double>(this->position, 0.0, 1.0, SERVO_MIN_PERIOD, SERVO_MAX_PERIOD));
+    return true;
 }
 
 bool HurricaneCollectorSystem::destroy() {

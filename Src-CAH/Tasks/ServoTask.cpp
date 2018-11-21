@@ -31,6 +31,6 @@ bool ServoTask::isEnd() {
 }
 
 bool ServoTask::update() {
-    oi->collectorSystem->setPosition(map_range<double>(oi->remoteSystem->getAxis(0), -660, 660, 0.0, 1.0));
+    oi->collectorSystem->setPosition(map_range<double>(oi->remoteSystem->getAxis(1), -660, 660, 0.0, 1.0));
     return true;
 }

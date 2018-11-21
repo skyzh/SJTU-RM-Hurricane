@@ -31,14 +31,9 @@ bool UltrasonicTask::isEnd() {
 }
 
 bool UltrasonicTask::update() {
-
-    if (oi->usSystemChassis->time()) oi->debugSystem->info("UTS", std::to_string(oi->usSystemChassis->time()));
-    double time = oi->usSystemChassis->time();
-    if (time != 0) {
-        double err = 4000 - time;
-
-        // oi->chassisSystem->setSpeed(clamp<double>(this->accumulator->calc(err), -0.1, 0.1), 0, 0);
-    }
+    HDEBUG_BEGIN(10)
+    //oi->debugSystem->info("UTS", std::to_string(oi->usSystemChassis->time() / 1000.0 / 1000.0 * 340.0 / 2 * 100));
+    HDEBUG_END()
     return true;
 }
 

@@ -22,7 +22,7 @@ Task *mainTask() {
                     // CTL_SW1 = 1
                     new GyroDriveTask),
             // CTL_SW1 = 3
-            new UltrasonicTask),
-                                         new ArmTask
+            new ArmTask),
+                                                new ServoTask
                                         }));
 }

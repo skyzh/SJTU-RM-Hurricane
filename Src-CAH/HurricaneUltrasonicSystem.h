@@ -14,6 +14,7 @@ private:
     TIM_HandleTypeDef *tim;
     AvgAccumulator<uint32_t> accumulator;
     uint32_t lst_time;
+    bool data_available;
 public:
     const uint16_t channel_trig, channel_echo;
 
@@ -26,6 +27,8 @@ public:
     bool initialize();
 
     bool destroy();
+
+    bool available();
 
     double distance();
 
