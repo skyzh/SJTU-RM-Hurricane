@@ -21,7 +21,8 @@ private:
     RampAccumulator <double> *ramp_acc[4];
 public:
     // TODO: OUT LIMIT
-    const double output_limit = 1000.0;
+    bool disabled = false;
+    const double output_limit = 8000.0;
     const int max_rpm = 5000;
     const double ramp_limit = 80;
     const double Kp = 3.0, Ki = 0, Kd = 1.5;

@@ -12,6 +12,7 @@
 #include "Tasks/GyroDriveTask.h"
 #include "Tasks/ServoTask.h"
 #include "Tasks/UltrasonicTask.h"
+#include "Tasks/ClawTask.h"
 
 Task *mainTask() {
 
@@ -22,7 +23,7 @@ Task *mainTask() {
                     // CTL_SW1 = 1
                     new GyroDriveTask),
             // CTL_SW1 = 3
-            new ArmTask),
+            new ClawTask),
                                                 new ServoTask
                                         }));
 }

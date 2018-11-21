@@ -58,12 +58,13 @@ bool HurricaneChassisSystem::update() {
         (int16_t) oi->CANSystem->get(CHASSIS_BR_ID, M3508_CURRENT_ID)
     };
     int16_t output[4] = { 0 };
-
-    for (int i = 0; i < 4; i++) {
-        double err = target[i] - spd[i];
-        int16_t pid = clamp(this->pid_acc[i]->calc(err), -output_limit, output_limit);
-        output[i] = this->ramp_acc[i]->calc(pid);
-        this->ramp_acc[i]->data(pid);
+    if (!disabled) {
+        for (int i = 0; i < 4; i++) {
+            double err = target[i] - spd[i];
+            int16_t pid = clamp(this->pid_acc[i]->calc(err), -output_limit, output_limit);
+            this->ramp_acc[i]->data(pid);
+            output[i] = this->ramp_acc[i]->calc(pid);
+        }
     }
 
 #ifdef HURRICANE_CHASSIS_DEBUG

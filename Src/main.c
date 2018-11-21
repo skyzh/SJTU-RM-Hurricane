@@ -113,6 +113,7 @@ int main(void)
   MX_TIM2_Init();
   MX_IWDG_Init();
   MX_TIM8_Init();
+  MX_TIM5_Init();
   /* USER CODE BEGIN 2 */
     charr_bootstrap();
   /* USER CODE END 2 */

@@ -16,11 +16,13 @@ TankDriveTask::TankDriveTask() : Task() {
 
 bool TankDriveTask::initialize() {
     oi->chassisSystem->setSpeed(0, 0, 0);
+    oi->chassisSystem->disabled = false;
     return true;
 }
 
 bool TankDriveTask::destroy() {
     oi->chassisSystem->setSpeed(0, 0, 0);
+    oi->chassisSystem->disabled = true;
     return true;
 }
 
