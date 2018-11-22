@@ -6,6 +6,7 @@
 #include "OI.h"
 #include "HurricaneArmSystem.h"
 #include "HurricaneDebugSystem.h"
+#include "HurricaneClawSystem.h"
 
 ArmDisableTask::ArmDisableTask() : Task() {
 

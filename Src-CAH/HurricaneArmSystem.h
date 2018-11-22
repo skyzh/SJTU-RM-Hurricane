@@ -15,6 +15,7 @@
 #include "hal.h"
 
 const int ARM_BOTTOM_ID = 5;
+const int ARM_TOP_ID = 6;
 const int ARM_BASE_ID = 7;
 
 class ArmBottom;
@@ -29,7 +30,7 @@ private:
     ArmBase* arm_base;
 
     // TODO: check if this flag is needed
-    bool data_available_bottom, data_available_base;
+    bool data_available_bottom, data_available_base, data_available_top;
 public:
 
     bool disabled = true; // todo: remove
@@ -45,8 +46,6 @@ public:
     bool setPosition(double position);
 
     void data();
-
-    void claw_trigger(uint32_t adc_value);
 };
 
 #endif //HURRICANE_HURRICANEARMSYSTEM_H

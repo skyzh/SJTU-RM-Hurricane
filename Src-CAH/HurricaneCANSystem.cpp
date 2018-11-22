@@ -103,7 +103,7 @@ uint16_t HurricaneCANSystem::get(int id, int data_id) {
     return this->can_recv_data[id][data_id];
 }
 
-void HURRICANE_CAN_0_5_6_DATA();
+void HURRICANE_CAN_0_5_6_7_DATA();
 
 bool HurricaneCANSystem::data(int can_id) {
     CAN_HandleTypeDef *hcan = &(can_id == 0 ? CAN_SYSTEM_H0 : CAN_SYSTEM_H1);
@@ -114,7 +114,7 @@ bool HurricaneCANSystem::data(int can_id) {
         this->can_recv_data_available[id][i] = true;
     }
     if (can_id == 0) {
-        HURRICANE_CAN_0_5_6_DATA();
+        HURRICANE_CAN_0_5_6_7_DATA();
     }
     return true;
 }

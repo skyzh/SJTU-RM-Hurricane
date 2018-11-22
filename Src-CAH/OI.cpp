@@ -13,6 +13,7 @@
 #include "HurricaneChassisSystem.h"
 #include "HurricaneUltrasonicSystem.h"
 #include "HurricaneCollectorSystem.h"
+#include "HurricaneClawSystem.h"
 #include "MainTask.h"
 #include "CAHRR/src/Task.h"
 
@@ -39,6 +40,7 @@ void OI::boostrap() {
     this->armSystem = new HurricaneArmSystem;
     this->usSystemChassis = new HurricaneUltrasonicSystem(&htim8, TIM_CHANNEL_1, TIM_CHANNEL_3);
     this->collectorSystem = new HurricaneCollectorSystem();
+    this->clawSystem = new HurricaneClawSystem();
     this->initialized = true;
 
     OK(this->debugSystem->initialize());
@@ -53,6 +55,7 @@ void OI::boostrap() {
     OK(this->chassisSystem->initialize());
     OK(this->armSystem->initialize());
     OK(this->collectorSystem->initialize());
+    OK(this->clawSystem->initialize());
 
     OK(this->usSystemChassis->initialize());
 
@@ -78,6 +81,7 @@ void OI::loop() {
     OK(this->chassisSystem->update());
     OK(this->armSystem->update());
     OK(this->collectorSystem->update());
+    OK(this->clawSystem->update());
 
     // update data destination
     OK(this->CANSystem->update());

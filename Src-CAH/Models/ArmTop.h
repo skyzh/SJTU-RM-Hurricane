@@ -16,10 +16,10 @@ private:
 public:
     ArmBottom *bottom;
     const double arm_length = 18;
-    const double offset_angle = PI / 180.0 * 90.0;
+    const double offset_angle = M_PI / 2.0;
     const double mass = (PI * (1.2 * 1.2 - 1.15 * 1.15)) * arm_length * 7.7; // gram
     const double g = 9.8;
-    const double clockwise = 1;
+    const double clockwise = -1;
 
     ArmTop(double spd_p, double spd_i, double spd_d, double cur_limit, double pos_p, double pos_i, double pos_d,
            double spd_limit, double ramp_limit, double feed_forward) :
@@ -37,6 +37,8 @@ public:
     double gravity();
 
     double feed_forward();
+
+    virtual bool update();
 };
 
 #endif //HURRICANE_ARMTOP_H

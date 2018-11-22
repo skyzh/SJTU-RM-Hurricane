@@ -25,7 +25,6 @@ Task *mainTask() {
                     // CTL_SW1 = 1
                     new GyroDriveTask),
             // CTL_SW1 = 3
-            new ArmTask),
-                                                 new RightSwitchTask(new ArmDisableTask, nullptr)
+            new ArmTask), new RightSwitchTask(new ArmDisableTask, nullptr)
                                                 }));
 }

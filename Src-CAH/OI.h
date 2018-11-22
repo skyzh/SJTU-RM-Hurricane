@@ -21,6 +21,8 @@ class HurricaneUltrasonicSystem;
 
 class HurricaneCollectorSystem;
 
+class HurricaneClawSystem;
+
 class Task;
 
 class OI {
@@ -39,6 +41,7 @@ public:
     HurricaneArmSystem *armSystem;
     HurricaneUltrasonicSystem *usSystemChassis;
     HurricaneCollectorSystem *collectorSystem;
+    HurricaneClawSystem *clawSystem;
     Task *task;
 
     bool initialized;

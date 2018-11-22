@@ -63,6 +63,8 @@
 #define STAT6_GPIO_Port GPIOG
 #define NSS_Pin GPIO_PIN_6
 #define NSS_GPIO_Port GPIOF
+#define CLAW_OUT_Pin GPIO_PIN_12
+#define CLAW_OUT_GPIO_Port GPIOH
 #define STAT5_Pin GPIO_PIN_5
 #define STAT5_GPIO_Port GPIOG
 #define STAT4_Pin GPIO_PIN_4

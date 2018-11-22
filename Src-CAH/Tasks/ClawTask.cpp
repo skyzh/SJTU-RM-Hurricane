@@ -7,18 +7,21 @@
 #include "CAHRR/src/utils.h"
 #include "OI.h"
 #include "HurricaneRemoteSystem.h"
+#include "HurricaneClawSystem.h"
+#include "HurricaneDebugSystem.h"
 
 ClawTask::ClawTask() : Task() {
 
 }
 
 bool ClawTask::initialize() {
-    HAL_TIM_PWM_Start(&htim5, TIM_CHANNEL_4);
+    oi->debugSystem->info("CLA", "init");
+
     return true;
 }
 
 bool ClawTask::destroy() {
-    HAL_TIM_PWM_Stop(&htim5, TIM_CHANNEL_4);
+    oi->debugSystem->info("CLA", "deinit");
     return true;
 }
 
@@ -27,6 +30,6 @@ bool ClawTask::isEnd() {
 }
 
 bool ClawTask::update() {
-    __HAL_TIM_SET_COMPARE(&htim5, TIM_CHANNEL_4, map_range<double>(oi->remoteSystem->getAxis(2), -660, 660, 0, 19999));
+    // oi->clawSystem->setPosition(map_range<double>(oi->remoteSystem->getAxis(0), -660, 660, 0.0, 1.0));
     return true;
 }

@@ -52,7 +52,7 @@ bool ArmBase::update() {
             sprintf(_buf, "tpos %.2f pos %.2f, tspd %.2f spd%.2f, out %d, ang %.2f",
                     target_pos, current_pos, target_spd,
                     current_spd, target_output, real_angle());
-            oi->debugSystem->info("BAS", _buf);
+            // oi->debugSystem->info("BAS", _buf);
     HDEBUG_END()
     return true;
 }

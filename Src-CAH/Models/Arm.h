@@ -13,15 +13,14 @@
 #include "hal.h"
 
 class Arm {
-private:
+protected:
     PIDDisplacementAccumulator pid_position;
     PIDRateAccumulator pid_rate;
     RampAccumulator<double> ramp;
     RotateAccumulator accumulator;
     AvgAccumulator<double> speed;
     const double spd_limit, cur_limit, Kf;
-
-protected:
+    
     double target_pos;
     int16_t target_output;
     double current_pos, target_spd, current_spd, target_current;
