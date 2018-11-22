@@ -64,9 +64,6 @@ void OI::boostrap() {
     OK(this->task->initialize());
 }
 
-
-int _cnt = 0;
-
 void OI::loop() {
     // update data source
     OK(this->debugSystem->alive());

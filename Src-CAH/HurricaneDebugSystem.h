@@ -40,7 +40,7 @@ public:
 
 #define DEBUG_UART huart2
 
-#define HDEBUG_BEGIN(interval) { static int __cnt = 0; if ((__cnt = __cnt + 1) % (interval) == 0)  {
+#define HDEBUG_BEGIN(interval) { static int __cnt = 0; if ((__cnt = (__cnt + 1) % interval) == 0)  {
 #define HDEBUG_END() }}
 
 #define HDEBUG_ONCE_BEGIN(condition) { static bool _lst_condition = (condition); if ((condition) != _lst_condition) { _lst_condition = (condition);

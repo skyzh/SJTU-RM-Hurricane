@@ -16,11 +16,13 @@
 const int ARM_BOTTOM_ID = 5;
 
 class ArmBottom;
+class ArmTop;
 
 class HurricaneArmSystem {
 private:
     double position;
-    ArmBottom* bottom_arm;
+    ArmBottom* arm_bottom;
+    ArmTop* arm_top;
 
     // TODO: check if this flag is needed
     bool data_available_bottom;

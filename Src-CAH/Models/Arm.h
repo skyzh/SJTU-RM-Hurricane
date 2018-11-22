@@ -20,8 +20,11 @@ private:
     RotateAccumulator accumulator;
     AvgAccumulator<double> speed;
     const double spd_limit, cur_limit, Kf;
+
+protected:
     double target_pos;
-    int16_t target_current;
+    int16_t target_output;
+    double current_pos, target_spd, current_spd, target_current;
 public:
     Arm(double spd_p, double spd_i, double spd_d, double cur_limit, double pos_p, double pos_i, double pos_d,
         double spd_limit, double ramp_limit, double feed_forward);
@@ -30,7 +33,7 @@ public:
 
     bool destroy();
 
-    bool update();
+    virtual bool update();
 
     bool feed(int16_t ang, int16_t spd);
 
@@ -38,7 +41,7 @@ public:
 
     bool set_pos(double pos);
 
-    virtual double feed_forward(double current_pos) = 0;
+    virtual double feed_forward() = 0;
 };
 
 
