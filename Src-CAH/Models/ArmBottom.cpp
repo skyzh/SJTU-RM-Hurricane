@@ -48,7 +48,7 @@ bool ArmBottom::update() {
             static char _buf[1000];
             sprintf(_buf, "tpos %.2f pos %.2f, tspd %.2f spd%.2f, ang %.2f dx %.2f, out %d",
                     target_pos, current_pos, target_spd,
-                    current_spd, real_angle(), delta_x(), target_output);
+                    current_spd, real_angle() / PI * 180, delta_x(), target_output);
             oi->debugSystem->info("ARM", _buf);
     HDEBUG_END()
 #endif

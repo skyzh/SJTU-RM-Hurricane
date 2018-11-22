@@ -17,12 +17,14 @@ TankDriveTask::TankDriveTask() : Task() {
 bool TankDriveTask::initialize() {
     oi->chassisSystem->setSpeed(0, 0, 0);
     oi->chassisSystem->disabled = false;
+    oi->debugSystem->info("CHA", "enabled");
     return true;
 }
 
 bool TankDriveTask::destroy() {
     oi->chassisSystem->setSpeed(0, 0, 0);
     oi->chassisSystem->disabled = true;
+    oi->debugSystem->info("CHA", "disabled");
     return true;
 }
 

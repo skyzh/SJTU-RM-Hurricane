@@ -9,22 +9,22 @@
 #include "CAHRR/src/PIDAccumulator.h"
 #include "CAHRR/src/RampAccumulator.h"
 
-const int CHASSIS_FL_ID = 2;
-const int CHASSIS_FR_ID = 1;
-const int CHASSIS_BL_ID = 3;
-const int CHASSIS_BR_ID = 4;
-
 class HurricaneChassisSystem {
 private:
     double bf, lr, rot;
     PIDRateAccumulator *pid_acc[4];
     RampAccumulator <double> *ramp_acc[4];
 public:
-    bool disabled = false;
+    bool disabled = true; // todo: remove
     const double output_limit = 8000.0;
     const int max_rpm = 5000;
     const double ramp_limit = 80;
     const double Kp = 3.0, Ki = 0, Kd = 1.5;
+
+    const int CHASSIS_FL_ID = 2;
+    const int CHASSIS_FR_ID = 1;
+    const int CHASSIS_BL_ID = 3;
+    const int CHASSIS_BR_ID = 4;
 
     HurricaneChassisSystem();
 

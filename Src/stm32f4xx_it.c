@@ -41,6 +41,7 @@
 /* USER CODE END 0 */
 
 /* External variables --------------------------------------------------------*/
+extern ADC_HandleTypeDef hadc1;
 extern CAN_HandleTypeDef hcan1;
 extern CAN_HandleTypeDef hcan2;
 extern TIM_HandleTypeDef htim2;
@@ -217,6 +218,20 @@ void DMA1_Stream5_IRQHandler(void)
 }
 
 /**
+* @brief This function handles ADC1, ADC2 and ADC3 global interrupts.
+*/
+void ADC_IRQHandler(void)
+{
+  /* USER CODE BEGIN ADC_IRQn 0 */
+
+  /* USER CODE END ADC_IRQn 0 */
+  HAL_ADC_IRQHandler(&hadc1);
+  /* USER CODE BEGIN ADC_IRQn 1 */
+
+  /* USER CODE END ADC_IRQn 1 */
+}
+
+/**
 * @brief This function handles CAN1 TX interrupts.
 */
 void CAN1_TX_IRQHandler(void)
@@ -277,7 +292,7 @@ void TIM2_IRQHandler(void)
 void USART1_IRQHandler(void)
 {
   /* USER CODE BEGIN USART1_IRQn 0 */
-  uart_receive_handler(&huart1);
+    uart_receive_handler(&huart1);
   /* USER CODE END USART1_IRQn 0 */
   HAL_UART_IRQHandler(&huart1);
   /* USER CODE BEGIN USART1_IRQn 1 */
@@ -385,28 +400,39 @@ void CAN2_RX0_IRQHandler(void)
 
 /* USER CODE BEGIN 1 */
 void Hurricane_HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin);
+
 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin) {
     Hurricane_HAL_GPIO_EXTI_Callback(GPIO_Pin);
 }
 
 void Hurricane_HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef *hcan);
+
 void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef *hcan) {
     Hurricane_HAL_CAN_RxFifo0MsgPendingCallback(hcan);
 }
 
 void Hurricane_HAL_CAN_TxMailbox0CompleteCallback(CAN_HandleTypeDef *hcan);
+
 void HAL_CAN_TxMailbox0CompleteCallback(CAN_HandleTypeDef *hcan) {
     Hurricane_HAL_CAN_TxMailbox0CompleteCallback(hcan);
 }
 
 void Hurricane_HAL_TIM_IC_CaptureCallback(TIM_HandleTypeDef *htim);
+
 void HAL_TIM_IC_CaptureCallback(TIM_HandleTypeDef *htim) {
-  Hurricane_HAL_TIM_IC_CaptureCallback(htim);
+    Hurricane_HAL_TIM_IC_CaptureCallback(htim);
 }
 
 void Hurricane_HAL_UART_TxCpltCallback(UART_HandleTypeDef *huart);
+
 void HAL_UART_TxCpltCallback(UART_HandleTypeDef *huart) {
-  Hurricane_HAL_UART_TxCpltCallback(huart);
+    Hurricane_HAL_UART_TxCpltCallback(huart);
+}
+
+void Hurricane_HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef *hadc);
+
+void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef *hadc) {
+    Hurricane_HAL_ADC_ConvCpltCallback(hadc);
 }
 /* USER CODE END 1 */
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

@@ -1,8 +1,8 @@
 /**
   ******************************************************************************
-  * @file           : main.h
-  * @brief          : Header for main.c file.
-  *                   This file contains the common defines of the application.
+  * File Name          : ADC.h
+  * Description        : This file provides code for the configuration
+  *                      of the ADC instances.
   ******************************************************************************
   ** This notice applies to any and all portions of this file
   * that are not between comment pairs USER CODE BEGIN and
@@ -36,73 +36,46 @@
   *
   ******************************************************************************
   */
-
 /* Define to prevent recursive inclusion -------------------------------------*/
-#ifndef __MAIN_H__
-#define __MAIN_H__
+#ifndef __adc_H
+#define __adc_H
+#ifdef __cplusplus
+ extern "C" {
+#endif
 
 /* Includes ------------------------------------------------------------------*/
+#include "stm32f4xx_hal.h"
+#include "main.h"
 
 /* USER CODE BEGIN Includes */
 
 /* USER CODE END Includes */
 
-/* Private define ------------------------------------------------------------*/
-
-#define US1_ECHO_Pin GPIO_PIN_7
-#define US1_ECHO_GPIO_Port GPIOI
-#define US1_TRIG_Pin GPIO_PIN_5
-#define US1_TRIG_GPIO_Port GPIOI
-#define STAT8_Pin GPIO_PIN_8
-#define STAT8_GPIO_Port GPIOG
-#define MOTOR_OUTPUT_1_Pin GPIO_PIN_5
-#define MOTOR_OUTPUT_1_GPIO_Port GPIOH
-#define STAT7_Pin GPIO_PIN_7
-#define STAT7_GPIO_Port GPIOG
-#define STAT6_Pin GPIO_PIN_6
-#define STAT6_GPIO_Port GPIOG
-#define NSS_Pin GPIO_PIN_6
-#define NSS_GPIO_Port GPIOF
-#define STAT5_Pin GPIO_PIN_5
-#define STAT5_GPIO_Port GPIOG
-#define STAT4_Pin GPIO_PIN_4
-#define STAT4_GPIO_Port GPIOG
-#define STAT3_Pin GPIO_PIN_3
-#define STAT3_GPIO_Port GPIOG
-#define STAT2_Pin GPIO_PIN_2
-#define STAT2_GPIO_Port GPIOG
-#define STAT1_Pin GPIO_PIN_1
-#define STAT1_GPIO_Port GPIOG
-#define CLAW_ADC_Pin GPIO_PIN_4
-#define CLAW_ADC_GPIO_Port GPIOA
-#define TIM_SERVO_Pin GPIO_PIN_2
-#define TIM_SERVO_GPIO_Port GPIOA
-#define LED_GREEN_Pin GPIO_PIN_14
-#define LED_GREEN_GPIO_Port GPIOF
-#define LED_RED_Pin GPIO_PIN_7
-#define LED_RED_GPIO_Port GPIOE
-
-/* ########################## Assert Selection ############################## */
-/**
-  * @brief Uncomment the line below to expanse the "assert_param" macro in the 
-  *        HAL drivers code
-  */
-/* #define USE_FULL_ASSERT    1U */
+extern ADC_HandleTypeDef hadc1;
 
 /* USER CODE BEGIN Private defines */
 
 /* USER CODE END Private defines */
 
-#ifdef __cplusplus
- extern "C" {
-#endif
-void _Error_Handler(char *, int);
+extern void _Error_Handler(char *, int);
 
-#define Error_Handler() _Error_Handler(__FILE__, __LINE__)
+void MX_ADC1_Init(void);
+
+/* USER CODE BEGIN Prototypes */
+
+/* USER CODE END Prototypes */
+
 #ifdef __cplusplus
 }
 #endif
+#endif /*__ adc_H */
 
-#endif /* __MAIN_H__ */
+/**
+  * @}
+  */
+
+/**
+  * @}
+  */
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

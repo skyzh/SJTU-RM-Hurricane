@@ -13,17 +13,19 @@
 #include "Tasks/ServoTask.h"
 #include "Tasks/UltrasonicTask.h"
 #include "Tasks/ClawTask.h"
+#include "Tasks/RightSwitchTask.h"
+#include "Tasks/ArmDisableTask.h"
 
 Task *mainTask() {
 
-    return new ParallelTask(std::vector<Task*>({new MainSwitchSwitchTask(
+    return new ParallelTask(std::vector<Task *>({new MainSwitchSwitchTask(
             new MainSwitchTask(
                     // CTL_SW1 = 2
                     new TankDriveTask,
                     // CTL_SW1 = 1
                     new GyroDriveTask),
             // CTL_SW1 = 3
-            new ClawTask),
-                                                new ServoTask
-                                        }));
+            new ArmTask),
+                                                 new RightSwitchTask(new ArmDisableTask, nullptr)
+                                                }));
 }

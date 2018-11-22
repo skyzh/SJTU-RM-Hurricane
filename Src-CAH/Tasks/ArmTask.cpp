@@ -7,6 +7,7 @@
 #include "HurricaneArmSystem.h"
 #include "HurricaneRemoteSystem.h"
 #include "HurricaneDebugSystem.h"
+
 ArmTask::ArmTask() : Task() {
 
 }
@@ -26,6 +27,6 @@ bool ArmTask::isEnd() {
 }
 
 bool ArmTask::update() {
-    oi->armSystem->setPosition((oi->remoteSystem->getAxis(0) / 660.0) * 4*36.0);
+    oi->armSystem->setPosition(((oi->remoteSystem->getAxis(0) / 660.0) + 1.0) / 2.0);
     return true;
 }

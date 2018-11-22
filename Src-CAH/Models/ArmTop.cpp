@@ -11,7 +11,7 @@ double ArmTop::real_angle() {
 
 double ArmTop::expected_pos(double angle) {
     // todo: check clockwise
-    return ((angle - bottom->real_angle() * clockwise) + offset_angle) / PI * 18.0;
+    return (((angle - bottom->real_angle()) * clockwise) + offset_angle) / PI * 18.0;
 }
 
 double ArmTop::delta_x() {

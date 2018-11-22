@@ -39,6 +39,7 @@
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
 #include "stm32f4xx_hal.h"
+#include "adc.h"
 #include "can.h"
 #include "dma.h"
 #include "iwdg.h"
@@ -114,6 +115,7 @@ int main(void)
   MX_IWDG_Init();
   MX_TIM8_Init();
   MX_TIM5_Init();
+  MX_ADC1_Init();
   /* USER CODE BEGIN 2 */
     charr_bootstrap();
   /* USER CODE END 2 */

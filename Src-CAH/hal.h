@@ -14,6 +14,7 @@ extern "C" {
 #include "tim.h"
 #include "usart.h"
 #include "gpio.h"
+#include "adc.h"
 #include "../Src/runtime/bsp_imu.h"
 #include "../Src/runtime/bsp_uart.h"
 }
