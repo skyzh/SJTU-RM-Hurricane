@@ -62,6 +62,7 @@ bool HurricaneChassisSystem::update() {
         for (int i = 0; i < 4; i++) {
             double err = target[i] - spd[i];
             int16_t pid = clamp(this->pid_acc[i]->calc(err), -output_limit, output_limit);
+            // TODO: remove unnecessary ramp code
             this->ramp_acc[i]->data(pid);
             output[i] = this->ramp_acc[i]->calc(pid);
         }

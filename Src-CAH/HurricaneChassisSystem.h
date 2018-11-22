@@ -20,7 +20,6 @@ private:
     PIDRateAccumulator *pid_acc[4];
     RampAccumulator <double> *ramp_acc[4];
 public:
-    // TODO: OUT LIMIT
     bool disabled = false;
     const double output_limit = 8000.0;
     const int max_rpm = 5000;
