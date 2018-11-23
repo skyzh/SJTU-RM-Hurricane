@@ -6,6 +6,8 @@
 #include "HurricaneDebugSystem.h"
 #include "OI.h"
 
+const int MAX_QUEUE_SIZE = 20;
+
 HurricaneDebugSystem::HurricaneDebugSystem() : DebugSystem() {
 }
 
@@ -114,6 +116,7 @@ bool HurricaneDebugSystem::transmit(const std::string &data) {
 
 bool HurricaneDebugSystem::next_transmission() {
     if (!this->messages.empty()) {
+        if (this->messages.size() > MAX_QUEUE_SIZE) return false;
         this->transmission_in_progress = true;
         static std::string message;
         message = this->messages.front();

@@ -32,7 +32,9 @@ bool UltrasonicTask::isEnd() {
 
 bool UltrasonicTask::update() {
     HDEBUG_BEGIN(10)
-    //oi->debugSystem->info("UTS", std::to_string(oi->usSystemChassis->time() / 1000.0 / 1000.0 * 340.0 / 2 * 100));
+    static char _buf[1000];
+    sprintf(_buf, "uts1 %f uts2 %f", oi->usSystemChassis->distance(0), oi->usSystemChassis->distance(1));
+            oi->debugSystem->info("UTS", _buf);
     HDEBUG_END()
     return true;
 }

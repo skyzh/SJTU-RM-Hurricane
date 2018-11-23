@@ -14,12 +14,14 @@ ArmDisableTask::ArmDisableTask() : Task() {
 
 bool ArmDisableTask::initialize() {
     oi->armSystem->disabled = true;
+    oi->clawSystem->disabled = true;
     oi->debugSystem->info("ARM", "disabled");
     return true;
 }
 
 bool ArmDisableTask::destroy() {
     oi->armSystem->disabled = false;
+    oi->clawSystem->disabled = false;
     oi->debugSystem->info("ARM", "enabled");
     return true;
 }

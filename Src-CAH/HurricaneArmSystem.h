@@ -14,8 +14,8 @@
 #include "OI.h"
 #include "hal.h"
 
-const int ARM_BOTTOM_ID = 5;
-const int ARM_TOP_ID = 6;
+const int ARM_BOTTOM_ID = 6;
+const int ARM_TOP_ID = 5;
 const int ARM_BASE_ID = 7;
 
 class ArmBottom;

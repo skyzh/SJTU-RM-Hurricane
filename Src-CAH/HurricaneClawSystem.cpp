@@ -46,8 +46,6 @@ bool HurricaneClawSystem::update() {
     double current_speed = this->spd.delta(current_position);
     double target_output = clamp(this->rate.calc(target_speed - current_speed), -CLAW_MAX_OUTPUT, CLAW_MAX_OUTPUT);
 
-    __HAL_TIM_SET_COMPARE(&CLAW_TIM, CLAW_CHANNEL, 0);
-
     if (disabled) {
         HAL_GPIO_WritePin(CLAW_OUT_GPIO_Port, CLAW_OUT_Pin, GPIO_PIN_RESET);
         __HAL_TIM_SET_COMPARE(&CLAW_TIM, CLAW_CHANNEL, 0);

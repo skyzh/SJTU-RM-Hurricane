@@ -25,7 +25,7 @@ const int M3508_SPEED_ID = 1;
 const double PID_SPEED_LIMIT = 1000;
 const double PID_SPEED_LIMIT_TOP = 500;
 const double PID_CURRENT_LIMIT = 3000;
-const double PID_CURRENT_LIMIT_TOP = 2000;
+const double PID_CURRENT_LIMIT_TOP = 1500;
 
 HurricaneArmSystem::HurricaneArmSystem() : position(0),
                                            data_available_bottom(false),
@@ -41,9 +41,9 @@ HurricaneArmSystem::HurricaneArmSystem() : position(0),
             800, 0);
     this->arm_top = new ArmTop(
             // Speed P I D and Limit
-            0.8, 0.0, 0.5, PID_CURRENT_LIMIT_TOP,
+            0.1, 0.0, 1.0, PID_CURRENT_LIMIT_TOP,
             // Position P I D and Limit
-            10.0, 0.0, 5.0, PID_SPEED_LIMIT_TOP,
+            30.0, 0.00, 10.0, PID_SPEED_LIMIT_TOP,
             // Ramp, Feed Forward
             800, 0);
     this->arm_base = new ArmBase(
@@ -72,15 +72,11 @@ bool HurricaneArmSystem::initialize() {
 bool HurricaneArmSystem::update() {
     OK(this->arm_bottom->update());
     OK(this->arm_base->update());
-    OK(this->arm_top->update());
-    // todo: arm_top update
     if (!disabled) {
         OK(oi->CANSystem->set(ARM_BOTTOM_ID, this->arm_bottom->output()));
-        OK(oi->CANSystem->set(ARM_TOP_ID, this->arm_top->output()));
         OK(oi->CANSystem->set(ARM_BASE_ID, this->arm_base->output()));
     } else {
         OK(oi->CANSystem->set(ARM_BOTTOM_ID, 0));
-        OK(oi->CANSystem->set(ARM_TOP_ID, 0));
         OK(oi->CANSystem->set(ARM_BASE_ID, 0));
     }
     return true;
@@ -117,6 +113,14 @@ void HurricaneArmSystem::data() {
         this->data_available_top = true;
         this->arm_top->feed((int16_t) oi->CANSystem->get(ARM_TOP_ID, M2006_ANGLE_ID),
                             (int16_t) oi->CANSystem->get(ARM_TOP_ID, M2006_SPEED_ID));
+        HDEBUG_BEGIN(5)
+                OK(this->arm_top->update());
+                if (!disabled) {
+                    OK(oi->CANSystem->set(ARM_TOP_ID, this->arm_top->output()));
+                } else {
+                    OK(oi->CANSystem->set(ARM_TOP_ID, 0));
+                }
+        HDEBUG_END()
     }
 
     if (this->data_available_base ||

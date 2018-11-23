@@ -9,18 +9,21 @@
 #include "CAHRR/src/UltrasonicSystem.h"
 #include "CAHRR/src/AvgAccumulator.h"
 
+const int UTS_MAX_ID = 2;
+
 class HurricaneUltrasonicSystem {
 private:
-    TIM_HandleTypeDef *tim;
-    AvgAccumulator<uint32_t> accumulator;
-    uint32_t lst_time;
-    bool data_available;
+    AvgAccumulator<uint32_t> accumulator[UTS_MAX_ID];
+    uint32_t lst_time[UTS_MAX_ID];
+    int trig_current;
+    int avg_cnt;
+
+    bool do_trig(int id);
 public:
-    const uint16_t channel_trig, channel_echo;
 
-    HurricaneUltrasonicSystem(TIM_HandleTypeDef *tim, uint16_t channel_trig, uint16_t channel_echo);
+    HurricaneUltrasonicSystem();
 
-    bool trigger(uint32_t cnt);
+    bool trigger(TIM_TypeDef *instance, uint32_t channel, uint32_t cnt);
 
     bool update();
 
@@ -28,11 +31,11 @@ public:
 
     bool destroy();
 
-    bool available();
+    bool available(int id);
 
-    double distance();
+    double distance(int id);
 
-    uint32_t time();
+    uint32_t time(int id);
 };
 
 

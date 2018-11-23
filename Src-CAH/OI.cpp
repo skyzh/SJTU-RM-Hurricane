@@ -38,7 +38,7 @@ void OI::boostrap() {
     this->remoteSystem = new HurricaneRemoteSystem;
     this->chassisSystem = new HurricaneChassisSystem;
     this->armSystem = new HurricaneArmSystem;
-    this->usSystemChassis = new HurricaneUltrasonicSystem(&htim8, TIM_CHANNEL_1, TIM_CHANNEL_3);
+    this->usSystemChassis = new HurricaneUltrasonicSystem();
     this->collectorSystem = new HurricaneCollectorSystem();
     this->clawSystem = new HurricaneClawSystem();
     this->initialized = true;

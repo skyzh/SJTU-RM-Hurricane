@@ -51,6 +51,8 @@
 
 #define US1_ECHO_Pin GPIO_PIN_7
 #define US1_ECHO_GPIO_Port GPIOI
+#define US2_TRIG_Pin GPIO_PIN_6
+#define US2_TRIG_GPIO_Port GPIOI
 #define US1_TRIG_Pin GPIO_PIN_5
 #define US1_TRIG_GPIO_Port GPIOI
 #define STAT8_Pin GPIO_PIN_8
