@@ -6,18 +6,42 @@
 #include "OI.h"
 #include "HurricaneRemoteSystem.h"
 
-bool MainSwitchTask::when() {
+bool LeftSwitchTop::when() {
     return oi->remoteSystem->getButton(CTR_SW1) == 1;
 }
 
-MainSwitchTask::MainSwitchTask(Task *task1, Task *task2) : ConditionSwitchTask(task1, task2) {
+LeftSwitchTop::LeftSwitchTop(Task *task1, Task *task2) : ConditionSwitchTask(task1, task2) {
 
 }
 
-bool MainSwitchSwitchTask::when() {
+bool LeftSwitchBottom::when() {
     return oi->remoteSystem->getButton(CTR_SW1) == 2;
 }
 
-MainSwitchSwitchTask::MainSwitchSwitchTask(Task *task1, Task *task2) : ConditionSwitchTask(task1, task2) {
+LeftSwitchBottom::LeftSwitchBottom(Task *task1, Task *task2) : ConditionSwitchTask(task1, task2) {
 
+}
+
+bool LeftSwitchNone::when() {
+    return oi->remoteSystem->getButton(CTR_SW1) != 0;
+}
+
+LeftSwitchNone::LeftSwitchNone(Task *task1, Task *task2) : ConditionSwitchTask(task1, task2) {
+
+}
+
+bool RightSwitchBottom::when() {
+    return oi->remoteSystem->getButton(CTR_SW2) == 2;
+}
+
+RightSwitchBottom::RightSwitchBottom(Task *task1, Task *task2) : ConditionSwitchTask(task1, task2) {
+
+}
+
+RightSwitchTopTrigger::RightSwitchTopTrigger(Task *task1, Task *task2) : TriggerSwitchTask(task1, task2) {
+
+}
+
+bool RightSwitchTopTrigger::trigger() {
+    return oi->remoteSystem->getButton(CTR_SW1) == 1;
 }

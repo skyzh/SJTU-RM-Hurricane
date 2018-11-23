@@ -15,8 +15,8 @@ private:
     const double PI = acos(-1);
 public:
     ArmTop *top;
-    const double arm_length = 15; // cm
-    const double offset_angle = PI / 180.0 * 0.0; // rad
+    const double arm_length = 18; // cm
+    const double offset_angle = M_PI / 4.0; // rad
     const double mass = (PI * (1.2 * 1.2 - 1.15 * 1.15)) * arm_length * 7.7; // gram
     const double g = 9.8;
     const double clockwise = -1;

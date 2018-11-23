@@ -5,21 +5,42 @@
 #ifndef HURRICANE_MAINSWITCHTASK_H
 #define HURRICANE_MAINSWITCHTASK_H
 
-#include "../CAHRR/src/ConditionSwitchTask.h"
+#include "CAHRR/src/ConditionSwitchTask.h"
+#include "CAHRR/src/TriggerSwitchTask.h"
 
-class MainSwitchTask : public ConditionSwitchTask {
+class LeftSwitchTop : public ConditionSwitchTask {
 public:
     virtual bool when();
 
-    MainSwitchTask(Task *task1, Task *task2);
+    LeftSwitchTop(Task *task1, Task *task2);
 };
 
-class MainSwitchSwitchTask : public ConditionSwitchTask {
+class LeftSwitchBottom : public ConditionSwitchTask {
 public:
     virtual bool when();
 
-    MainSwitchSwitchTask(Task *task1, Task *task2);
+    LeftSwitchBottom(Task *task1, Task *task2);
+};
+
+class LeftSwitchNone : public ConditionSwitchTask {
+public:
+    virtual bool when();
+
+    LeftSwitchNone(Task *task1, Task *task2);
 };
 
 
+class RightSwitchBottom : public ConditionSwitchTask {
+public:
+    virtual bool when();
+
+    RightSwitchBottom(Task *task1, Task *task2);
+};
+
+class RightSwitchTopTrigger : public TriggerSwitchTask {
+public:
+    RightSwitchTopTrigger(Task *task1, Task *task2);
+
+    virtual bool trigger();
+};
 #endif //HURRICANE_MAINSWITCHTASK_H

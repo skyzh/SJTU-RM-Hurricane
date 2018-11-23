@@ -30,6 +30,6 @@ bool ClawTask::isEnd() {
 }
 
 bool ClawTask::update() {
-    // oi->clawSystem->setPosition(map_range<double>(oi->remoteSystem->getAxis(0), -660, 660, 0.0, 1.0));
+    oi->clawSystem->setPosition(map_range<double>(oi->remoteSystem->getAxis(0), -660, 660, 0.0, 1.0));
     return true;
 }

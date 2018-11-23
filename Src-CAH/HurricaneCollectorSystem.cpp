@@ -8,13 +8,13 @@
 #include "HurricaneDebugSystem.h"
 #include "CAHRR/src/utils.h"
 
-const int SERVO_MIN_PERIOD = 20000 / 20 * 0.5;
-const int SERVO_MAX_PERIOD = 20000 / 20 * 2.5;
+const int SERVO_MIN_PERIOD = 20000 / 20 * 0.4;
+const int SERVO_MAX_PERIOD = 20000 / 20 * 1.95;
 
 #define COLLECTOR_TIM htim2
 #define COLLECTOR_TIM_CH TIM_CHANNEL_3
 
-HurricaneCollectorSystem::HurricaneCollectorSystem() : position(0) {
+HurricaneCollectorSystem::HurricaneCollectorSystem() : position(1.0) {
 }
 
 bool HurricaneCollectorSystem::initialize() {

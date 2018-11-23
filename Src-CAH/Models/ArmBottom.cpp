@@ -12,12 +12,11 @@ const double ARM_BASE_GEAR_RATIO = 27.0 / 8.0;
 #define HURRICANE_ARM_DEBUG
 
 double ArmBottom::real_angle() {
-    return (this->current_pos / 18.0 * PI / ARM_BASE_GEAR_RATIO - offset_angle) * clockwise;
+    return (this->current_pos / 18.0 * M_PI + offset_angle) * clockwise;
 }
 
 double ArmBottom::expected_pos(double angle) {
-    // todo: check clockwise
-    return (angle * clockwise + offset_angle) * ARM_BASE_GEAR_RATIO / PI * 18.0;
+    return ((angle * clockwise) - offset_angle) / M_PI * 18.0;
 }
 
 double ArmBottom::delta_x() {
@@ -38,9 +37,8 @@ double ArmBottom::torque() {
 
 double ArmBottom::feed_forward() {
     // todo: check clockwise
-    return this->torque() + (this->delta_x() + top->delta_x() / 2) * top->gravity();
+    return 0; // this->torque() + (this->delta_x() + top->delta_x() / 2) * top->gravity();
 }
-
 
 bool ArmBottom::update() {
     bool result = Arm::update();
@@ -50,7 +48,7 @@ bool ArmBottom::update() {
             sprintf(_buf, "tpos %.2f pos %.2f, tspd %.2f spd%.2f, ang %.2f dx %.2f, out %d",
                     target_pos, current_pos, target_spd,
                     current_spd, real_angle() / PI * 180, delta_x(), target_output);
-            //oi->debugSystem->info("ARM_B", _buf);
+            oi->debugSystem->info("ARM_B", _buf);
     HDEBUG_END()
 #endif
     return result;

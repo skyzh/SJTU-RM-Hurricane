@@ -76,5 +76,8 @@ int16_t HurricaneRemoteSystem::getButton(int id) {
 }
 
 bool HurricaneRemoteSystem::update() {
+    HDEBUG_BEGIN(10)
+    oi->debugSystem->info("RMT", std::to_string(this->getButton(CTR_SW2)));
+    HDEBUG_END()
     return true;
 }
