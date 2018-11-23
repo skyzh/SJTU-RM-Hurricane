@@ -1,36 +1,36 @@
 //
-// Created by Alex Chi on 2018/11/19.
+// Created by Alex Chi on 2018/11/24.
 //
 
 #include "ServoTask.h"
-#include "hal.h"
 #include "OI.h"
-#include "HurricaneRemoteSystem.h"
-#include "HurricaneDebugSystem.h"
 #include "HurricaneCollectorSystem.h"
-#include "CAHRR/src/utils.h"
+#include "HurricaneDebugSystem.h"
 
-const int SERVO_MIN_PERIOD = 20000 / 20 * 0.5;
-const int SERVO_MAX_PERIOD = 20000 / 20 * 2.5;
-
-ServoTask::ServoTask() : Task() {
-
-}
-
-bool ServoTask::initialize() {
-    oi->collectorSystem->setPosition(0);
+bool CollectorOpenTask::initialize() {
+    oi->debugSystem->info("TSK", "collector open");
     return true;
 }
 
-bool ServoTask::destroy() {
+bool CollectorOpenTask::destroy() {
     return true;
 }
 
-bool ServoTask::isEnd() {
-    return false;
+bool CollectorOpenTask::update() {
+    oi->collectorSystem->setPosition(0.0);
+    return true;
 }
 
-bool ServoTask::update() {
-    oi->collectorSystem->setPosition(map_range<double>(oi->remoteSystem->getAxis(1), -660, 660, 0.0, 1.0));
+bool CollectorCloseTask::initialize() {
+    oi->debugSystem->info("TSK", "collector close");
+    return true;
+}
+
+bool CollectorCloseTask::destroy() {
+    return true;
+}
+
+bool CollectorCloseTask::update() {
+    oi->collectorSystem->setPosition(1.0);
     return true;
 }

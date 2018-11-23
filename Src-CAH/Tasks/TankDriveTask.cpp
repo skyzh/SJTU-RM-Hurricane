@@ -8,23 +8,21 @@
 #include "HurricaneRemoteSystem.h"
 #include "HurricaneDebugSystem.h"
 
-const double AXIS_MAX = 660;
-
 TankDriveTask::TankDriveTask() : Task() {
 
 }
 
 bool TankDriveTask::initialize() {
+    oi->debugSystem->info("TSK", "Enter tank drive");
     oi->chassisSystem->setSpeed(0, 0, 0);
     oi->chassisSystem->disabled = false;
-    oi->debugSystem->info("CHA", "enabled");
     return true;
 }
 
 bool TankDriveTask::destroy() {
     oi->chassisSystem->setSpeed(0, 0, 0);
     oi->chassisSystem->disabled = true;
-    oi->debugSystem->info("CHA", "disabled");
+    oi->debugSystem->info("TSK", "Exit tank drive");
     return true;
 }
 
@@ -33,7 +31,10 @@ bool TankDriveTask::isEnd() {
 }
 
 bool TankDriveTask::update() {
-    oi->chassisSystem->setSpeed(oi->remoteSystem->getAxis(1) / AXIS_MAX, oi->remoteSystem->getAxis(0) / AXIS_MAX,
-                                oi->remoteSystem->getAxis(2) / AXIS_MAX);
+    const double AXIS_MAX = 660;
+    oi->chassisSystem->setSpeed(
+            -oi->remoteSystem->getAxis(CTR_CH4) / AXIS_MAX,
+            -oi->remoteSystem->getAxis(CTR_CH3) / AXIS_MAX,
+            oi->remoteSystem->getAxis(CTR_CH1) / AXIS_MAX);
     return true;
 }

@@ -43,5 +43,5 @@ RightSwitchTopTrigger::RightSwitchTopTrigger(Task *task1, Task *task2) : Trigger
 }
 
 bool RightSwitchTopTrigger::trigger() {
-    return oi->remoteSystem->getButton(CTR_SW1) == 1;
+    return oi->remoteSystem->getButton(CTR_SW2) == 1;
 }

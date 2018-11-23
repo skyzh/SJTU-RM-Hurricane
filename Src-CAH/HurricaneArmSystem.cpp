@@ -15,7 +15,7 @@
 
 #include <cmath>
 
-// #define HURRICANE_ARM_DISABLE
+#define HURRICANE_ARM_DISABLE
 
 const int M2006_ANGLE_ID = 0;
 const int M2006_SPEED_ID = 1;
@@ -78,6 +78,7 @@ bool HurricaneArmSystem::initialize() {
 }
 
 bool HurricaneArmSystem::update() {
+#ifndef HURRICANE_ARM_DISABLE
     OK(this->arm_bottom->update());
     OK(this->arm_base->update());
     if (!disabled) {
@@ -87,6 +88,7 @@ bool HurricaneArmSystem::update() {
         OK(oi->CANSystem->set(ARM_BOTTOM_ID, 0));
         OK(oi->CANSystem->set(ARM_BASE_ID, 0));
     }
+#endif
     return true;
 }
 

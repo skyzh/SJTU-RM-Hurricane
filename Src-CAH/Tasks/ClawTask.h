@@ -1,5 +1,5 @@
 //
-// Created by Alex Chi on 2018/11/22.
+// Created by Alex Chi on 2018/11/24.
 //
 
 #ifndef HURRICANE_CLAWTASK_H
@@ -7,15 +7,20 @@
 
 #include "CAHRR/src/Task.h"
 
-class ClawTask : public Task {
+class ClawOpenTask : public Task {
 public:
-    ClawTask();
-
     virtual bool initialize();
 
     virtual bool destroy();
 
-    virtual bool isEnd();
+    virtual bool update();
+};
+
+class ClawCloseTask : public Task {
+public:
+    virtual bool initialize();
+
+    virtual bool destroy();
 
     virtual bool update();
 };
