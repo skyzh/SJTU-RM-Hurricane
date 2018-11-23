@@ -9,7 +9,7 @@
 #include "CAHRR/src/UltrasonicSystem.h"
 #include "CAHRR/src/AvgAccumulator.h"
 
-const int UTS_MAX_ID = 2;
+const int UTS_MAX_ID = 4;
 
 class HurricaneUltrasonicSystem {
 private:
@@ -17,7 +17,9 @@ private:
     uint32_t lst_time[UTS_MAX_ID];
     int trig_current;
     int avg_cnt;
-
+    uint32_t current_channel;
+    TIM_TypeDef* current_tim;
+    int reset_cnt;
     bool do_trig(int id);
 public:
 

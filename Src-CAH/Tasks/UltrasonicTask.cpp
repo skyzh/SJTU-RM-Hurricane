@@ -31,10 +31,10 @@ bool UltrasonicTask::isEnd() {
 }
 
 bool UltrasonicTask::update() {
-    HDEBUG_BEGIN(10)
+    HDEBUG_BEGIN(30)
     static char _buf[1000];
-    sprintf(_buf, "uts1 %f uts2 %f", oi->usSystemChassis->distance(0), oi->usSystemChassis->distance(1));
-            oi->debugSystem->info("UTS", _buf);
+    /*sprintf(_buf, "uts1 %f uts2 %f uts3 %f uts4 %f", oi->usSystemChassis->distance(0), oi->usSystemChassis->distance(1), oi->usSystemChassis->distance(2), oi->usSystemChassis->distance(3));
+            oi->debugSystem->info("UTS", _buf);*/
     HDEBUG_END()
     return true;
 }
