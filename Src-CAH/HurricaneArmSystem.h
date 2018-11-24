@@ -18,7 +18,6 @@ const int ARM_BOTTOM_ID = 5;
 const int ARM_TOP_ID = 6;
 const int ARM_BASE_ID = 7;
 
-#define HURRICANE_ARM_TOP_DISABLE
 
 class ArmBottom;
 class ArmTop;
@@ -28,16 +27,11 @@ class HurricaneArmSystem {
 private:
     double position;
     ArmBottom* arm_bottom;
-#ifndef HURRICANE_ARM_TOP_DISABLE
-    ArmTop* arm_top;
-#endif
-    ArmBase* arm_base;
-
     // TODO: check if this flag is needed
     bool data_available_bottom, data_available_base, data_available_top;
 public:
 
-    bool disabled = true; // todo: remove
+    bool disabled = false; // todo: remove
 
     HurricaneArmSystem();
 

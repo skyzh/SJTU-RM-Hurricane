@@ -12,8 +12,8 @@
 #define CLAW_TIM htim5
 #define CLAW_CHANNEL TIM_CHANNEL_4
 
-const double CLAW_MAX_OUTPUT = 12000;
-const double CLAW_SPD_LIMIT = 10;
+const double CLAW_MAX_OUTPUT = 20000;
+const double CLAW_SPD_LIMIT = 15;
 const int CLAW_MIN_POS = 2090;
 const int CLAW_MAX_POS = 3500;
 
@@ -21,9 +21,9 @@ HurricaneClawSystem::HurricaneClawSystem() : target_position(0) {
 
     this->avg.reset();
     this->spd.reset();
-    this->pos.set_pid(1.0, 0.0, 0.5);
+    this->pos.set_pid(1.2, 0.0, 0.5);
     this->pos.set_output(-CLAW_SPD_LIMIT, CLAW_SPD_LIMIT);
-    this->rate.set_pid(10.0, 0.0, 5.0);
+    this->rate.set_pid(12.0, 0.0, 5.0);
     this->rate.set_output(-CLAW_MAX_OUTPUT, CLAW_MAX_OUTPUT);
 }
 
@@ -62,7 +62,7 @@ bool HurricaneClawSystem::update() {
     HDEBUG_BEGIN(50)
     static char buf[100];
     sprintf(buf, "tspd %.2f cspd %.2f, tpos %.2f, cpos %.2f, out %.2f", target_speed, current_speed, target_position, current_position, target_output);
-    oi->debugSystem->info("CLA", buf);
+    // oi->debugSystem->info("CLA", buf);
     HDEBUG_END()
     return true;
 }
