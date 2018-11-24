@@ -19,7 +19,7 @@ private:
     PIDDisplacementAccumulator pos;
 
 public:
-    bool disabled = true;
+    bool disabled = false;
 
     HurricaneClawSystem();
 

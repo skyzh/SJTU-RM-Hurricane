@@ -23,28 +23,8 @@
   <component name="ChangeListManager">
     <list default="true" id="9ce180b9-48da-41d7-89af-d901ef429b13" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Src-CAH/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Src-CAH/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Src-CAH/HurricaneArmSystem.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Src-CAH/HurricaneArmSystem.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Src-CAH/HurricaneRemoteSystem.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Src-CAH/HurricaneRemoteSystem.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Src-CAH/MainTask.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Src-CAH/MainTask.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Src-CAH/Tasks/ArmDisableTask.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Src-CAH/Tasks/ArmDisableTask.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Src-CAH/Tasks/ArmTask.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Src-CAH/Tasks/ArmTask.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Src-CAH/Tasks/ClawTask.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Src-CAH/Tasks/ClawTask.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Src-CAH/Tasks/GyroDriveTask.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Src-CAH/Tasks/GyroDriveTask.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Src-CAH/Tasks/MainSwitchTask.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Src-CAH/Tasks/MainSwitchTask.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Src-CAH/Tasks/RightSwitchTask.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Src-CAH/Tasks/RightSwitchTask.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Src-CAH/Tasks/ServoTask.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Src-CAH/Tasks/ServoTask.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Src-CAH/Tasks/TankDriveTask.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Src-CAH/Tasks/TankDriveTask.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Src-CAH/Tasks/TestTask.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Src-CAH/Tasks/TestTask.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Src-CAH/Tasks/UltrasonicTask.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Src-CAH/Tasks/UltrasonicTask.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Src-CAH/HurricaneClawSystem.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Src-CAH/HurricaneClawSystem.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Src-CAH/HurricaneClawSystem.h" beforeDir="false" afterPath="$PROJECT_DIR$/Src-CAH/HurricaneClawSystem.h" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -132,7 +112,7 @@
     <session id="-271966123">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="17" />
+          <entry key="project.closed" value="18" />
           <entry key="project.open.time.1" value="3" />
           <entry key="project.open.time.4" value="1" />
           <entry key="project.open.time.5" value="2" />
@@ -144,8 +124,8 @@
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="c" value="23" />
-          <entry key="cpp" value="212" />
-          <entry key="h" value="118" />
+          <entry key="cpp" value="213" />
+          <entry key="h" value="119" />
           <entry key="ld" value="1" />
           <entry key="txt" value="4" />
         </counts>
@@ -153,20 +133,20 @@
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="CMakeLists.txt" value="3" />
-          <entry key="ObjectiveC" value="353" />
+          <entry key="ObjectiveC" value="355" />
           <entry key="PLAIN_TEXT" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="c" value="125" />
-          <entry key="cpp" value="23600" />
-          <entry key="h" value="4650" />
+          <entry key="cpp" value="23618" />
+          <entry key="h" value="4666" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="ObjectiveC" value="28375" />
+          <entry key="ObjectiveC" value="28409" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.vcs.git.usages" />
@@ -176,22 +156,10 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Src-CAH/MainTask.cpp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="612">
-              <caret line="36" selection-start-line="36" selection-end-line="36" />
-              <folding>
-                <element signature="e#45#62#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Src-CAH/Tasks/ClawTask.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="10" column="4" selection-start-line="10" selection-start-column="4" selection-end-line="10" selection-end-column="46" />
+            <state relative-caret-position="374">
+              <caret line="22" selection-start-line="22" selection-end-line="22" />
               <folding>
                 <element signature="e#45#66#0" expanded="true" />
               </folding>
@@ -199,11 +167,29 @@
           </provider>
         </entry>
       </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Src-CAH/HurricaneClawSystem.cpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="609">
+              <caret line="77" column="50" selection-start-line="77" selection-start-column="50" selection-end-line="77" selection-end-column="50" />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Src-CAH/HurricaneClawSystem.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="306">
+              <caret line="21" column="26" lean-forward="true" selection-start-line="21" selection-start-column="26" selection-end-line="21" selection-end-column="26" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Src-CAH/Tasks/TankDriveTask.cpp">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="425">
-              <caret line="29" column="17" lean-forward="true" selection-start-line="29" selection-start-column="17" selection-end-line="29" selection-end-column="17" />
+              <caret line="29" column="17" selection-start-line="29" selection-start-column="17" selection-end-line="29" selection-end-column="17" />
             </state>
           </provider>
         </entry>
@@ -251,15 +237,6 @@
               <folding>
                 <element signature="e#45#71#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Src-CAH/HurricaneRemoteSystem.cpp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1275">
-              <caret line="77" column="38" selection-start-line="77" selection-start-column="38" selection-end-line="77" selection-end-column="38" />
             </state>
           </provider>
         </entry>
@@ -352,7 +329,6 @@
         <option value="$PROJECT_DIR$/Src-CAH/HurricaneCANSystem.cpp" />
         <option value="$PROJECT_DIR$/Src-CAH/OI.h" />
         <option value="$PROJECT_DIR$/Src-CAH/Models/ArmBase.cpp" />
-        <option value="$PROJECT_DIR$/Src-CAH/HurricaneClawSystem.h" />
         <option value="$PROJECT_DIR$/Src-CAH/Models/ArmTop.h" />
         <option value="$PROJECT_DIR$/Src-CAH/Models/Arm.h" />
         <option value="$PROJECT_DIR$/Src-CAH/HurricaneDebugSystem.cpp" />
@@ -369,7 +345,6 @@
         <option value="$PROJECT_DIR$/Src-CAH/Models/ArmBottom.h" />
         <option value="$PROJECT_DIR$/Src-CAH/HurricaneArmSystem.h" />
         <option value="$PROJECT_DIR$/Src-CAH/HurricaneCollectorSystem.cpp" />
-        <option value="$PROJECT_DIR$/Src-CAH/HurricaneClawSystem.cpp" />
         <option value="$PROJECT_DIR$/Src-CAH/Models/ArmBottom.cpp" />
         <option value="$PROJECT_DIR$/Src-CAH/Tasks/MainSwitchTask.h" />
         <option value="$PROJECT_DIR$/Src-CAH/HurricaneArmSystem.cpp" />
@@ -383,6 +358,8 @@
         <option value="$PROJECT_DIR$/Src-CAH/Tasks/MainSwitchTask.cpp" />
         <option value="$PROJECT_DIR$/Src-CAH/Tasks/SaveDriveTask.cpp" />
         <option value="$PROJECT_DIR$/Src-CAH/Tasks/TankDriveTask.cpp" />
+        <option value="$PROJECT_DIR$/Src-CAH/HurricaneClawSystem.h" />
+        <option value="$PROJECT_DIR$/Src-CAH/HurricaneClawSystem.cpp" />
       </list>
     </option>
   </component>
@@ -393,7 +370,7 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="OCFindUsagesOptions" text="true" ivars="false" properties="true" derivedClasses="false" />
-  <component name="ProjectFrameBounds" fullScreen="true">
+  <component name="ProjectFrameBounds" extendedState="6" fullScreen="true">
     <option name="width" value="1680" />
     <option name="height" value="1050" />
   </component>
@@ -598,12 +575,12 @@
       <workItem from="1542898822955" duration="6392000" />
       <workItem from="1542938410826" duration="133000" />
       <workItem from="1542938580615" duration="12652000" />
-      <workItem from="1542978437142" duration="9013000" />
+      <workItem from="1542978437142" duration="9886000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="156384000" />
+    <option name="totallyTimeSpent" value="157257000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -615,15 +592,15 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="477" y="0" width="1203" height="1050" extended-state="0" />
+    <frame x="0" y="0" width="1680" height="1050" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.33936262" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24053724" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32959184" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4993895" visible="true" weight="0.24081632" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4993895" weight="0.24081632" />
       <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.498779" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -734,13 +711,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="442">
           <caret line="30" column="1" selection-start-line="30" selection-start-column="1" selection-end-line="30" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Src-CAH/HurricaneClawSystem.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="21" column="25" selection-start-line="21" selection-start-column="25" selection-end-line="21" selection-end-column="25" />
         </state>
       </provider>
     </entry>
@@ -951,13 +921,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Src-CAH/HurricaneClawSystem.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="451">
-          <caret line="80" selection-start-line="80" selection-end-line="80" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Src-CAH/Tasks/ClawTask.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="289">
@@ -971,16 +934,6 @@
           <caret line="36" selection-start-line="36" selection-end-line="36" />
           <folding>
             <element signature="e#45#62#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Src-CAH/Tasks/ClawTask.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="4" selection-start-line="10" selection-start-column="4" selection-end-line="10" selection-end-column="46" />
-          <folding>
-            <element signature="e#45#66#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1042,7 +995,31 @@
     <entry file="file://$PROJECT_DIR$/Src-CAH/Tasks/TankDriveTask.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="425">
-          <caret line="29" column="17" lean-forward="true" selection-start-line="29" selection-start-column="17" selection-end-line="29" selection-end-column="17" />
+          <caret line="29" column="17" selection-start-line="29" selection-start-column="17" selection-end-line="29" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Src-CAH/Tasks/ClawTask.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="22" selection-start-line="22" selection-end-line="22" />
+          <folding>
+            <element signature="e#45#66#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Src-CAH/HurricaneClawSystem.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="609">
+          <caret line="77" column="50" selection-start-line="77" selection-start-column="50" selection-end-line="77" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Src-CAH/HurricaneClawSystem.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="21" column="26" lean-forward="true" selection-start-line="21" selection-start-column="26" selection-end-line="21" selection-end-column="26" />
         </state>
       </provider>
     </entry>

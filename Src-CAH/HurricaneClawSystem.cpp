@@ -44,7 +44,7 @@ bool HurricaneClawSystem::update() {
     double current_position = this->avg.sum();
     double target_speed = clamp(this->pos.calc(this->target_position - current_position), -CLAW_SPD_LIMIT, CLAW_SPD_LIMIT);
     double current_speed = this->spd.delta(current_position);
-    double target_output = -clamp(this->rate.calc(target_speed - current_speed), -CLAW_MAX_OUTPUT, CLAW_MAX_OUTPUT);
+    double target_output = clamp(this->rate.calc(target_speed - current_speed), -CLAW_MAX_OUTPUT, CLAW_MAX_OUTPUT);
 
     if (disabled) {
         HAL_GPIO_WritePin(CLAW_OUT_GPIO_Port, CLAW_OUT_Pin, GPIO_PIN_RESET);
@@ -62,7 +62,7 @@ bool HurricaneClawSystem::update() {
     HDEBUG_BEGIN(50)
     static char buf[100];
     sprintf(buf, "tspd %.2f cspd %.2f, tpos %.2f, cpos %.2f, out %.2f", target_speed, current_speed, target_position, current_position, target_output);
-    // oi->debugSystem->info("CLA", buf);
+    oi->debugSystem->info("CLA", buf);
     HDEBUG_END()
     return true;
 }
@@ -75,7 +75,7 @@ bool HurricaneClawSystem::destroy() {
 }
 
 bool HurricaneClawSystem::setPosition(double position) {
-    this->target_position = map_range<double>(position, 0.0, 1.0, CLAW_MIN_POS, CLAW_MAX_POS);
+    this->target_position = map_range<double>(1 - position, 0.0, 1.0, CLAW_MIN_POS, CLAW_MAX_POS);
     return true;
 }
 
