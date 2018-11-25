@@ -67,7 +67,7 @@ Tasks are executed in the following sequence
 [1] If joystick is not connected, do nothing.    
 [2] If right switch is switched to bottom, control arm.    
 [3] If left switch is switched to bottom, control chassis in save mode.    
-[4] If left switch is switched to middle, control chassis
+[4] If left switch is switched to middle, control chassis    
 [5] If right switch is switched to top, open or close the collector.
 
 ### Models
