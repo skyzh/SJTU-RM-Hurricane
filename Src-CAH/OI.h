@@ -17,8 +17,6 @@ class HurricaneChassisSystem;
 
 class HurricaneArmSystem;
 
-class HurricaneUltrasonicSystem;
-
 class HurricaneCollectorSystem;
 
 class HurricaneClawSystem;
@@ -39,7 +37,6 @@ public:
     HurricaneRemoteSystem *remoteSystem;
     HurricaneChassisSystem *chassisSystem;
     HurricaneArmSystem *armSystem;
-    HurricaneUltrasonicSystem *usSystemChassis;
     HurricaneCollectorSystem *collectorSystem;
     HurricaneClawSystem *clawSystem;
     Task *task;

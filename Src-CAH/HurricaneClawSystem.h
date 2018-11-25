@@ -12,14 +12,10 @@
 
 class HurricaneClawSystem {
 private:
-    double target_position;
-    AvgAccumulator<int> avg;
-    DeltaAccumulator<int> spd;
-    PIDRateAccumulator rate;
-    PIDDisplacementAccumulator pos;
-
+    int target_position;
+    int target_height;
 public:
-    bool disabled = true;
+    bool disabled = false;
 
     HurricaneClawSystem();
 
@@ -29,9 +25,7 @@ public:
 
     bool destroy();
 
-    bool setPosition(double position);
-
-    void trigger(uint32_t adc_value);
+    bool setPosition(double position, double height);
 };
 
 #endif //HURRICANE_HURRICANECLAWSYSTEM_H

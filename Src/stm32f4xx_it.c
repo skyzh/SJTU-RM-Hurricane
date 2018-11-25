@@ -432,12 +432,6 @@ void HAL_CAN_TxMailbox0CompleteCallback(CAN_HandleTypeDef *hcan) {
     Hurricane_HAL_CAN_TxMailbox0CompleteCallback(hcan);
 }
 
-void Hurricane_HAL_TIM_IC_CaptureCallback(TIM_HandleTypeDef *htim);
-
-void HAL_TIM_IC_CaptureCallback(TIM_HandleTypeDef *htim) {
-    Hurricane_HAL_TIM_IC_CaptureCallback(htim);
-}
-
 void Hurricane_HAL_UART_TxCpltCallback(UART_HandleTypeDef *huart);
 
 void HAL_UART_TxCpltCallback(UART_HandleTypeDef *huart) {

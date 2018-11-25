@@ -11,7 +11,6 @@
 #include "HurricaneRemoteSystem.h"
 #include "HurricaneArmSystem.h"
 #include "HurricaneChassisSystem.h"
-#include "HurricaneUltrasonicSystem.h"
 #include "HurricaneCollectorSystem.h"
 #include "HurricaneClawSystem.h"
 #include "MainTask.h"
@@ -38,7 +37,6 @@ void OI::boostrap() {
     this->remoteSystem = new HurricaneRemoteSystem;
     this->chassisSystem = new HurricaneChassisSystem;
     this->armSystem = new HurricaneArmSystem;
-    this->usSystemChassis = new HurricaneUltrasonicSystem();
     this->collectorSystem = new HurricaneCollectorSystem();
     this->clawSystem = new HurricaneClawSystem();
     this->initialized = true;
@@ -57,7 +55,7 @@ void OI::boostrap() {
     OK(this->collectorSystem->initialize());
     OK(this->clawSystem->initialize());
 
-    OK(this->usSystemChassis->initialize());
+    // OK(this->usSystemChassis->initialize());
 
     OK(this->debugSystem->info("OI", "--- system initialized ---"));
 
@@ -72,7 +70,7 @@ void OI::loop() {
     OK(this->debugSystem->alive());
     OK(this->remoteSystem->update());
     OK(this->IMUSystem->update());
-    OK(this->usSystemChassis->update());
+    // OK(this->usSystemChassis->update());
 
     // update tasks
     OK(this->task->update());

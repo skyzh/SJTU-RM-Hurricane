@@ -10,6 +10,7 @@
 class ArmTask : public Task {
 private:
     double cur_position;
+    double servo_cur_position;
 public:
     ArmTask();
 

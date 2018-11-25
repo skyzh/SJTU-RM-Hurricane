@@ -51,6 +51,8 @@
 
 #define US1_ECHO_Pin GPIO_PIN_7
 #define US1_ECHO_GPIO_Port GPIOI
+#define CLAW_DEOUT_Pin GPIO_PIN_0
+#define CLAW_DEOUT_GPIO_Port GPIOI
 #define MAGNET_Pin GPIO_PIN_4
 #define MAGNET_GPIO_Port GPIOH
 #define STAT8_Pin GPIO_PIN_8
