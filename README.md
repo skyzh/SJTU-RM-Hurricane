@@ -19,12 +19,67 @@ We've made changes to `Src/stm32f4xx_it.c` and `main.c`, to redirect interrupts 
 * HurricaneArmSystem - control two arms of our robot
 * HurricaneCANSystem - control CAN devices
 * HurricaneChassisSystem - control chassis
-* HurricaneClawSystem - control claw, which is built with potentiometer and pwm motor
+* <del>HurricaneClawSystem - control claw, which is built with potentiometer and pwm motor</del>
+* HurricaneClawSystem - control claw for collecting buff and elevator for the claw
 * HurricaneCollectorSystem - control ball collector, which is built with servo
 * HurricaneDebugSystem - transmit debug information
 * HurricaneGPIOSystem - process GPIO interrupts
 * HurricaneIMUSystem - get gyro data
 * HurricaneRemoteSystem - get data from Dajiang joystick
-* HurricaneUltrasonicSystem - get data from ultrasonic sensors
+* <del>HurricaneUltrasonicSystem - get data from ultrasonic sensors</del>
 
 ### Tasks
+
+* ArmTask - control arm
+* TimedTask - timing task on STM32
+* MainSwitchTask(s) - joystick switch control
+* SaveDriveTask - control chassis when saving other robots
+* ServoTask - control servo of ball collector
+* TankDriveTask - control chassis
+
+In particular, MainTask
+```
+Task *mainTask() {
+    return new ParallelTask(std::vector<Task *>({
+            new LeftSwitchNone(
+                    nullptr,                                     // [1]
+                    new RightSwitchBottom(
+                            new LeftSwitchBottom(
+                                    new LeftSwitchTop(
+                                            new TankDriveTask,   // [4]
+                                            nullptr
+                                    ),
+                                    new SaveDriveTask            // [3]
+                            ),
+                            new ArmTask                          // [2]
+                    )
+
+            ),
+            new RightSwitchTopTrigger(                           // [5]
+                    new CollectorCloseTask,
+                    new CollectorOpenTask)
+    }));
+}
+```
+
+Tasks are executed in the following sequence
+
+[1] If joystick is not connected, do nothing.    
+[2] If right switch is switched to bottom, control arm.    
+[3] If left switch is switched to bottom, control chassis in save mode.    
+[4] If left switch is switched to middle, control chassis
+[5] If right switch is switched to top, open or close the collector.
+
+### Models
+
+* Arm, ArmBottom, ArmTop - PID control of different arms
+* ArmBase - PID control of arm base
+
+### Other things
+
+* OI - pack all systems and bootstrap tasks
+* HAL - include all HAL libraries
+
+### Building
+
+You can deploy the project with CLion with STM32 plugin.
