@@ -38,7 +38,7 @@ We've made changes to `Src/stm32f4xx_it.c` and `main.c`, to redirect interrupts 
 * TankDriveTask - control chassis
 
 In particular, MainTask
-```
+```cpp
 Task *mainTask() {
     return new ParallelTask(std::vector<Task *>({
             new LeftSwitchNone(
