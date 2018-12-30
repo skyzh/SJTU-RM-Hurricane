@@ -83,3 +83,11 @@ Tasks are executed in the following sequence
 ### Building
 
 You can deploy the project with CLion with STM32 plugin.
+
+## SJTU RoboMaster Competition
+
+We won the eighth place in the first SJTU (Inter-Campus) RoboMaster Competition. Here's our chaotic robot.
+
+![mr4js8y7rrgl0apwn7sytq_thumb_5d22](https://user-images.githubusercontent.com/4198311/50549040-40e43680-0c91-11e9-8176-afe08dcd839e.jpg)
+![byvrruayqjucbo0 yjd6pw_thumb_5d21](https://user-images.githubusercontent.com/4198311/50549042-4477bd80-0c91-11e9-8200-d59d6488627e.jpg)
+
