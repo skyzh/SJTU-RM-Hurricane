@@ -1,10 +1,12 @@
+![banner](https://user-images.githubusercontent.com/4198311/50835934-ec2c7400-1392-11e9-8885-8579f30b7837.png)
+
 # Hurricane
 
 Hurricane Robot Control System for SJTU RoboMaster Competition
 
 This project is generated with STM32CubeMX and built with CMake.
 
-This project requires [CAHRR](https://github.com/SkyZH/CAHRR).
+This project depends on [CAHRR](https://github.com/SkyZH/CAHRR).
 
 ## Structure
 
@@ -26,7 +28,7 @@ We've made changes to `Src/stm32f4xx_it.c` and `main.c`, to redirect interrupts 
 * HurricaneGPIOSystem - process GPIO interrupts
 * HurricaneIMUSystem - get gyro data
 * HurricaneRemoteSystem - get data from Dajiang joystick
-* <del>HurricaneUltrasonicSystem - get data from ultrasonic sensors</del>
+* <del>HurricaneUltrasonicSystem</del> - get data from 4 ultrasonic sensors while preventing interference. We didn't use those sensors in final competition and therefore deleted these parts. These changes can be found in [code history](https://github.com/SkyZH/Hurricane/blob/c037ffac46436db73c3fbcadf065f90fdefddc5f/Src-CAH/HurricaneUltrasonicSystem.cpp).
 
 ### Tasks
 
@@ -61,8 +63,7 @@ Task *mainTask() {
     }));
 }
 ```
-
-Tasks are executed in the following sequence
+Tasks are organized like a tree in `CAHRR`. They are processed and executed in the following sequence
 
 [1] If joystick is not connected, do nothing.    
 [2] If right switch is switched to bottom, control arm.    
@@ -82,7 +83,7 @@ Tasks are executed in the following sequence
 
 ### Building
 
-You can deploy the project with CLion with STM32 plugin.
+You can deploy the project with CLion and STM32 plugin.
 
 ## License
 
@@ -95,5 +96,4 @@ We won the eighth place in the first SJTU (Inter-Campus) RoboMaster Competition.
 ![mr4js8y7rrgl0apwn7sytq_thumb_5d22](https://user-images.githubusercontent.com/4198311/50549040-40e43680-0c91-11e9-8176-afe08dcd839e.jpg)
 ![byvrruayqjucbo0 yjd6pw_thumb_5d21](https://user-images.githubusercontent.com/4198311/50549042-4477bd80-0c91-11e9-8200-d59d6488627e.jpg)
 
-I personally would like to thank [Shaofei Qin](https://github.com/1105042987) and SJTU RoboMaster Team. Thank for their open-source project [RM_frame](https://github.com/1105042987/RM_frame). Without them there won't be Hurricane and CAHRR. I learned a lot through the building of this project on embedded system STM32.
-
+I personally would like to thank [Shaofei Qin](https://github.com/1105042987) and SJTU RoboMaster Team for their open-source project [RM_frame](https://github.com/1105042987/RM_frame). Without them there won't be Hurricane and CAHRR. I learned a lot through the building of this project on embedded system STM32.
