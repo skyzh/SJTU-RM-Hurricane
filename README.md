@@ -6,7 +6,7 @@ Hurricane Robot Control System for SJTU RoboMaster Competition
 
 This project is generated with STM32CubeMX and built with CMake.
 
-This project depends on [CAHRR](https://github.com/SkyZH/CAHRR).
+This project depends on [CAHRR](https://github.com/SkyZH/CAHRR). CAHRR (Chi's Advanced Hurricane Robot Runtime) is a well-tested yet simple library which defines modules such as tasks and contains many utility classes for this project. It can be integrated into any project.
 
 ## Structure
 
